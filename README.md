@@ -8,8 +8,12 @@ An AI system that follows the two great commandments as core directives:
 *Derived from "agape," the Greek word for selfless, unconditional love central to the commandments, combined with "core" to signify the algorithm's foundational decision-making engine.*
 
 ## Overview
+Agape Core aims to be a bridge between scripture and intelligent systems, exploring how divine principles can shape technology that uplifts humanity.
+Its objective is twofold:
+Predict the “good value” of decisions by aligning them with eternal principles.
+Innovate toward the future by generating and evaluating new ideas for good, guided by light, truth, and love.
 
-Agape Core is a beta experiment in creating ethical AI that makes decisions based on Gospel truth and moral principles. The system uses a hierarchical truth foundation where Gospel truths are supreme, followed by moral truths, natural truths, and practical considerations.
+
 
 ## Core Components
 
