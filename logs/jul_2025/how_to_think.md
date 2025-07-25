@@ -409,3 +409,7 @@ we're just not going to know what you're up to.
 And you might actually be doing something really bad or really amazing.
 8:28
 We want to be able to watch.
+
+
+
+AI teacher taht responds with way to lead user to Understadning the principle of Einstien to expolain to child most complex thing or you dont; know it understand it well enough 
