@@ -458,6 +458,39 @@ def main():
     print("2. Love your neighbor as yourself")
     print("=" * 50)
     
+    # Ask user which mode they want
+    print("\nChoose interaction mode:")
+    print("1. Test Scenarios (original demo)")
+    print("2. Chat Interface (interactive conversation)")
+    
+    try:
+        choice = input("\nEnter choice (1 or 2): ").strip()
+        if choice == "2":
+            # Launch chat interface
+            try:
+                from chat_interface.agape_chat import AgapeChatInterface
+                chat = AgapeChatInterface()
+                print("\n" + chat.start_conversation())
+                
+                # Interactive chat loop
+                while True:
+                    user_input = input("\n> ").strip()
+                    if user_input.lower() in ['quit', 'exit', 'bye']:
+                        print("\n🙏 May God bless your decisions! Goodbye!")
+                        break
+                    
+                    if user_input:
+                        response = chat.process_user_input(user_input)
+                        print(f"\n{response}")
+                return
+            except ImportError:
+                print("Chat interface not available. Falling back to test scenarios.")
+        
+        print("\nRunning test scenarios...")
+    except KeyboardInterrupt:
+        print("\n\nExiting...")
+        return
+    
     # Initialize the core system
     agape_ai = AgapeCore()
     
