@@ -1,4 +1,4 @@
-Dr. Craig Manning 17:47 https://www.ldsliving.com/all-in/craig-manning-mastering-the-mind
+Dr. Craig Manning 17:47 masetering the mind article see his site fearlessmind.com
 Yep. Yeah. And because the mind, the conscious mind, cognition, the mind, thoughts–first–thoughts are your self-talk. And your self-talk is your choice of words. So how the mind works, it's a reverberating nerve. Everyone likes to say it's a muscle, well, it's probably more like an electrical circuit. And so a neuron fires, sending a message through our self-talk. The neuron can't fire two messages at the same time. You can't say two things at the same time, they both can't occupy your conscious mind at the same time.
 
 So you can't be subtractive and proactive at the same time. The neuron can't fire both of them. Hence, you can only actually be proactive or reactive at the same time. You can't be either or. And that's why proactive and reactive can't occupy the space. You can play to win or you play not to lose, they can't go together. So one has to occupy the space or the other.
@@ -13,3 +13,8 @@ Talks about how Truth helposreduce fear anxiety leading to a sense of control. A
 
 ways to guide AI some leading to truth . 
 all logic leads to turth and God Aristotle i think lost the quite.  but using LOGIC or LOGOS ... my study on that. 
+
+
+IDEAs to follow up on 
+Heart and emotions and memory tie ins one pathway(research on memory tie to emotions and singular pathway) and heart has memory .. in blood ..also .grounding beliefs with emotions 
+
