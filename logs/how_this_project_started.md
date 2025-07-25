@@ -4,6 +4,8 @@ TBH I have wanted to build this AI for a while and likley have some notes to sho
 
 I also wanted to mention I am making a cool project for predicting innovartion in a way never done before... more later on this and this sort of overlaps with my mission there. Also Elon i heard said that Grok 4 next year likely can start to drive innovation in NEW physics and this all ties into some curiousness i have. 
 
+the title of my father's auto biography is My Quest for truth and he considered hiumself a truth seeker as his life mission ... any how that is part of my upbringing to note this aspect .. found useful to mention not that important just bio notes grew up around him talking of this all day everyday
+
 context Jul 24 2025 
 
 No, there is no publicly documented or widely recognized algorithm specifically designed for AI to base all its decisions exclusively on the two great commandments of the gospel (loving God with all your heart, soul, and mind, and loving your neighbor as yourself, as described in Matthew 22:36-40). However, there are related concepts, AI systems, and ongoing discussions in Christian ethics that draw on these principles to guide AI development and use.
