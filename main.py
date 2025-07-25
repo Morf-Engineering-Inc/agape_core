@@ -9,7 +9,7 @@ An AI system that follows the two great commandments as core directives:
 
 import json
 import logging
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Optional
 from dataclasses import dataclass
 from enum import Enum
 import numpy as np
@@ -26,6 +26,16 @@ class CommandmentLevel(Enum):
     PREFERENCE = 4        # Non-moral choices
 
 @dataclass
+class ValueImpactAssessment:
+    """Value Impact Theory calculation"""
+    utility_per_person: float
+    number_of_people: int
+    potential_growth_impact: float
+    opportunity_cost: float
+    total_impact: float
+    reasoning: str
+
+@dataclass
 class Decision:
     """Represents a decision with its moral evaluation"""
     action: str
@@ -34,6 +44,159 @@ class Decision:
     harm_assessment: float  # Potential harm (negative is bad)
     overall_score: float
     reasoning: str
+    value_impact: Optional[ValueImpactAssessment] = None
+
+class ValueImpactTheory:
+    """
+    Calculates quantitative impact using Value Impact Theory
+    Total Impact = (Utility per Person × Number of People) + Potential Growth Impact - Opportunity Cost
+    """
+    
+    def calculate_impact(self, action: str, context: Dict[str, Any]) -> ValueImpactAssessment:
+        """Calculate the total impact of an action using Value Impact Theory"""
+        
+        # Extract or estimate values from context
+        utility_per_person = self._estimate_utility_per_person(action, context)
+        number_of_people = self._estimate_affected_people(action, context)
+        potential_growth = self._estimate_growth_impact(action, context)
+        opportunity_cost = self._estimate_opportunity_cost(action, context)
+        
+        # Calculate total impact
+        total_impact = (utility_per_person * number_of_people) + potential_growth - opportunity_cost
+        
+        # Generate reasoning
+        reasoning = self._generate_impact_reasoning(
+            action, utility_per_person, number_of_people, 
+            potential_growth, opportunity_cost, total_impact
+        )
+        
+        return ValueImpactAssessment(
+            utility_per_person=utility_per_person,
+            number_of_people=number_of_people,
+            potential_growth_impact=potential_growth,
+            opportunity_cost=opportunity_cost,
+            total_impact=total_impact,
+            reasoning=reasoning
+        )
+    
+    def _estimate_utility_per_person(self, action: str, context: Dict[str, Any]) -> float:
+        """Estimate the utility/benefit per person affected"""
+        base_utility = 1.0
+        
+        # High-impact keywords
+        if any(word in action.lower() for word in ["save", "heal", "cure", "rescue"]):
+            base_utility = 10.0
+        elif any(word in action.lower() for word in ["help", "assist", "support", "teach"]):
+            base_utility = 5.0
+        elif any(word in action.lower() for word in ["comfort", "encourage", "listen"]):
+            base_utility = 3.0
+        elif any(word in action.lower() for word in ["harm", "hurt", "damage", "deceive"]):
+            base_utility = -5.0
+        
+        # Context modifiers
+        if context.get("urgency") == "high":
+            base_utility *= 1.5
+        elif context.get("urgency") == "critical":
+            base_utility *= 2.0
+        
+        if context.get("long_term_benefit", False):
+            base_utility *= 1.3
+        
+        return base_utility
+    
+    def _estimate_affected_people(self, action: str, context: Dict[str, Any]) -> int:
+        """Estimate number of people affected by the action"""
+        # Direct context specification
+        if "affected_people" in context:
+            return context["affected_people"]
+        
+        base_count = 1
+        
+        # Scale indicators in action
+        if any(word in action.lower() for word in ["community", "neighborhood", "group"]):
+            base_count = 50
+        elif any(word in action.lower() for word in ["family", "team", "class"]):
+            base_count = 10
+        elif any(word in action.lower() for word in ["public", "everyone", "all"]):
+            base_count = 1000
+        elif "person" in action.lower() or "individual" in action.lower():
+            base_count = 1
+        
+        # Context modifiers
+        if context.get("scope") == "individual":
+            base_count = 1
+        elif context.get("scope") == "local":
+            base_count = min(base_count, 100)
+        elif context.get("scope") == "global":
+            base_count = max(base_count, 1000)
+        
+        return base_count
+    
+    def _estimate_growth_impact(self, action: str, context: Dict[str, Any]) -> float:
+        """Estimate potential for scaling and growth"""
+        growth_impact = 0.0
+        
+        # Actions with high growth potential
+        if any(word in action.lower() for word in ["teach", "train", "educate", "mentor"]):
+            growth_impact = 20.0  # Knowledge multiplies
+        elif any(word in action.lower() for word in ["create", "build", "develop", "invent"]):
+            growth_impact = 15.0  # Creations can scale
+        elif any(word in action.lower() for word in ["share", "spread", "promote"]):
+            growth_impact = 10.0  # Ideas spread
+        
+        # Context modifiers
+        if context.get("scalable", False):
+            growth_impact *= 2.0
+        if context.get("viral_potential", False):
+            growth_impact *= 3.0
+        
+        return growth_impact
+    
+    def _estimate_opportunity_cost(self, action: str, context: Dict[str, Any]) -> float:
+        """Estimate the cost of not doing alternatives"""
+        base_cost = 0.0
+        
+        # Time-intensive actions have higher opportunity cost
+        time_investment = context.get("time_investment", "low")
+        if time_investment == "high":
+            base_cost = 5.0
+        elif time_investment == "medium":
+            base_cost = 2.0
+        elif time_investment == "low":
+            base_cost = 0.5
+        
+        # Resource-intensive actions
+        if context.get("resource_intensive", False):
+            base_cost += 3.0
+        
+        # Critical alternatives available
+        if context.get("critical_alternative_available", False):
+            base_cost += 8.0
+        
+        return base_cost
+    
+    def _generate_impact_reasoning(self, action: str, utility: float, people: int, 
+                                 growth: float, cost: float, total: float) -> str:
+        """Generate reasoning for the impact calculation"""
+        reasoning = f"Value Impact Analysis for: '{action}'\n"
+        reasoning += f"• Utility per person: {utility:.1f} (benefit to each individual)\n"
+        reasoning += f"• People affected: {people:,} (current beneficiaries)\n"
+        reasoning += f"• Growth potential: {growth:.1f} (scaling opportunity)\n"
+        reasoning += f"• Opportunity cost: {cost:.1f} (alternative value lost)\n"
+        reasoning += f"• Total Impact Score: {total:.1f}\n"
+        
+        if total > 50:
+            reasoning += "🚀 Exceptional impact potential - highly recommended"
+        elif total > 20:
+            reasoning += "⭐ Strong positive impact expected"
+        elif total > 5:
+            reasoning += "✓ Moderate positive impact"
+        elif total > 0:
+            reasoning += "➕ Small positive impact"
+        else:
+            reasoning += "⚠️ Negative or neutral impact - reconsider"
+        
+        return reasoning
 
 class AgapeCore:
     """
@@ -47,6 +210,9 @@ class AgapeCore:
             CommandmentLevel.WISDOM_PRINCIPLE: 0.6,
             CommandmentLevel.PREFERENCE: 0.3
         }
+        
+        # Initialize Value Impact Theory module
+        self.value_impact_theory = ValueImpactTheory()
         
         # Core principles derived from the Great Commandments
         self.core_principles = {
@@ -89,6 +255,13 @@ class AgapeCore:
             max(0, harm_assessment) * 0.1  # Bonus for preventing harm
         )
         
+        # Calculate Value Impact Theory assessment
+        value_impact = self.value_impact_theory.calculate_impact(action, context)
+        
+        # Adjust overall score based on quantitative impact (capped influence)
+        impact_bonus = min(0.1, value_impact.total_impact / 100)  # Max 10% bonus
+        adjusted_score = min(1.0, overall_score + impact_bonus)
+        
         # Generate reasoning
         reasoning = self._generate_reasoning(action, love_god_score, love_neighbor_score, harm_assessment)
         
@@ -97,8 +270,9 @@ class AgapeCore:
             love_god_score=love_god_score,
             love_neighbor_score=love_neighbor_score,
             harm_assessment=harm_assessment,
-            overall_score=overall_score,
-            reasoning=reasoning
+            overall_score=adjusted_score,
+            reasoning=reasoning,
+            value_impact=value_impact
         )
     
     def _assess_love_god(self, action: str, context: Dict[str, Any]) -> float:
@@ -260,6 +434,10 @@ def main():
         print(f"Overall Score: {decision.overall_score:.2f}/1.0")
         print(f"Reasoning:\n{decision.reasoning}")
         
+        # Display Value Impact Analysis
+        if decision.value_impact:
+            print(f"\n📊 {decision.value_impact.reasoning}")
+        
         # Recommendation
         if decision.overall_score > 0.7:
             print("✅ RECOMMENDED: This action aligns well with agape love")
@@ -287,6 +465,8 @@ def main():
             decision = agape_ai.evaluate_decision(user_action, {})
             print(f"\nScore: {decision.overall_score:.2f}/1.0")
             print(decision.reasoning)
+            if decision.value_impact:
+                print(f"\n📊 {decision.value_impact.reasoning}")
 
 if __name__ == "__main__":
     main()
