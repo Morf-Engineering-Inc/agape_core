@@ -1,3 +1,15 @@
 [nix]
 channel = "stable-25_05"
 packages = ["glibcLocales"]
+
+[workflows]
+runButton = "Run Agape Core"
+
+[[workflows.workflow]]
+name = "Run Agape Core"
+author = 835159
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
