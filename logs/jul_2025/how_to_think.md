@@ -3,6 +3,80 @@ Thoughts on teaching a Ai to process cognitively smartly a certain creative way 
 habits of the mind - GBH
 steve jobs quotes - connection of humanity and science, also law school and programming as models on how to think for all humans 
 
+## well educated mind book 
+three levels of understanding. 
+taste. basic knowledge
+swallow. take knowledge in. to your own understanding - is it true. why. valid
+digest. fold into your own understanding.  let it change the way you think. or reject it as unworthy. 
+
+find out facts. evaluate them. form your own opinion 
+Here’s a concise framework for the three levels of understanding, followed by a summary of Susan Wise Bauer’s The Well‑Educated Mind:
+
+Three Levels of Understanding
+Taste
+– What it is: A first encounter—skimming or sampling the outline of an idea.
+– Goal: Get the gist. Recognize the topic, scope, and key terms.
+
+Swallow
+– What it is: Delving deeper—examining the facts, arguments, and evidence.
+– Goal: Ask “Is it true? How do I know?” Validate sources, test logic, compare perspectives.
+
+Digest
+– What it is: Internalizing or rejecting—folding the idea into your worldview.
+– Goal: Let it reshape your thinking (or discard it if it falls short). Form your own, well‑informed opinion.
+
+## Summary: The Well‑Educated Mind
+
+Susan Wise Bauer’s The Well‑Educated Mind is a guide for adults who want to revive the classical habit of reading “great books” with purpose and skill. Its core lessons:
+
+A Systematic Reading Plan
+
+Genres to cover: History, Biography, Philosophy, Poetry, Fiction, Drama, and Fine Arts.
+
+Why: Each genre trains a different part of the mind—contextual thinking, moral reasoning, emotional intelligence, aesthetic judgment.
+
+Four Stages of Active Reading
+
+Inspectional (Taste): Survey the work—titles, headings, summary—to form a roadmap.
+
+Analytical (Swallow): Break the argument into parts. Identify thesis, evidence, assumptions, and implications.
+
+Interpretive: Ask probing questions—“What does this mean? What’s the author’s purpose?”
+
+Syntopical (Digest): Compare across texts. Weave together multiple viewpoints into a synthesized, personal understanding.
+
+Tools for Critical Engagement
+
+Annotation: Mark passages, jot questions in margins.
+
+Note‑taking: Summaries, outlines, and concept maps to track structure and your reactions.
+
+Discussion: Talking through ideas with others to test and refine your judgments.
+
+Building Intellectual Habits
+
+Consistency: Short, daily reading sessions keep ideas alive in your mind.
+
+Reflection: Regularly revisit notes and ask how new insights fit (or conflict) with your existing beliefs.
+
+Growth: Over time, you’ll move from merely appreciating great works to contributing your own, well‑reasoned perspectives.
+
+Putting It Together:
+
+Taste = Inspectional Reading
+
+Swallow = Analytical & Interpretive Reading
+
+Digest = Syntopical Reading & Personal Integration
+
+By following Bauer’s roadmap, you learn not just what to read but how to read—so that every book you tackle can transform your mind, one level at a time.
+
+
+
+
+
+
+
 Discover Your Genius by Michael J. Gelb is a guided workbook that helps you unlock your innate creativity by studying the minds of ten history‑making geniuses. Gelb argues that “genius” isn’t an inborn gift reserved for the few but a set of attitudes and practices anyone can cultivate through focused study, self‑assessment, and deliberate exercises (HarperCollins).
 The book is structured around ten “genius profiles,” each pairing a brief biography with a targeted self‑reflection and practical exercises. The ten figures and their corresponding insights are:
 * Plato — Deepening your love of wisdom
