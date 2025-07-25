@@ -62,4 +62,11 @@ This understanding of the sodium/potassium ratio's impact on the heart's electri
 These findings demonstrated a fundamental principle: the heart, like all "kingdoms" or systems, operates under specific and discernible laws.
 Nelson emphasized that these laws are "divine law," meaning they are inherent to the creation and function of the human body and are consistent and reliable.
 This realization bolstered his belief in a Creator and reinforced the idea that understanding and working with these laws, rather than against them, leads to positive outcomes and ultimately blessings, including the blessing of saved lives through surgical intervention. 
-Nelson's medical discoveries were not just about mastering surgical techniques. They were rooted in a deeper understanding of the inherent laws governing the human heart, inspiring him to apply this perspective to his spiritual life as well. 
+Nelson's medical discoveries were not just about mastering surgical techniques. They were rooted in a deeper understanding of the inherent laws governing the human heart, inspiring him to apply this perspective to his spiritual life as well.
+
+
+
+TIE IN to see wscreenshot of article source I tried to find where i heard this as mentioned in a separate comment in my other notes this folder
+"But the really wild speculation came, of course, from Musk himself, who has a long history of overselling the products made by his companies. “I think it may discover new technologies as soon as later this year,” he said of Grok 4. “I would be shocked if it has not done so next year. So I would expect Grok to, yeah, literally discover new technologies that are actually useful no later than next year, and maybe end of this year. And it might discover new physics next year, and within two years, I’d say almost certainly.”
+
+I think this thought about laws is obviously the root maybe where to start and appy them properly 
