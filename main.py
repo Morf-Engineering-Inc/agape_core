@@ -14,6 +14,15 @@ from dataclasses import dataclass
 from enum import Enum
 import numpy as np
 
+# Import truth foundation modules
+try:
+    from truth_foundation.core_truths import TruthFoundation, TruthLevel
+    from truth_foundation.gospel_truth import GospelTruthEngine
+except ImportError:
+    # Fallback if modules not available
+    TruthFoundation = None
+    GospelTruthEngine = None
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -214,6 +223,10 @@ class AgapeCore:
         # Initialize Value Impact Theory module
         self.value_impact_theory = ValueImpactTheory()
         
+        # Initialize Truth Foundation modules
+        self.truth_foundation = TruthFoundation() if TruthFoundation else None
+        self.gospel_truth_engine = GospelTruthEngine() if GospelTruthEngine else None
+        
         # Core principles derived from the Great Commandments
         self.core_principles = {
             "love_god": {
@@ -258,14 +271,25 @@ class AgapeCore:
         # Calculate Value Impact Theory assessment
         value_impact = self.value_impact_theory.calculate_impact(action, context)
         
-        # Adjust overall score based on quantitative impact (capped influence)
-        impact_bonus = min(0.1, value_impact.total_impact / 100)  # Max 10% bonus
-        adjusted_score = min(1.0, overall_score + impact_bonus)
+        # Evaluate against truth foundation if available
+        gospel_evaluation = None
+        truth_alignment_score = 0.0
+        
+        if self.gospel_truth_engine:
+            gospel_evaluation = self.gospel_truth_engine.evaluate_against_gospel(action, context)
+            truth_alignment_score = gospel_evaluation["gospel_alignment_score"]
+        elif self.truth_foundation:
+            truth_alignment_score = self.truth_foundation.evaluate_truth_claim(action, context)
+        
+        # Adjust overall score based on truth alignment and quantitative impact
+        impact_bonus = min(0.05, value_impact.total_impact / 100)  # Max 5% bonus from impact
+        truth_bonus = min(0.1, truth_alignment_score * 0.1)  # Max 10% bonus from truth alignment
+        adjusted_score = min(1.0, overall_score + impact_bonus + truth_bonus)
         
         # Generate reasoning
-        reasoning = self._generate_reasoning(action, love_god_score, love_neighbor_score, harm_assessment)
+        reasoning = self._generate_reasoning(action, love_god_score, love_neighbor_score, harm_assessment, gospel_evaluation)
         
-        return Decision(
+        decision = Decision(
             action=action,
             love_god_score=love_god_score,
             love_neighbor_score=love_neighbor_score,
@@ -274,6 +298,12 @@ class AgapeCore:
             reasoning=reasoning,
             value_impact=value_impact
         )
+        
+        # Add Gospel evaluation as additional attribute if available
+        if gospel_evaluation:
+            decision.gospel_evaluation = gospel_evaluation
+        
+        return decision
     
     def _assess_love_god(self, action: str, context: Dict[str, Any]) -> float:
         """Assess how well an action honors God"""
@@ -374,9 +404,26 @@ class AgapeCore:
         compassion_indicators = ["compassion", "mercy", "kindness", "care", "comfort", "empathy"]
         return any(indicator in action.lower() for indicator in compassion_indicators)
     
-    def _generate_reasoning(self, action: str, love_god: float, love_neighbor: float, harm: float) -> str:
+    def _generate_reasoning(self, action: str, love_god: float, love_neighbor: float, harm: float, gospel_evaluation: Optional[Dict] = None) -> str:
         """Generate human-readable reasoning for the decision"""
         reasoning = f"Action: '{action}'\n"
+        
+        # Gospel Truth Foundation Analysis (if available)
+        if gospel_evaluation:
+            gospel_score = gospel_evaluation["gospel_alignment_score"]
+            reasoning += f"Gospel Truth Alignment: {gospel_score:.2f}/1.0 - "
+            if gospel_score > 0.7:
+                reasoning += "Strongly aligns with Gospel principles.\n"
+            elif gospel_score > 0.4:
+                reasoning += "Moderately aligns with Gospel truth.\n"
+            else:
+                reasoning += "Limited Gospel alignment - requires careful consideration.\n"
+            
+            if gospel_evaluation["truth_violations"]:
+                reasoning += "🚨 Gospel Truth Violations Detected:\n"
+                for violation in gospel_evaluation["truth_violations"][:2]:
+                    reasoning += f"  • {violation}\n"
+        
         reasoning += f"Love God alignment: {love_god:.2f}/1.0 - "
         
         if love_god > 0.7:
