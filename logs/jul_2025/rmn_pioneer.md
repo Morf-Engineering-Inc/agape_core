@@ -1,6 +1,9 @@
-
-
 ## Russell M. Nelson: Pioneering heart surgeon and the "Law of Kingdoms"
+
+Russell M. Nelson, world-famous heart surgeon & prophet, taught: “To every kingdom there is a law” (D&C 88:38)—physical or spiritual.
+
+🔹 Law of the Heart: He discovered the beating heart follows fixed laws. Touching it doesn't stop it; altering sodium/potassium balance (↑K⁺ stops, restoring restarts) enabled open-heart surgery! #FaithAndScience
+
 (source Google accessed jul 25 2025 3:27pm)
 Russell M. Nelson and the concept of law in spiritual and physical realms
 Russell M. Nelson, a world-renowned heart surgeon and President of The Church of Jesus Christ of Latter-day Saints, often draws parallels between the laws governing the physical world and the laws governing the spiritual world. He emphasizes that just as physical laws exist and can be discovered to enable progress, so too do divine laws exist and are essential for spiritual growth and blessings. 
