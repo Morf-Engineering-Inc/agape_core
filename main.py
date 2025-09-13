@@ -29,9 +29,10 @@ def main():
         print("4. 🚀 Human Potential Calculator")
         print("5. 📖 Gospel Truth Engine")
         print("6. 📜 New Testament Story Analyzer")
+        print("7. 🌊 Truth Rivers System")
         print("0. Exit")
 
-        choice = input("\n🔢 Select a module (0-6): ").strip()
+        choice = input("\n🔢 Select a module (0-7): ").strip()
 
         if choice == "0":
             print("\n✝️  'Grace and peace be with you!' - Agape Core AI")
@@ -48,8 +49,10 @@ def main():
             run_gospel_engine()
         elif choice == "6":
             run_nt_story_analyzer()
+        elif choice == "7":
+            run_truth_rivers_system()
         else:
-            print("❌ Invalid choice. Please select 0-6.")
+            print("❌ Invalid choice. Please select 0-7.")
 
 def run_agape_chat():
     """Run the Agape Chat Interface"""
@@ -208,6 +211,70 @@ def run_nt_story_analyzer():
 
     except ImportError as e:
         print(f"❌ Error loading NT story analyzer: {e}")
+
+def run_truth_rivers_system():
+    """Run the Truth Rivers System"""
+    try:
+        from truth_foundation.truth_rivers import TruthRiversSystem
+        print("\n🌊 Truth Rivers System")
+        print("All rivers of truth flow into the ocean of applied wisdom")
+        print("-" * 60)
+
+        system = TruthRiversSystem()
+
+        while True:
+            print("\n📋 Truth Rivers Options:")
+            print("1. 🍎 Demonstrate Gravity Example")
+            print("2. 💡 Seek Applied Wisdom")
+            print("3. 📊 View Convergence Report")
+            print("4. 🌊 Full System Demonstration")
+            print("0. Return to Main Menu")
+
+            choice = input("\n🔢 Select option (0-4): ").strip()
+
+            if choice == "0":
+                break
+            elif choice == "1":
+                print("\n" + system.demonstrate_gravity_example())
+
+            elif choice == "2":
+                question = input("\n❓ What wisdom do you seek? ")
+                if question.strip():
+                    wisdom = system.seek_wisdom(question)
+                    print(f"\n{wisdom}")
+
+            elif choice == "3":
+                print("\n" + system.get_convergence_report())
+
+            elif choice == "4":
+                print("\n🌊 FULL TRUTH RIVERS DEMONSTRATION")
+                print("=" * 50)
+                
+                # Show system overview
+                print(system.get_convergence_report())
+                
+                # Demonstrate gravity
+                print("\n" + system.demonstrate_gravity_example())
+                
+                # Test wisdom seeking
+                print("\n💡 WISDOM SEEKING EXAMPLES:")
+                examples = [
+                    "How do I integrate science and faith?",
+                    "What should guide my research decisions?",
+                    "How do I handle conflicting truth claims?"
+                ]
+                
+                for example in examples:
+                    print(f"\n❓ {example}")
+                    wisdom = system.seek_wisdom(example)
+                    print(wisdom)
+                    print("-" * 40)
+
+            else:
+                print("❌ Invalid choice. Please select 0-4.")
+
+    except ImportError as e:
+        print(f"❌ Error loading Truth Rivers System: {e}")
 
 if __name__ == "__main__":
     main()
