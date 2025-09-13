@@ -343,6 +343,13 @@ def main():
 
     print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
     print("-" * 40)
+    print("Demonstrating how our framework handles apparent contradictions...")
+    
+    # Import and run the synthesis analysis
+    from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
+    analyze_jobs_yc_scaling_synthesis()
+    
+    print("\n" + "-" * 40)
     analyze_sam_altman_example()
 
     print("\n" + "=" * 60)

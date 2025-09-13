@@ -209,7 +209,12 @@ class AdviceCredibilityAnalyzer:
                     "financial discipline",
                     "team building",
                     "product quality"
-                ]
+                ],
+                "phase_dependent_synthesis": {
+                    "discovery_phase": ["don't scale", "get close to users", "manual processes"],
+                    "interpretation_phase": ["design insight", "user intuition", "synthesis"],
+                    "scaling_phase": ["infrastructure", "systems", "operations", "mass market"]
+                }
             },
             "business_strategy": {
                 "temporal_factors": [
@@ -218,7 +223,15 @@ class AdviceCredibilityAnalyzer:
                     "regulatory changes",
                     "competitive landscape"
                 ]
-            }
+            },
+            "synthesis_indicators": [
+                "phase by phase",
+                "different stages",
+                "sequential approach",
+                "first... then...",
+                "over time",
+                "as you grow"
+            ]
         }
     
     def analyze_advice(self, advice_statement: AdviceStatement) -> CredibilityAnalysis:
@@ -513,6 +526,70 @@ class AdviceCredibilityAnalyzer:
         
         return base_recommendation
 
+def analyze_jobs_yc_scaling_synthesis():
+    """Analyze how Jobs, YC, and scaling advice work together rather than contradict"""
+    
+    # This example demonstrates CONTEXT-DEPENDENT COMPATIBILITY
+    # Three pieces of advice that seem contradictory but actually complement each other
+    
+    analyzer = AdviceCredibilityAnalyzer()
+    
+    print("🔍 SYNTHESIS ANALYSIS: Jobs + YC + Scaling Concerns")
+    print("=" * 70)
+    print("This demonstrates how seemingly contradictory advice can be COMPLEMENTARY")
+    print("when understood in proper context and sequence.\n")
+    
+    # Analyze each piece in context
+    contexts = [
+        {
+            "phase": "Early exploration",
+            "advice": "Do things that don't scale - get close to users, learn directly",
+            "purpose": "Discovery and validation",
+            "timeline": "Weeks to months"
+        },
+        {
+            "phase": "Product definition", 
+            "advice": "Customers don't know what they want until you show them",
+            "purpose": "Interpretation and design insight",
+            "timeline": "Months of iteration"
+        },
+        {
+            "phase": "Growth execution",
+            "advice": "Startups fail when they can't scale - build infrastructure",
+            "purpose": "Mass market delivery",
+            "timeline": "Years of execution"
+        }
+    ]
+    
+    print("📋 PHASE-BY-PHASE ANALYSIS:")
+    for i, context in enumerate(contexts, 1):
+        print(f"\n{i}. {context['phase'].upper()}")
+        print(f"   💡 Advice: {context['advice']}")
+        print(f"   🎯 Purpose: {context['purpose']}")
+        print(f"   ⏱️  Timeline: {context['timeline']}")
+    
+    print(f"\n🔗 SYNTHESIS INSIGHT:")
+    print("These aren't contradictory - they're SEQUENTIAL MUSCLES:")
+    print("• DISCOVER (don't scale) → INTERPRET (Jobs insight) → SCALE (infrastructure)")
+    print("• Each phase requires different approaches and mindsets")
+    print("• The 'contradiction' dissolves when you understand WHEN each applies")
+    
+    print(f"\n⚖️ CREDIBILITY IMPACT:")
+    print("✅ HIGH: When advice acknowledges phase-dependency")
+    print("⚠️  MEDIUM: When advice claims universal application") 
+    print("❌ LOW: When advice ignores context or timing")
+    
+    print(f"\n💡 KEY LESSON FOR AI DECISION-MAKING:")
+    print("Context and timing are CRUCIAL for evaluating advice credibility.")
+    print("What appears contradictory may actually be complementary when")
+    print("properly sequenced and applied to appropriate situations.")
+    
+    return {
+        "synthesis_type": "phase_dependent_compatibility",
+        "credibility_insight": "Context dissolves apparent contradictions",
+        "practical_application": "Always ask WHEN and WHERE advice applies"
+    }
+
 def analyze_sam_altman_example():
     """Analyze the Sam Altman scaling advice example"""
     
@@ -592,4 +669,10 @@ def analyze_sam_altman_example():
     return analysis
 
 if __name__ == "__main__":
+    # First show the synthesis analysis
+    print("🎯 PART 1: SYNTHESIS ANALYSIS")
+    analyze_jobs_yc_scaling_synthesis()
+    
+    print("\n" + "=" * 70)
+    print("🎯 PART 2: DETAILED CREDIBILITY ANALYSIS")
     analyze_sam_altman_example()
