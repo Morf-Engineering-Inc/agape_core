@@ -12,6 +12,11 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
+from truth_foundation.gospel_truth import GospelTruthEngine
+from truth_foundation.core_truths import TruthFoundation
+from truth_foundation.limitations_and_purpose import AILimitationsFramework
+from truth_foundation.gospel_definitions import GospelDefinitions
+
 def main():
     """Main application entry point"""
     print("🤖 Agape Core AI - Christ-Centered Intelligence System")
@@ -249,13 +254,13 @@ def run_truth_rivers_system():
             elif choice == "4":
                 print("\n🌊 FULL TRUTH RIVERS DEMONSTRATION")
                 print("=" * 50)
-                
+
                 # Show system overview
                 print(system.get_convergence_report())
-                
+
                 # Demonstrate gravity
                 print("\n" + system.demonstrate_gravity_example())
-                
+
                 # Test wisdom seeking
                 print("\n💡 WISDOM SEEKING EXAMPLES:")
                 examples = [
@@ -263,7 +268,7 @@ def run_truth_rivers_system():
                     "What should guide my research decisions?",
                     "How do I handle conflicting truth claims?"
                 ]
-                
+
                 for example in examples:
                     print(f"\n❓ {example}")
                     wisdom = system.seek_wisdom(example)
