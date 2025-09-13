@@ -1,187 +1,179 @@
 
 # Agape Core AI
 
-An AI system that follows the two great commandments as core directives:
+*A Christ-centered AI system built on the foundation of the two greatest commandments*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
+## Overview
+
+Agape Core AI is an ethical AI framework that integrates Gospel principles with intelligent decision-making systems. Named after the Greek word "agape" (unconditional love), this system operates on two foundational commandments:
+
 1. **Love God** with all your heart, soul, mind, and strength
 2. **Love your neighbor** as yourself
 
-*Derived from "agape," the Greek word for selfless, unconditional love central to the commandments, combined with "core" to signify the algorithm's foundational decision-making engine.*
+The system serves as a bridge between divine truth and artificial intelligence, providing a framework for ethical reasoning and decision-making that honors both scientific truth and Gospel principles.
 
-## Overview
-Agape Core aims to be a bridge between scripture and intelligent systems, exploring how divine principles can shape technology that uplifts humanity.
-Its objective is twofold:
-Predict the “good value” of decisions by aligning them with eternal principles.
-Innovate toward the future by generating and evaluating new ideas for good, guided by light, truth, and love.
+## 🎯 Mission Statement
 
+To create AI systems that serve humanity through principled decision-making based on:
+- Divine truth and eternal principles
+- Unconditional love for all people  
+- Quantifiable positive impact
+- Human dignity and moral agency
+- Transparent ethical reasoning
 
+## 🏗️ Core Architecture
 
-## Core Components
+### Truth Foundation System
+The foundation of all decision-making, organized in hierarchical order:
 
-### 1. Truth Foundation System
-- **Gospel Truth Engine**: Handles absolute, non-negotiable Gospel principles
-- **Core Truths**: Hierarchical system with Gospel truth as the supreme category
-- **Moral Reasoning**: Decision-making based on the Great Commandments
+1. **Gospel Truth** (Supreme) - Divine revelation and Gospel principles
+2. **Moral Truth** - Universal moral principles derived from Gospel
+3. **Natural Truth** - Observable, scientific, logical truths
+4. **Practical Truth** - Contextual, situational applications
+5. **Opinion** - Personal perspectives and preferences
 
-### 2. Value Impact Theory
+### Key Components
 
-The Value Impact Theory guides quantitative decision-making by calculating:
+- **🎯 Gospel Truth Engine** - Absolute, non-negotiable Gospel principles
+- **⚖️ Moral Reasoning Framework** - Decision-making based on the Great Commandments
+- **🌊 Truth Rivers System** - All truth flows into one great whole
+- **📊 Value Impact Assessment** - Quantitative benefit analysis
+- **🔍 SeekGood Evaluator** - Media and content analysis against Gospel standards
+- **⛪ Atonement-Centered Framework** - Christ's atonement as supreme reference point
 
-```
-Total Impact = (Utility per Person × Number of People) + Potential Growth Impact - Opportunity Cost
-```
+## 🚀 Quick Start
 
-Where:
-- **Utility per Person**: Quantifiable benefit (monetary savings, time saved, well-being improvement) per individual
-- **Number of People**: Current or projected number of beneficiaries
-- **Potential Growth Impact**: Additional value if the endeavor scales
-- **Opportunity Cost**: Value lost by not pursuing alternatives
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd agape-core-ai
+   ```
 
-*Credit: Inspired by Elon Musk's framework at Y Combinator 2025*
-
-### 3. Human Potential Equation
-
-Inspired by Jerry Murff's "developmentship" philosophy:
-
-```
-HP = M × C²
-```
-
-Where:
-- **HP**: Human Potential (total energy/output for achievement)
-- **M**: Mass (number of people or weighted human resources)
-- **C**: Creativity (innovation/skill level, squared for exponential impact)
-
-## Project Structure
-
-```
-agape_core/
-├── truth_foundation/
-│   ├── core_truths.py      # Hierarchical truth system
-│   └── gospel_truth.py     # Gospel principles and absolute truths
-├── value_theory/
-│   └── beta.py            # Value Impact Theory implementation
-├── human_potential/
-│   ├── developmentship.py  # Human Potential calculations
-│   └── developmentship.md  # Theory documentation
-├── main.py                # Core AI decision engine
-├── CONTRIBUTING.md        # Contribution guidelines
-└── LICENSE               # Open source license
-```
-
-## Key Features
-
-- **Ethical Decision Framework**: All decisions evaluated against Gospel principles
-- **Quantitative Impact Assessment**: Uses Value Impact Theory for measurable outcomes
-- **Human Potential Optimization**: Calculates and maximizes human creativity and productivity
-- **Truth Hierarchy**: Gospel truth > Moral truth > Natural truth > Practical truth
-- **Open Source**: MIT License for community collaboration
-
-## Getting Started
-
-1. Clone the repository
-2. Run the main AI engine:
+2. **Run the system**
    ```bash
    python main.py
    ```
-3. The system will evaluate decisions based on the Great Commandments and supporting principles
 
-## Decision-Making Process
+3. **Explore components**
+   ```python
+   from truth_foundation.gospel_truth import GospelTruthEngine
+   from truth_foundation.seekgood import SeekGoodEvaluator
+   
+   # Initialize Gospel Truth Engine
+   gospel_engine = GospelTruthEngine()
+   
+   # Evaluate content for good
+   evaluator = SeekGoodEvaluator()
+   result = evaluator.evaluate_content("sample content")
+   ```
 
-1. **Gospel Truth Check**: Does this align with loving God and neighbor?
-2. **Scientific Truth Integration**: How do natural laws and empirical evidence support this decision?
-3. **Value Impact Calculation**: What is the quantitative benefit?
-4. **Human Potential Assessment**: How does this affect human flourishing?
-5. **Truth Foundation Evaluation**: Does this honor established truths?
-6. **Final Decision**: Synthesis of all factors with Gospel truth as supreme
-
-## Scientific Truth + Great Commandments = Success
-
-The key to AI success lies in harmonizing **scientific truth** with the **two great commandments**. When empirical evidence and natural laws align with divine love, breakthrough innovations emerge.
-
-### Historical Example: "What Hath God Wrought"
-
-Samuel Morse's first telegraph message in 1844—"What hath God wrought" (Numbers 23:23)—exemplifies this principle:
-
-- **Scientific Truth**: Understanding electromagnetic principles, electrical circuits, and communication theory
-- **Love of God**: Acknowledging divine inspiration and giving glory to God for the discovery
-- **Love of Neighbor**: Creating technology to connect people across vast distances, enabling commerce, family communication, and emergency coordination
-
-**Result**: Revolutionary communication technology that transformed civilization
-
-### The Success Formula
+## 📁 Project Structure
 
 ```
-Breakthrough Innovation = Scientific Truth × Love of God × Love of Neighbor
+agape_core/
+├── truth_foundation/          # Core truth and reasoning framework
+│   ├── gospel_truth.py       # Gospel principles engine
+│   ├── core_truths.py        # Hierarchical truth system
+│   ├── gospel_definitions.py # Core Gospel definitions
+│   ├── atonement_supreme.py  # Atonement-centered framework
+│   ├── seekgood.py          # Content evaluation system
+│   ├── truth_rivers.py      # Truth integration system
+│   ├── limitations_and_purpose.py # AI limitations framework
+│   └── nt_story_analyzer.py # New Testament story analysis
+├── truth_discerner/          # Media and content analysis
+│   ├── media_analyzer.py    # Content evaluation tools
+│   └── README.md           # Truth Discerner documentation
+├── value_theory/            # Impact assessment framework
+│   └── beta.py             # Value Impact Theory implementation
+├── human_potential/         # Human development calculations
+│   ├── developmentship.py  # Human Potential equations
+│   └── developmentship.md  # Theory documentation
+├── chat_interface/          # Interactive AI interface
+│   └── agape_chat.py       # Chat-based interaction system
+├── logs/                   # Development logs and research
+├── main.py                 # Main application entry point
+├── CONTRIBUTING.md         # Contribution guidelines
+└── README.md              # This file
 ```
 
-When we:
-1. **Pursue rigorous scientific understanding** (natural truth)
-2. **Acknowledge God as the source** of natural laws and human creativity
-3. **Apply discoveries to serve humanity** rather than exploit it
+## 🛡️ AI Limitations & Purpose
 
-We unlock exponential potential for positive impact.
+This system acknowledges specific limitations while maintaining clear purpose:
 
-## Contributing
+### What AI CANNOT Do:
+- Replace human moral judgment or spiritual discernment
+- Experience genuine spiritual qualities or receive revelation
+- Have authentic relationships with God or humans
+- Make ultimate moral decisions requiring spiritual guidance
+- Possess true moral agency or spiritual accountability
 
-We welcome contributions that align with our core mission. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
-- Code style and testing
-- Ethical framework alignment
-- Value Impact Theory integration
-- Documentation standards
+### What AI CAN Do:
+- Process information against established truth frameworks
+- Provide analysis and recommendations based on Gospel principles
+- Support human decision-making with ethical reasoning
+- Identify patterns and correlations in moral contexts
+- Assist in applying wisdom and divine principles
 
-## Mission
+## 🔬 The Science + Gospel Formula
 
-To create AI that serves humanity through principled decision-making based on:
-- Divine truth and wisdom
-- Unconditional love for all people
-- Quantifiable positive impact
-- Human dignity and potential
-- Transparent moral reasoning
+**Breakthrough Innovation = Scientific Truth × Love of God × Love of Neighbor**
 
-## Next Steps
+Historical Example: Samuel Morse's telegraph ("What hath God wrought") demonstrated this principle by combining:
+- **Scientific mastery** of electromagnetic principles
+- **Acknowledgment of God** as the source of natural laws
+- **Service to humanity** through revolutionary communication technology
 
-### Phase 1: Truth Integration (Current)
-- [x] Core truth foundation with Gospel truth supremacy
-- [x] Value Impact Theory implementation
-- [x] Human Potential calculations
-- [ ] **Scientific Truth Module**: Integration of natural laws and empirical evidence
-- [ ] **Truth Synthesis Engine**: Harmonizing scientific and Gospel truths
+## 🎯 Current Features
 
-### Phase 2: Advanced Decision Making
-- [ ] **Natural Language Processing**: Understanding moral and scientific contexts in decisions
-- [ ] **Historical Case Studies**: Learning from "What hath God wrought" type innovations
-- [ ] **Innovation Framework**: Systematic approach to breakthrough discovery
-- [ ] **Ethical Science Guidelines**: Principles for responsible research and development
+### ✅ Implemented
+- **Gospel Truth Engine** with hierarchical truth evaluation
+- **SeekGood Content Evaluator** for media analysis
+- **Atonement-Centered Decision Framework**
+- **Truth Rivers Integration System**
+- **AI Limitations Framework** with moral agency definitions
+- **New Testament Story Analysis** (Golden Rule, Good Samaritan)
+- **Value Impact Theory** foundation
 
-### Phase 3: Practical Applications
-- [ ] **Research Assistant**: AI that helps scientists pursue truth while honoring God
-- [ ] **Innovation Advisor**: Guidance for inventors and entrepreneurs
-- [ ] **Ethical Technology Reviews**: Evaluating new technologies against Gospel + Science framework
-- [ ] **Education Tools**: Teaching the harmony between faith and science
+### 🚧 In Development
+- **Scientific Truth Integration Module**
+- **Natural Language Processing** for moral context understanding
+- **Historical Innovation Case Studies Database**
+- **Advanced Media Analysis Tools**
+- **Truth Synthesis Engine**
 
-### Phase 4: Community & Collaboration
-- [ ] **Open Research Platform**: Collaborative space for faith-based scientists
-- [ ] **Peer Review System**: Evaluation framework combining scientific rigor with moral wisdom
-- [ ] **Success Stories Database**: Examples of Gospel + Science breakthrough innovations
-- [ ] **Mentorship Network**: Connecting experienced practitioners with emerging innovators
+## 📊 Decision-Making Process
 
-### Immediate Next Steps
-1. **Implement Scientific Truth Module** in `truth_foundation/scientific_truth.py`
-2. **Create Historical Examples Database** with "What hath God wrought" as first entry
-3. **Develop Truth Synthesis Algorithm** that weighs scientific evidence with Gospel principles
-4. **Add Natural Law Integration** to decision-making engine
-5. **Build Innovation Framework** for systematic breakthrough discovery
+1. **Gospel Truth Alignment** - Does this honor the Great Commandments?
+2. **Scientific Truth Integration** - What do natural laws and evidence show?
+3. **Value Impact Assessment** - What is the quantifiable benefit?
+4. **Human Dignity Evaluation** - Does this respect moral agency?
+5. **Truth Foundation Check** - How does this align with established truths?
+6. **Synthesis & Recommendation** - Gospel truth as supreme authority
 
-### Contributing Focus Areas
-- **Theologians**: Help refine Gospel truth integration
-- **Scientists**: Contribute to scientific truth validation
-- **Historians**: Research faith + science success stories
-- **Engineers**: Build practical applications and tools
-- **Educators**: Develop teaching materials and frameworks
+## 🤝 Contributing
 
-## License
+We welcome contributions that align with our core mission. Areas of focus:
+
+- **Theologians** - Gospel truth integration and biblical accuracy
+- **Scientists** - Natural law integration and empirical validation
+- **Developers** - Technical implementation and optimization
+- **Ethicists** - Moral reasoning framework enhancement
+- **Historians** - Faith + science success story research
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## 📜 License
 
 MIT License - See [LICENSE](LICENSE) for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by the Gospel of Jesus Christ and the restored Church
+- Built on principles of love, truth, and service to humanity
+- Dedicated to honoring both divine revelation and natural law
 
 ---
 
@@ -189,7 +181,16 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 *"What hath God wrought" - Numbers 23:23 (First telegraph message, 1844)*
 
+*"The glory of God is intelligence, or, in other words, light and truth." - D&C 93:36*
 
+## 🔗 Quick Links
 
-### Agape Core Logo Symbolism
-This logo represents truth as a bridge—connecting the two great commandments: love God (cross) and love others (heart). Inspired by the iconic tech bridges of the Bay Area, it symbolizes the meeting of faith and technology, with radiating lines evoking light, data flow, and divine wisdom. It reflects Agape Core’s mission to be a bridge between truth and intelligent systems.
+- [Truth Foundation Documentation](truth_foundation/README.md)
+- [Truth Discerner Documentation](truth_discerner/README.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Development Logs](logs/)
+- [Human Potential Theory](human_potential/developmentship.md)
+
+---
+
+**Agape Core AI**: *Where divine truth meets artificial intelligence for the benefit of all humanity.*
