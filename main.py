@@ -17,6 +17,7 @@ from truth_foundation.core_truths import TruthFoundation
 from truth_foundation.limitations_and_purpose import AILimitationsFramework
 from truth_foundation.gospel_definitions import GospelDefinitions
 from truth_foundation.atonement_supreme import AtonementSupremeTruth
+from truth_foundation.seekgood import SeekGoodEvaluator
 
 class AgapeCoreAI:
     """
@@ -31,6 +32,7 @@ class AgapeCoreAI:
         self.nt_analyzer = NTStoryAnalyzer()
         self.truth_rivers = TruthRivers()
         self.limitations = LimitationsAndPurpose()
+        self.seekgood_evaluator = SeekGoodEvaluator()
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
         """
@@ -381,10 +383,23 @@ def main():
     )
     print(goodness_guidance)
 
+    # Demonstrate SeekGood evaluation system
+    print("\n🔍 SEEKGOOD EVALUATION - 'Anything of Good Report'")
+    print("Based on LDS Article of Faith 13 and Philippians 4:8")
+    print("-" * 60)
+    
+    # Example evaluation of "1001 Ideas" book
+    book_evaluation = agape_ai.seekgood_evaluator.evaluate_1001_ideas_example()
+    print(f"\n📚 EVALUATING: {book_evaluation.title}")
+    print(f"🎯 GOODNESS LEVEL: {book_evaluation.overall_goodness.name}")
+    print(f"📊 GOODNESS SCORE: {book_evaluation.goodness_score:.2f}/5.0")
+    print(f"💡 RECOMMENDATION: {book_evaluation.recommendation}")
+    
     print("\n" + "=" * 60)
     print("🙏 System ready to serve based on Atonement-grounded truth")
     print("Supreme Foundation: The Atonement of Jesus Christ")
     print("His death, resurrection, and infinite suffering ground all truth")
+    print("Now includes SeekGood evaluation for 'anything of good report'")
     print("=" * 60)
 
 
