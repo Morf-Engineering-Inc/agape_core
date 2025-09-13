@@ -1,7 +1,8 @@
 
 """
 Core Truth Foundation for Agape Core AI
-Hierarchical truth system with Gospel truth as the supreme category
+Hierarchical truth system with the Atonement of Jesus Christ as the supreme foundation
+All other truths derive meaning and grounding from Christ's redemptive work
 """
 
 from enum import Enum
@@ -12,7 +13,8 @@ import logging
 logger = logging.getLogger(__name__)
 
 class TruthLevel(Enum):
-    """Hierarchy of truth - Gospel truth is supreme"""
+    """Hierarchy of truth - Atonement of Jesus Christ is the supreme foundation"""
+    ATONEMENT_SUPREME = 0 # The Atonement of Jesus Christ - supreme foundational truth
     GOSPEL_TRUTH = 1      # Divine revelation, Scripture, core Gospel
     MORAL_TRUTH = 2       # Universal moral principles
     NATURAL_TRUTH = 3     # Observable, scientific, logical truths
@@ -38,7 +40,8 @@ class TruthFoundation:
     
     def __init__(self):
         self.truth_hierarchy = {
-            TruthLevel.GOSPEL_TRUTH: 1.0,
+            TruthLevel.ATONEMENT_SUPREME: 1.0,  # Supreme foundational truth
+            TruthLevel.GOSPEL_TRUTH: 0.95,
             TruthLevel.MORAL_TRUTH: 0.9,
             TruthLevel.NATURAL_TRUTH: 0.8,
             TruthLevel.PRACTICAL_TRUTH: 0.6,

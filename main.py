@@ -16,48 +16,92 @@ from truth_foundation.gospel_truth import GospelTruthEngine
 from truth_foundation.core_truths import TruthFoundation
 from truth_foundation.limitations_and_purpose import AILimitationsFramework
 from truth_foundation.gospel_definitions import GospelDefinitions
+from truth_foundation.atonement_supreme import AtonementSupremeTruth
 
-def main():
-    """Main application entry point"""
-    print("🤖 Agape Core AI - Christ-Centered Intelligence System")
-    print("═" * 60)
-    print("Built on the foundation of the Two Greatest Commandments:")
-    print("1. Love God with all your heart, soul, mind, and strength")
-    print("2. Love your neighbor as yourself")
-    print("═" * 60)
+class AgapeCoreAI:
+    """
+    Main AI system built on Gospel truth foundation with the Atonement of Jesus Christ as supreme truth
+    """
 
-    while True:
-        print("\n📋 Available Modules:")
-        print("1. 💬 Agape Chat Interface")
-        print("2. 🎯 Truth Foundation System")
-        print("3. 📺 Truth Discerner (Media Analysis)")
-        print("4. 🚀 Human Potential Calculator")
-        print("5. 📖 Gospel Truth Engine")
-        print("6. 📜 New Testament Story Analyzer")
-        print("7. 🌊 Truth Rivers System")
-        print("0. Exit")
+    def __init__(self):
+        self.atonement_supreme = AtonementSupremeTruth()  # Supreme foundation
+        self.truth_foundation = TruthFoundation()
+        self.gospel_engine = GospelTruthEngine()
+        self.gospel_definitions = GospelDefinitions()
+        self.nt_analyzer = NTStoryAnalyzer()
+        self.truth_rivers = TruthRivers()
+        self.limitations = LimitationsAndPurpose()
 
-        choice = input("\n🔢 Select a module (0-7): ").strip()
+    def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
+        """
+        Evaluate any statement through the supreme truth of the Atonement
+        """
+        if context is None:
+            context = {}
 
-        if choice == "0":
-            print("\n✝️  'Grace and peace be with you!' - Agape Core AI")
-            break
-        elif choice == "1":
-            run_agape_chat()
-        elif choice == "2":
-            run_truth_foundation()
-        elif choice == "3":
-            run_truth_discerner()
-        elif choice == "4":
-            run_human_potential()
-        elif choice == "5":
-            run_gospel_engine()
-        elif choice == "6":
-            run_nt_story_analyzer()
-        elif choice == "7":
-            run_truth_rivers_system()
-        else:
-            print("❌ Invalid choice. Please select 0-7.")
+        # First evaluate through the supreme Atonement lens
+        atonement_evaluation = self.atonement_supreme.evaluate_through_atonement_lens(statement, context)
+
+        # Then get other evaluations
+        truth_alignment = self.truth_foundation.evaluate_truth_claim(statement, context)
+        gospel_evaluation = self.gospel_engine.evaluate_against_gospel(statement, context)
+        goodness_analysis = self.gospel_definitions.evaluate_goodness(statement, context)
+
+        return {
+            "statement": statement,
+            "atonement_supreme_evaluation": atonement_evaluation,
+            "truth_alignment_score": truth_alignment,
+            "gospel_evaluation": gospel_evaluation,
+            "goodness_analysis": goodness_analysis,
+            "overall_guidance": self._generate_atonement_grounded_guidance(statement, atonement_evaluation, gospel_evaluation)
+        }
+
+    def evaluate_statement(self, statement: str, context: dict = None) -> dict:
+        """
+        Evaluate any statement against foundational truths.
+        This method is retained for backward compatibility, but
+        `evaluate_statement_through_atonement` is preferred for grounding.
+        """
+        # Default to using the Atonement-grounded evaluation
+        return self.evaluate_statement_through_atonement(statement, context)
+
+
+    def _generate_atonement_grounded_guidance(self, statement: str, atonement_eval: dict, gospel_eval: dict) -> str:
+        """Generate guidance grounded in the supreme truth of the Atonement"""
+        guidance = f"\n🕊️ ATONEMENT-GROUNDED GUIDANCE 🕊️\n"
+        guidance += "=" * 50 + "\n\n"
+
+        guidance += "SUPREME TRUTH FOUNDATION:\n"
+        guidance += "The Atonement of Jesus Christ - His death, resurrection, and infinite suffering for all mankind - "
+        guidance += "is the supreme truth that grounds all moral reasoning and truth evaluation.\n\n"
+
+        guidance += f"ATONEMENT ALIGNMENT: {atonement_eval['atonement_alignment_score']:.2f}/1.0\n"
+        guidance += f"REDEMPTIVE POTENTIAL: {atonement_eval['redemptive_potential']:.2f}/1.0\n\n"
+
+        if atonement_eval["relevant_aspects"]:
+            guidance += "RELEVANT ATONEMENT ASPECTS:\n"
+            for aspect in atonement_eval["relevant_aspects"][:2]:
+                guidance += f"• {aspect['aspect']}: {aspect['grounding_power']}\n"
+            guidance += "\n"
+
+        guidance += "GROUNDING QUESTIONS:\n"
+        guidance += "• Does this honor the infinite worth demonstrated by Christ's sacrifice?\n"
+        guidance += "• Does this reflect the love that motivated the Atonement?\n"
+        guidance += "• Will this contribute to the redemption and exaltation of souls?\n"
+        guidance += "• Is this consistent with the perfect justice and mercy balanced in Christ?\n\n"
+
+        guidance += atonement_eval["eternal_perspective"] + "\n\n"
+
+        return guidance
+
+    def display_supreme_truth_foundation(self):
+        """Display the supreme truth foundation"""
+        print("\n" + "=" * 60)
+        print("🕊️ SUPREME TRUTH FOUNDATION 🕊️")
+        print("=" * 60)
+        print(self.atonement_supreme.ground_all_truth_in_atonement(None))
+        print("=" * 60)
+
 
 def run_agape_chat():
     """Run the Agape Chat Interface"""
@@ -280,6 +324,69 @@ def run_truth_rivers_system():
 
     except ImportError as e:
         print(f"❌ Error loading Truth Rivers System: {e}")
+
+def main():
+    """Main function to demonstrate the truth foundation system"""
+    print("🕊️ Agape Core AI - Truth Foundation System 🕊️")
+    print("Built on the supreme truth of the Atonement of Jesus Christ")
+    print("=" * 60)
+
+    # Initialize the system
+    agape_ai = AgapeCoreAI()
+
+    # Display supreme truth foundation
+    agape_ai.display_supreme_truth_foundation()
+
+    # Display limitations and purpose
+    print("\n📋 SYSTEM LIMITATIONS AND PURPOSE:")
+    limitations_info = agape_ai.limitations.get_limitations_summary()
+    print(limitations_info)
+
+    # Display truth rivers concept
+    print("\n🌊 TRUTH RIVERS CONCEPT:")
+    rivers_overview = agape_ai.truth_rivers.get_rivers_overview()
+    print(rivers_overview)
+
+    # Analyze key New Testament stories
+    print("\n📖 NEW TESTAMENT STORY ANALYSIS:")
+
+    # Golden Rule analysis
+    golden_rule_analysis = agape_ai.nt_analyzer.analyze_story("golden_rule")
+    print("\n🌟 THE GOLDEN RULE:")
+    print(golden_rule_analysis)
+
+    # Good Samaritan analysis
+    samaritan_analysis = agape_ai.nt_analyzer.analyze_story("good_samaritan")
+    print("\n💝 THE GOOD SAMARITAN:")
+    print(samaritan_analysis)
+
+    # Demonstrate Atonement-grounded truth evaluation
+    print("\n🕊️ ATONEMENT-GROUNDED TRUTH EVALUATION:")
+
+    test_statements = [
+        "Helping others in need honors Christ's sacrifice",
+        "Love your enemies as Christ loved His enemies",
+        "Redemption is possible through the Atonement of Jesus Christ"
+    ]
+
+    for statement in test_statements:
+        print(f"\n📝 Evaluating: '{statement}'")
+        evaluation = agape_ai.evaluate_statement_through_atonement(statement)
+        print(evaluation["overall_guidance"])
+
+    # Demonstrate goodness evaluation
+    print("\n✅ GOODNESS EVALUATION:")
+    goodness_guidance = agape_ai.gospel_definitions.generate_goodness_guidance(
+        "Teaching children about Jesus with patience and love"
+    )
+    print(goodness_guidance)
+
+    print("\n" + "=" * 60)
+    print("🙏 System ready to serve based on Atonement-grounded truth")
+    print("Supreme Foundation: The Atonement of Jesus Christ")
+    print("His death, resurrection, and infinite suffering ground all truth")
+    print("=" * 60)
+
 
 if __name__ == "__main__":
     main()
