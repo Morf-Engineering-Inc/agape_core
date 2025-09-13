@@ -1,0 +1,44 @@
+That sounds like a third piece of advice, and it fits into the picture once you separate ***how* you discover what to build** from ***how* you grow it**.
+
+---
+
+### 1. What Steve Jobs Meant
+
+Jobs often said things like
+
+> “People don’t know what they want until you show it to them.”
+
+He wasn’t saying “ignore users.” He was saying:
+
+* **Observe needs at a deeper level** – focus on human frustrations, aspirations, and aesthetics, not on the exact features people request.
+* **Synthesize** – use your own judgment, taste, and intuition to combine technology and design in a way users haven’t imagined.
+
+The iPhone is the classic example: no one was asking for a multitouch glass slab; they were asking for “a better phone.” Apple interpreted that need in a novel way.
+
+---
+
+### 2. How This Complements “Do Things That Don’t Scale”
+
+* **Early discovery (YC advice):** you still spend time with users—watch how they work, feel their pain.
+* **Jobs’ twist:** you may not literally build what users say; you translate what you learn into something better than they could specify.
+
+So the “don’t scale” work isn’t only about doing what users tell you; it’s about **getting close enough to understand the underlying job-to-be-done**. From that insight you may leap beyond their explicit requests.
+
+---
+
+### 3. When Scaling Matters
+
+Once you’ve created that “insightful product,” you still must build the systems to serve millions—**the investor concern about scaling**. Jobs was famous for caring about manufacturing and supply-chain excellence precisely so Apple could scale once the product vision was proven.
+
+---
+
+**Bottom line**
+These three ideas are not contradictory—they describe **different muscles used at different moments**:
+
+| Phase              | Guiding principle                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Early exploration  | **“Do things that don’t scale”** to learn directly from users.                                                          |
+| Product definition | **“Customers don’t know what they want until you show them.”** Use intuition and design judgment to craft the solution. |
+| Growth             | **“Startups fail when they can’t scale.”** Build the infrastructure, economics, and operations to reach mass market.    |
+
+You discover, you interpret, then you scale. Jobs’ quote speaks to the **interpret** step: insight-driven design, not feature voting.
