@@ -23,6 +23,8 @@ from truth_foundation.nt_story_analyzer import NTStoryAnalyzer
 from truth_foundation.truth_rivers import TruthRivers
 # Import LimitationsAndPurpose, assuming it exists in limitations_and_purpose
 from limitations_and_purpose import LimitationsAndPurpose
+# Import AdviceCredibilityAnalyzer and related functions
+from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analyze_sam_altman_example
 
 
 class AgapeCoreAI:
@@ -39,6 +41,7 @@ class AgapeCoreAI:
         self.truth_rivers = TruthRivers()
         self.limitations = LimitationsAndPurpose()
         self.seekgood_evaluator = SeekGoodEvaluator()
+        self.advice_analyzer = AdviceCredibilityAnalyzer() # Initialize AdviceCredibilityAnalyzer
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
         """
@@ -335,79 +338,24 @@ def run_truth_rivers_system():
 
 def main():
     """Main function to demonstrate the truth foundation system"""
-    print("🕊️ Agape Core AI - Truth Foundation System 🕊️")
-    print("Built on the supreme truth of the Atonement of Jesus Christ")
+    print("🕊️  AGAPE CORE AI - Gospel Truth-Based Decision Making")
     print("=" * 60)
 
-    # Initialize the system
-    agape_ai = AgapeCoreAI()
-
-    # Display supreme truth foundation
-    agape_ai.display_supreme_truth_foundation()
-
-    # Display limitations and purpose
-    print("\n📋 SYSTEM LIMITATIONS AND PURPOSE:")
-    limitations_info = agape_ai.limitations.get_limitations_summary()
-    print(limitations_info)
-
-    # Display truth rivers concept
-    print("\n🌊 TRUTH RIVERS CONCEPT:")
-    rivers_overview = agape_ai.truth_rivers.get_rivers_overview()
-    print(rivers_overview)
-
-    # Analyze key New Testament stories
-    print("\n📖 NEW TESTAMENT STORY ANALYSIS:")
-
-    # Golden Rule analysis
-    golden_rule_analysis = agape_ai.nt_analyzer.analyze_story("golden_rule")
-    print("\n🌟 THE GOLDEN RULE:")
-    print(golden_rule_analysis)
-
-    # Good Samaritan analysis
-    samaritan_analysis = agape_ai.nt_analyzer.analyze_story("good_samaritan")
-    print("\n💝 THE GOOD SAMARITAN:")
-    print(samaritan_analysis)
-
-    # Demonstrate Atonement-grounded truth evaluation
-    print("\n🕊️ ATONEMENT-GROUNDED TRUTH EVALUATION:")
-
-    test_statements = [
-        "Helping others in need honors Christ's sacrifice",
-        "Love your enemies as Christ loved His enemies",
-        "Redemption is possible through the Atonement of Jesus Christ"
-    ]
-
-    for statement in test_statements:
-        print(f"\n📝 Evaluating: '{statement}'")
-        evaluation = agape_ai.evaluate_statement_through_atonement(statement)
-        print(evaluation["overall_guidance"])
-
-    # Demonstrate goodness evaluation
-    print("\n✅ GOODNESS EVALUATION:")
-    goodness_guidance = agape_ai.gospel_definitions.generate_goodness_guidance(
-        "Teaching children about Jesus with patience and love"
-    )
-    print(goodness_guidance)
-
-    # Demonstrate SeekGood evaluation system
-    print("\n🔍 SEEKGOOD EVALUATION - 'Anything of Good Report'")
-    print("Based on LDS Article of Faith 13 and Philippians 4:8")
-    print("-" * 60)
-
-    # Example evaluation of "1001 Ideas" book
-    book_evaluation = agape_ai.seekgood_evaluator.evaluate_1001_ideas_example()
-    print(f"\n📚 EVALUATING: {book_evaluation.title}")
-    print(f"🎯 GOODNESS LEVEL: {book_evaluation.overall_goodness.name}")
-    print(f"📊 GOODNESS SCORE: {book_evaluation.goodness_score:.2f}/5.0")
-    print(f"💡 RECOMMENDATION: {book_evaluation.recommendation}")
+    print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
+    print("-" * 40)
+    analyze_sam_altman_example()
 
     print("\n" + "=" * 60)
-    print("🙏 System ready to serve based on Atonement-grounded truth")
-    print("Supreme Foundation: The Atonement of Jesus Christ")
-    print("His death, resurrection, and infinite suffering ground all truth")
-    print("Now includes SeekGood evaluation for 'anything of good report'")
-    print("=" * 60)
+    print("💬 INTERACTIVE CHAT INTERFACE")
+    print("-" * 40)
 
+    # Initialize chat interface
+    try:
+        from chat_interface.agape_chat import AgapeChat
+        chat = AgapeChat()
+        chat.start_chat()
+    except ImportError as e:
+        print(f"❌ Error loading chat interface: {e}")
 
 if __name__ == "__main__":
     main()
