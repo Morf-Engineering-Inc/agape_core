@@ -28,6 +28,7 @@ from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analy
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
+from truth_foundation.truth_in_us import TruthInUsSystem
 
 
 class AgapeCoreAI:
@@ -48,6 +49,7 @@ class AgapeCoreAI:
         self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
         self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
         self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
+        self.truth_in_us = TruthInUsSystem() # Initialize Truth In Us system
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -429,6 +431,94 @@ def run_gospel_cycles():
     except ImportError as e:
         print(f"❌ Error loading Gospel Cycles system: {e}")
 
+def run_truth_in_us_system():
+    """Run the Truth In Us System - Truth that sets us free"""
+    try:
+        from truth_foundation.truth_in_us import TruthInUsSystem
+        print("\n🌱 Truth In Us - Truth That Sets Us Free")
+        print("Based on John 8:32: 'And ye shall know the truth, and the truth shall make you free'")
+        print("-" * 70)
+
+        system = TruthInUsSystem()
+
+        while True:
+            print("\n📋 Truth In Us Options:")
+            print("1. 💊 Get Truth Prescription for Problem")
+            print("2. 🌱 View Truth Seeds Library")
+            print("3. 🔓 Understand Freedom Types")
+            print("4. 📈 Learn Internalization Levels")
+            print("5. 🎯 Demonstration Examples")
+            print("0. Return to Main Menu")
+
+            choice = input("\n🔢 Select option (0-5): ").strip()
+
+            if choice == "0":
+                break
+            elif choice == "1":
+                print("\n💊 TRUTH PRESCRIPTION GENERATOR")
+                print("Describe a problem or struggle you're facing:")
+                problem = input("Problem: ").strip()
+                
+                if problem:
+                    prescription = system.generate_truth_prescription(problem)
+                    print(f"\n{prescription}")
+                else:
+                    print("❌ Please describe a problem to get a truth prescription")
+
+            elif choice == "2":
+                print("\n🌱 TRUTH SEEDS LIBRARY")
+                print("=" * 50)
+                for i, seed in enumerate(system.truth_seeds, 1):
+                    print(f"{i}. {seed.truth_statement}")
+                    print(f"   Scripture: {seed.scripture_source}")
+                    print(f"   Main Promise: {seed.freedom_promises[0] if seed.freedom_promises else 'Freedom'}")
+                    print(f"   Solves: {seed.problems_it_solves[0] if seed.problems_it_solves else 'Various problems'}")
+                    print()
+
+            elif choice == "3":
+                print("\n🔓 TYPES OF FREEDOM TRUTH PROVIDES")
+                print("=" * 50)
+                freedom_types = {
+                    "Spiritual": "Freedom from sin, guilt, and separation from God",
+                    "Mental": "Freedom from false beliefs, confusion, and wrong thinking",
+                    "Emotional": "Freedom from fear, anxiety, depression, and emotional bondage",
+                    "Relational": "Freedom to love authentically and build healthy relationships",
+                    "Moral": "Freedom to choose right consistently and resist temptation",
+                    "Eternal": "Freedom from death, limitation, and temporal perspective"
+                }
+                
+                for freedom_type, description in freedom_types.items():
+                    print(f"🔓 {freedom_type}: {description}")
+                    print()
+
+            elif choice == "4":
+                print("\n📈 TRUTH INTERNALIZATION LEVELS")
+                print("=" * 50)
+                levels = [
+                    "1. HEARD - Truth heard but not yet believed",
+                    "2. UNDERSTOOD - Truth intellectually grasped", 
+                    "3. BELIEVED - Truth accepted and trusted",
+                    "4. PLANTED - Truth rooted in heart and mind",
+                    "5. LIVING - Truth actively governing thoughts and actions",
+                    "6. TRANSFORMING - Truth changing our very nature"
+                ]
+                
+                for level in levels:
+                    print(f"📈 {level}")
+                    print()
+                
+                print("💡 The deeper truth is internalized, the greater freedom it provides!")
+
+            elif choice == "5":
+                from truth_foundation.truth_in_us import demonstrate_truth_in_us_system
+                demonstrate_truth_in_us_system()
+
+            else:
+                print("❌ Invalid choice. Please select 0-5.")
+
+    except ImportError as e:
+        print(f"❌ Error loading Truth In Us system: {e}")
+
 def run_family_agenda_analyzer():
     """Run the Family Agenda Analyzer System"""
     try:
@@ -609,32 +699,51 @@ def run_truth_rivers_system():
         print(f"❌ Error loading Truth Rivers System: {e}")
 
 def main():
-    """Main function to demonstrate the truth foundation system"""
+    """Main function with interactive menu system"""
     print("🕊️  AGAPE CORE AI - Gospel Truth-Based Decision Making")
     print("=" * 60)
-
-    print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
-    print("-" * 40)
-    print("Demonstrating how our framework handles apparent contradictions...")
-
-    # Import and run the synthesis analysis
-    from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
-    analyze_jobs_yc_scaling_synthesis()
-
-    print("\n" + "-" * 40)
-    analyze_sam_altman_example()
-
-    print("\n" + "=" * 60)
-    print("💬 INTERACTIVE CHAT INTERFACE")
-    print("-" * 40)
-
-    # Initialize chat interface
-    try:
-        from chat_interface.agape_chat import AgapeChat
-        chat = AgapeChat()
-        chat.start_chat()
-    except ImportError as e:
-        print(f"❌ Error loading chat interface: {e}")
+    
+    while True:
+        print("\n📋 AGAPE CORE AI MAIN MENU:")
+        print("1. 💬 Agape Chat Interface")
+        print("2. 🎯 Truth Foundation System")
+        print("3. 📺 Truth Discerner (Media Analysis)")
+        print("4. 🚀 Human Potential Calculator") 
+        print("5. 📖 Gospel Truth Engine")
+        print("6. 📜 New Testament Story Analyzer")
+        print("7. 🕊️ Gospel Cycles Analysis")
+        print("8. 👨‍👩‍👧‍👦 Family Agenda Analyzer")
+        print("9. 🌊 Truth Rivers System")
+        print("10. 🌱 Truth In Us - Truth That Sets Us Free")
+        print("0. Exit")
+        
+        choice = input("\n🔢 Select option (0-10): ").strip()
+        
+        if choice == "0":
+            print("\n🙏 May truth guide your path. God bless!")
+            break
+        elif choice == "1":
+            run_agape_chat()
+        elif choice == "2":
+            run_truth_foundation()
+        elif choice == "3":
+            run_truth_discerner()
+        elif choice == "4":
+            run_human_potential()
+        elif choice == "5":
+            run_gospel_engine()
+        elif choice == "6":
+            run_nt_story_analyzer()
+        elif choice == "7":
+            run_gospel_cycles()
+        elif choice == "8":
+            run_family_agenda_analyzer()
+        elif choice == "9":
+            run_truth_rivers_system()
+        elif choice == "10":
+            run_truth_in_us_system()
+        else:
+            print("❌ Invalid choice. Please select 0-10.")
 
 if __name__ == "__main__":
     main()
