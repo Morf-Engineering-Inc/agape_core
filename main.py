@@ -25,6 +25,7 @@ from truth_foundation.truth_rivers import TruthRivers
 from limitations_and_purpose import LimitationsAndPurpose
 # Import AdviceCredibilityAnalyzer and related functions
 from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analyze_sam_altman_example
+from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 
 
 class AgapeCoreAI:
@@ -42,6 +43,7 @@ class AgapeCoreAI:
         self.limitations = LimitationsAndPurpose()
         self.seekgood_evaluator = SeekGoodEvaluator()
         self.advice_analyzer = AdviceCredibilityAnalyzer() # Initialize AdviceCredibilityAnalyzer
+        self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
         """
@@ -271,6 +273,110 @@ def run_nt_story_analyzer():
 
     except ImportError as e:
         print(f"❌ Error loading NT story analyzer: {e}")
+
+def run_gospel_cycles():
+    """Run the Gospel Cycles Analysis System"""
+    try:
+        from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
+        print("\n🕊️ Gospel Cycles Analysis")
+        print("Understanding God's relationship with His people through D&C 121:40-45")
+        print("-" * 70)
+
+        analyzer = GospelCyclesAnalyzer()
+
+        while True:
+            print("\n📋 Gospel Cycles Options:")
+            print("1. 📊 View Historical Cycle Summary")
+            print("2. 🔮 Predict Cycle Behavior")
+            print("3. 🌟 Analyze Current Restoration")
+            print("4. 📖 D&C 121 Pattern Analysis")
+            print("5. 🏛️ Full Historical Demonstration")
+            print("0. Return to Main Menu")
+
+            choice = input("\n🔢 Select option (0-5): ").strip()
+
+            if choice == "0":
+                break
+            elif choice == "1":
+                print("\n" + analyzer.get_cycle_summary())
+
+            elif choice == "2":
+                print("\n🔮 BEHAVIORAL PREDICTION")
+                print("Enter current conditions to predict cycle behavior:")
+                
+                triggers_input = input("Current triggers (comma-separated): ").strip()
+                weaknesses_input = input("Observed weaknesses (comma-separated): ").strip()
+                strengths_input = input("Present strengths (comma-separated): ").strip()
+                emotions_input = input("Dominant emotions (comma-separated): ").strip()
+                
+                conditions = {}
+                if triggers_input:
+                    conditions["triggers"] = [t.strip() for t in triggers_input.split(",")]
+                if weaknesses_input:
+                    conditions["weaknesses"] = [w.strip() for w in weaknesses_input.split(",")]
+                if strengths_input:
+                    conditions["strengths"] = [s.strip() for s in strengths_input.split(",")]
+                if emotions_input:
+                    conditions["emotions"] = [e.strip() for e in emotions_input.split(",")]
+                
+                if conditions:
+                    prediction = analyzer.predict_cycle_behavior(conditions)
+                    
+                    print(f"\n📈 PREDICTION RESULTS:")
+                    print(f"Likely Pattern: {prediction['likely_pattern'] or 'Unknown'}")
+                    print(f"Confidence: {prediction['confidence_score']:.2f}/1.0")
+                    print(f"Cycle Direction: {prediction['cycle_direction'] or 'Unclear'}")
+                    print(f"Duration Estimate: {prediction['duration_estimate'] or 'Unknown'}")
+                    
+                    if prediction["key_warnings"]:
+                        print(f"\n⚠️ D&C 121 WARNINGS:")
+                        for warning in prediction["key_warnings"]:
+                            print(f"• {warning}")
+                    
+                    if prediction["dc_121_guidance"]:
+                        print(f"\n💡 D&C 121 GUIDANCE:")
+                        for guidance in prediction["dc_121_guidance"]:
+                            print(f"• {guidance}")
+
+            elif choice == "3":
+                current_analysis = analyzer.analyze_current_restoration_cycle()
+                print(f"\n🌟 CURRENT RESTORATION ANALYSIS:")
+                print(f"Phase: {current_analysis['current_phase']}")
+                print(f"Duration: {current_analysis['duration_so_far']} years")
+                print(f"Faithfulness: {current_analysis['faithfulness_trajectory']}")
+                print(f"Stage: {current_analysis['olive_tree_stage']}")
+                
+                if current_analysis["potential_threats"]:
+                    print(f"\n⚠️ POTENTIAL THREATS:")
+                    for threat in current_analysis["potential_threats"][:3]:
+                        print(f"• {threat}")
+                
+                if current_analysis["strengthening_opportunities"]:
+                    print(f"\n💪 STRENGTHENING OPPORTUNITIES:")
+                    for opp in current_analysis["strengthening_opportunities"][:3]:
+                        print(f"• {opp}")
+
+            elif choice == "4":
+                print("\n📖 D&C 121:40-45 PATTERN ANALYSIS")
+                print("=" * 50)
+                print("Key Principle: 'No power or influence can or ought to be maintained")
+                print("by virtue of the priesthood, only by persuasion, by long-suffering,")
+                print("by gentleness and meekness, and by love unfeigned'")
+                print("\nHistorical patterns show:")
+                print("• Pride/compulsion → Heaven's withdrawal → Apostasy")
+                print("• Humility/persuasion → Divine favor → Restoration")
+                print("• Righteousness → Gathering and prosperity")
+                print("• Wickedness → Scattering and bondage")
+
+            elif choice == "5":
+                from truth_foundation.gospel_cycles import demo_gospel_cycles
+                demo_gospel_cycles()
+
+            else:
+                print("❌ Invalid choice. Please select 0-5.")
+
+    except ImportError as e:
+        print(f"❌ Error loading Gospel Cycles system: {e}")
 
 def run_truth_rivers_system():
     """Run the Truth Rivers System"""
