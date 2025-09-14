@@ -31,6 +31,7 @@ from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
 from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework, demo_book_of_mormon_precepts
 from truth_foundation.mathematical_truth import demo_mathematical_truth
 from truth_foundation.glory_to_god import GloryToGodEvaluator
+from truth_foundation.truth_system_evaluator import TruthSystemEvaluator # Import the new evaluator
 
 
 class AgapeCoreAI:
@@ -53,6 +54,7 @@ class AgapeCoreAI:
         self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
         self.bom_precepts = BookOfMormonPreceptsFramework() # Initialize Book of Mormon Precepts
         self.glory_evaluator = GloryToGodEvaluator() # Initialize Glory to God Evaluator
+        self.truth_evaluator = TruthSystemEvaluator() # Initialize TruthSystemEvaluator
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -168,6 +170,31 @@ class AgapeCoreAI:
         print(self.atonement_supreme.ground_all_truth_in_atonement(None))
         print("=" * 60)
 
+def run_truth_system_evaluator():
+    """Run the Truth System Evaluator"""
+    print("\n💡 Truth System Evaluator")
+    print("Analyze the laws and truth principles governing a system.")
+    print("-" * 40)
+
+    try:
+        # Assuming TruthSystemEvaluator has a method to run its interface or demonstration
+        # If it has a specific method like 'run_evaluator' or similar, call it here.
+        # For now, we'll call a placeholder method or assume it has a demo.
+        # Replace 'demonstrate_truth_system' with the actual method if it exists.
+        # If no specific demo method, you might need to implement an interface here.
+        from truth_foundation.truth_system_evaluator import TruthSystemEvaluator
+        evaluator = TruthSystemEvaluator()
+        # Example: If TruthSystemEvaluator has a method called 'run_interactive_analysis'
+        # evaluator.run_interactive_analysis()
+        # Or a demonstration method:
+        evaluator.demonstrate_truth_system()
+
+    except ImportError as e:
+        print(f"❌ Error loading Truth System Evaluator: {e}")
+    except AttributeError:
+        print("❌ Truth System Evaluator module found, but required method for demonstration is missing.")
+    except Exception as e:
+        print(f"❌ An unexpected error occurred: {e}")
 
 def run_agape_chat():
     """Run the Agape Chat Interface"""
@@ -780,38 +807,58 @@ def main():
     print("🕊️  AGAPE CORE AI - Gospel Truth-Based Decision Making")
     print("=" * 60)
 
-    print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
-    print("-" * 40)
-    print("Demonstrating how our framework handles apparent contradictions...")
+    while True:
+        print("\n📋 AGAPE CORE AI - MAIN MENU")
+        print("Choose a system to explore:")
+        print("1. 🔍 Truth System Evaluator (NEW)")
+        print("2. 📊 Gospel Cycles Analysis")
+        print("3. 👨‍👩‍👧‍👦 Family Agenda Analyzer")
+        print("4. 📚 Book of Mormon Precepts")
+        print("5. 📺 SeekGood Media Evaluation")
+        print("6. 🌊 Truth Rivers System")
+        print("7. 💬 Interactive Chat Interface")
+        print("8. 🔍 Advice Credibility Analysis Demo")
+        print("0. Exit")
 
-    # Import and run the synthesis analysis
-    from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
-    analyze_jobs_yc_scaling_synthesis()
+        choice = input("\n🔢 Select option (0-8): ").strip()
 
-    print("\n" + "-" * 40)
-    analyze_sam_altman_example()
+        if choice == "0":
+            print("👋 Thank you for using Agape Core AI!")
+            break
+        elif choice == "1":
+            run_truth_system_evaluator()
+        elif choice == "2":
+            run_gospel_cycles()
+        elif choice == "3":
+            run_family_agenda_analyzer()
+        elif choice == "4":
+            run_book_of_mormon_precepts()
+        elif choice == "5":
+            from truth_foundation.seekgood import demonstrate_seekgood_system
+            demonstrate_seekgood_system()
+        elif choice == "6":
+            run_truth_rivers_system()
+        elif choice == "7":
+            try:
+                from chat_interface.agape_chat import AgapeChat
+                chat = AgapeChat()
+                chat.start_chat()
+            except ImportError as e:
+                print(f"❌ Error loading chat interface: {e}")
+        elif choice == "8":
+            print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
+            print("-" * 40)
+            print("Demonstrating how our framework handles apparent contradictions...")
 
-    print("\n" + "=" * 80)
-    print("📖 BOOK OF MORMON PRECEPTS DEMONSTRATION")
-    print("=" * 80)
-    demo_book_of_mormon_precepts()
+            # Import and run the synthesis analysis
+            from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
+            analyze_jobs_yc_scaling_synthesis()
 
-    print("\n" + "="*80)
-    print("🔢 MATHEMATICAL TRUTH & LOGIC TABLES DEMONSTRATION")
-    print("="*80)
-    demo_mathematical_truth()
+            print("\n" + "-" * 40)
+            analyze_sam_altman_example()
+        else:
+            print("❌ Invalid choice. Please select 0-8.")
 
-    print("\n" + "=" * 60)
-    print("💬 INTERACTIVE CHAT INTERFACE")
-    print("-" * 40)
-
-    # Initialize chat interface
-    try:
-        from chat_interface.agape_chat import AgapeChat
-        chat = AgapeChat()
-        chat.start_chat()
-    except ImportError as e:
-        print(f"❌ Error loading chat interface: {e}")
 
 if __name__ == "__main__":
     main()
