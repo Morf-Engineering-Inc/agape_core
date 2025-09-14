@@ -40,8 +40,15 @@ The foundation of all decision-making, organized in hierarchical order:
 - **⚖️ Moral Reasoning Framework** - Decision-making based on the Great Commandments
 - **🌊 Truth Rivers System** - All truth flows into one great whole
 - **📊 Value Impact Assessment** - Quantitative benefit analysis
-- **🔍 SeekGood Evaluator** - Media and content analysis against Gospel standards
+- **🔍 SeekGood Evaluator** - Media and content analysis against Gospel standards (Philippians 4:8)
 - **⛪ Atonement-Centered Framework** - Christ's atonement as supreme reference point
+- **🔬 Truth System Evaluator** - Analyze what truth laws govern any system (Russell Nelson heart pattern)
+- **🙌 Glory to God Assessment** - Evaluate if actions bring glory to God (1 Corinthians 10:31)
+- **🌳 Gospel Cycles Analysis** - Historical rise/fall patterns with Olive Tree metaphor (Jacob 5)
+- **⚡ Priesthood Holiness** - Old Testament sanctification + New Testament adoption patterns
+- **👨‍👩‍👧‍👦 Family Agenda Detection** - Protect families using Proclamation on the Family standards
+- **💡 Truth Liberation** - How specific truths set us free from specific problems
+- **📚 Sanctification Precepts** - Book of Mormon principles for becoming holy like God
 
 ## 🚀 Quick Start
 
@@ -60,6 +67,7 @@ The foundation of all decision-making, organized in hierarchical order:
    ```python
    from truth_foundation.gospel_truth import GospelTruthEngine
    from truth_foundation.seekgood import SeekGoodEvaluator
+   from truth_foundation.truth_system_evaluator import TruthSystemEvaluator
 
    # Initialize Gospel Truth Engine
    gospel_engine = GospelTruthEngine()
@@ -67,6 +75,10 @@ The foundation of all decision-making, organized in hierarchical order:
    # Evaluate content for good
    evaluator = SeekGoodEvaluator()
    result = evaluator.evaluate_content("sample content")
+
+   # Analyze truth systems and laws in place
+   truth_evaluator = TruthSystemEvaluator()
+   system_analysis = truth_evaluator.evaluate_system("My System", "religious", "description", ["practices"])
    ```
 
 ## 📁 Project Structure
@@ -81,7 +93,14 @@ agape_core/
 │   ├── seekgood.py          # Content evaluation system
 │   ├── truth_rivers.py      # Truth integration system
 │   ├── limitations_and_purpose.py # AI limitations framework
-│   └── nt_story_analyzer.py # New Testament story analysis
+│   ├── nt_story_analyzer.py # New Testament story analysis
+│   ├── truth_system_evaluator.py # Truth laws and system analysis (NEW)
+│   ├── glory_to_god.py      # Glory to God evaluation framework
+│   ├── gospel_cycles.py     # Historical gospel cycles with olive tree patterns
+│   ├── priesthood_holiness.py # Priesthood/holiness framework
+│   ├── family_agenda_analyzer.py # Media agenda detection vs. Proclamation
+│   ├── truth_in_us.py       # Truth setting us free analysis
+│   └── book_of_mormon_precepts.py # Sanctification through Gospel precepts
 ├── truth_discerner/          # Media and content analysis
 │   ├── media_analyzer.py    # Content evaluation tools
 │   └── README.md           # Truth Discerner documentation
@@ -129,11 +148,18 @@ Historical Example: Samuel Morse's telegraph ("What hath God wrought") demonstra
 
 ### ✅ Implemented
 - **Gospel Truth Engine** with hierarchical truth evaluation
-- **SeekGood Content Evaluator** for media analysis
-- **Atonement-Centered Decision Framework**
-- **Truth Rivers Integration System**
+- **SeekGood Content Evaluator** for media analysis based on Philippians 4:8
+- **Atonement-Centered Decision Framework** as supreme truth foundation
+- **Truth Rivers Integration System** - all truth flows into one great whole
 - **AI Limitations Framework** with moral agency definitions
 - **New Testament Story Analysis** (Golden Rule, Good Samaritan)
+- **Truth System Evaluator** - analyze what truth laws govern any system (NEW)
+- **Glory to God Evaluation** - assess if content brings glory to God (1 Cor 10:31)
+- **Gospel Cycles Analysis** - historical patterns with Olive Tree/Vineyard metaphor
+- **Priesthood Holiness Framework** - Old Testament holiness + New Testament adoption
+- **Family Agenda Analyzer** - detect media agendas against Proclamation on Family
+- **Truth In Us Framework** - how truth sets us free for specific problems
+- **Book of Mormon Precepts** - sanctification through Gospel living precepts
 - **Value Impact Theory** foundation
 
 ### 🚧 In Development
@@ -142,16 +168,19 @@ Historical Example: Samuel Morse's telegraph ("What hath God wrought") demonstra
 - **Historical Case Studies** for "What hath God wrought" type innovations
 - **Innovation Framework**: Systematic approach to breakthrough discovery
 - **Ethical Science Guidelines**: Principles for responsible research and development
-- **Advice Credibility Analysis**: Framework for evaluating expert advice trustworthiness
 
-## 📊 Decision-Making Process
+## 📊 Enhanced Decision-Making Process
 
-1. **Gospel Truth Alignment** - Does this honor the Great Commandments?
-2. **Scientific Truth Integration** - What do natural laws and evidence show?
-3. **Value Impact Assessment** - What is the quantifiable benefit?
-4. **Human Dignity Evaluation** - Does this respect moral agency?
-5. **Truth Foundation Check** - How does this align with established truths?
-6. **Synthesis & Recommendation** - Gospel truth as supreme authority
+1. **Atonement-Centered Grounding** - How does this align with Christ's infinite atonement?
+2. **Gospel Truth Alignment** - Does this honor the Great Commandments?
+3. **Truth System Analysis** - What truth laws are governing this situation?
+4. **Glory to God Assessment** - Will this bring glory to God's character and attributes?
+5. **Scientific Truth Integration** - What do natural laws and evidence show?
+6. **Family Protection Check** - Does this build or threaten eternal family values?
+7. **Value Impact Assessment** - What is the quantifiable benefit?
+8. **Human Dignity Evaluation** - Does this respect moral agency?
+9. **Sanctification Pathway** - How does this help us become holy like God?
+10. **Synthesis & Recommendation** - Atonement truth as supreme authority
 
 ## 🤝 Contributing
 
@@ -182,6 +211,33 @@ MIT License - See [LICENSE](LICENSE) for details.
 *"What hath God wrought" - Numbers 23:23 (First telegraph message, 1844)*
 
 *"The glory of God is intelligence, or, in other words, light and truth." - D&C 93:36*
+
+## 🌟 Featured Capabilities
+
+### 🔬 Truth System Analysis (NEW)
+Analyze any system to discover what truth laws are in place and how effectively truth is being utilized. Based on Russell Nelson's heart analogy - just as the heart needs proper care, spiritual and organizational systems need truth-based nourishment.
+
+```python
+from truth_foundation.truth_system_evaluator import TruthSystemEvaluator
+
+evaluator = TruthSystemEvaluator()
+analysis = evaluator.evaluate_system(
+    system_name="My Organization",
+    system_type="organizational", 
+    description="How we operate",
+    observed_practices=["regular meetings", "transparent communication"]
+)
+print(f"Truth Utilization Score: {analysis.truth_utilization_score:.2f}/1.0")
+```
+
+### 🙌 Glory to God Evaluation
+Assess whether actions, content, or decisions bring glory to God based on His divine attributes (love, truth, justice, mercy, wisdom, holiness, power).
+
+### 🌳 Gospel Cycles with Olive Tree Timeline
+Understand historical patterns of faithfulness using the Lord's vineyard allegory (Jacob 5), tracking rise and fall cycles through pruning, grafting, and fruit-bearing seasons.
+
+### 👨‍👩‍👧‍👦 Family Protection Analysis
+Detect hidden agendas in media content that contradict the Proclamation on the Family, helping families discern content that builds vs. destroys eternal family values.
 
 ## 🔗 Quick Links
 
