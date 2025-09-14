@@ -29,6 +29,7 @@ from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
 from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework
+from agape_core_seed import AgapeCoreSeedAnalyzer, AIEthicsEvaluator
 
 
 class AgapeCoreAI:
@@ -50,6 +51,8 @@ class AgapeCoreAI:
         self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
         self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
         self.bom_precepts = BookOfMormonPreceptsFramework() # Initialize Book of Mormon Precepts
+        self.seed_analyzer = AgapeCoreSeedAnalyzer() # Initialize Agape Core Seed Analyzer
+        self.ethics_evaluator = AIEthicsEvaluator() # Initialize AI Ethics Evaluator
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:

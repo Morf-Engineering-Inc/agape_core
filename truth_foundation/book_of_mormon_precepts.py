@@ -233,6 +233,50 @@ class BookOfMormonPreceptsFramework:
                 ],
                 warning_against_opposites=["Giving up", "Spiritual drift", "Discouragement"],
                 world_peace_contribution="Enduring faith provides stability and hope to communities"
+            ),
+            
+            "gratitude_thanksgiving": BookOfMormonPrecept(
+                precept="Gratitude and Thanksgiving to God",
+                primary_references=[
+                    "Alma 7:23 - 'I would that ye should be humble, and be submissive and gentle; easy to be entreated; full of patience and long-suffering; being temperate in all things; being diligent in keeping the commandments of God at all times; asking for whatsoever things ye stand in need, both spiritual and temporal; always returning thanks unto God for whatsoever things ye do receive'",
+                    "Mosiah 2:20-21 - 'I say unto you, my brethren, that if you should render all the thanks and praise which your whole soul has power to possess, to that God who has created you... you would still be unprofitable servants'",
+                    "1 Nephi 18:16 - 'Nevertheless, I did look unto my God, and I did praise him all the day long'"
+                ],
+                how_it_draws_closer="Gratitude opens our hearts to recognize God's hand in our lives",
+                love_god_connection="Thanksgiving expresses love and acknowledges God's goodness",
+                love_neighbor_connection="Grateful hearts naturally share blessings with others",
+                sanctification_power="Gratitude transforms perspective and creates humility",
+                practical_applications=[
+                    "Daily gratitude prayer acknowledging God's blessings",
+                    "Keep a gratitude journal of God's mercies",
+                    "Express thanks in all circumstances, even trials",
+                    "Share testimonies of God's goodness with others",
+                    "Fast and pray in thanksgiving, not just in need"
+                ],
+                warning_against_opposites=["Ingratitude", "Taking blessings for granted", "Murmuring", "Pride"],
+                world_peace_contribution="Grateful people create positive, generous communities"
+            ),
+            
+            "covenant_making_keeping": BookOfMormonPrecept(
+                precept="Covenant Making and Keeping",
+                primary_references=[
+                    "Mosiah 18:8-10 - 'As ye are desirous to come into the fold of God... ye are willing to bear one another's burdens... mourn with those that mourn... comfort those that stand in need of comfort, and to stand as witnesses of God at all times'",
+                    "3 Nephi 12:1 - 'Blessed are ye if ye shall give heed unto the words of these twelve whom I have chosen'",
+                    "2 Nephi 31:17-18 - 'Wherefore, do the things which I have told you I have seen that your Lord and your Redeemer should do; for, for this cause have they been shown unto me, that ye might know the gate by which ye should enter'"
+                ],
+                how_it_draws_closer="Covenants create formal relationship with God and bind us to Him",
+                love_god_connection="Making covenants demonstrates commitment and love for God",
+                love_neighbor_connection="Covenant responsibilities include serving and blessing others",
+                sanctification_power="Covenants provide divine power and grace to become holy",
+                practical_applications=[
+                    "Take baptismal covenant seriously - bear burdens, mourn, comfort",
+                    "Partake of sacrament with remembrance and renewal",
+                    "Seek temple covenants and endowments",
+                    "Honor marriage covenant as sacred and eternal",
+                    "Live up to covenant promises made to God"
+                ],
+                warning_against_opposites=["Covenant breaking", "Casual commitment", "Forgetting promises", "Superficial participation"],
+                world_peace_contribution="Covenant people create societies based on mutual care and divine law"
             )
         }
     
@@ -355,7 +399,9 @@ class BookOfMormonPreceptsFramework:
             "service_poor": ["service_regular", "poor_helped", "needs_met"],
             "repentance_change": ["repentance_genuine", "change_heart", "sin_forsaken"],
             "obedience_commandments": ["obedience_willing", "commandments_kept", "covenants_honored"],
-            "endurance_steadfastness": ["endurance_shown", "steadfast_trials", "persistent_faith"]
+            "endurance_steadfastness": ["endurance_shown", "steadfast_trials", "persistent_faith"],
+            "gratitude_thanksgiving": ["gratitude_expressed", "thanksgiving_daily", "blessings_acknowledged"],
+            "covenant_making_keeping": ["covenants_made", "covenants_kept", "covenant_renewal"]
         }
         
         for precept, indicators in precept_indicators.items():
