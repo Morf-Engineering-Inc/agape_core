@@ -164,6 +164,30 @@ class AtonementSupremeTruth:
                     "Maintain humility about personal achievements"
                 ],
                 grounding_power="Establishes that moral progress and truth-seeking require divine assistance"
+            ),
+            
+            AtonementAspect(
+                aspect="Priesthood Holiness Power",
+                description="Christ's Atonement enables priesthood power to make people HOLY like God",
+                scripture_references=[
+                    "Leviticus 11:44 - 'Be ye holy; for I am holy'",
+                    "1 Peter 2:9 - 'Ye are a chosen generation, a royal priesthood, an holy nation'",
+                    "Galatians 3:29 - 'If ye be Christ's, then are ye Abraham's seed, and heirs'",
+                    "D&C 76:58 - 'They are gods, even the sons of God'"
+                ],
+                truth_implications=[
+                    "Priesthood exists to make people holy through Christ",
+                    "All ordinances derive their power from the Atonement",
+                    "We can become joint-heirs with Christ through His sacrifice",
+                    "The ultimate purpose is to inherit all that the Father has"
+                ],
+                practical_applications=[
+                    "Receive priesthood ordinances with understanding of their purpose",
+                    "Exercise priesthood to help others become holy",
+                    "Seek temple ordinances and eternal marriage",
+                    "Live worthy of your divine inheritance"
+                ],
+                grounding_power="Establishes that priesthood authority and holiness come only through Christ's Atonement"
             )
         ]
     
@@ -175,7 +199,10 @@ class AtonementSupremeTruth:
             "Christ's perfect justice and mercy provide the standard for all moral reasoning",
             "The reality of sin and redemption frames all human moral choices",
             "Eternal perspective from resurrection grounds temporal decision-making",
-            "Divine grace enables truth-seeking and moral improvement beyond human capacity"
+            "Divine grace enables truth-seeking and moral improvement beyond human capacity",
+            "The Atonement enables priesthood power to make people HOLY like God",
+            "Through Christ's Atonement we become Abraham's seed and joint-heirs with Christ",
+            "All priesthood ordinances derive their power from Christ's infinite sacrifice"
         ]
     
     def evaluate_through_atonement_lens(self, truth_claim: str, context: Dict[str, Any]) -> Dict[str, Any]:

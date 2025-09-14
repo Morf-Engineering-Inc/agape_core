@@ -26,6 +26,7 @@ from limitations_and_purpose import LimitationsAndPurpose
 # Import AdviceCredibilityAnalyzer and related functions
 from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analyze_sam_altman_example
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
+from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 
 
 class AgapeCoreAI:
@@ -44,6 +45,8 @@ class AgapeCoreAI:
         self.seekgood_evaluator = SeekGoodEvaluator()
         self.advice_analyzer = AdviceCredibilityAnalyzer() # Initialize AdviceCredibilityAnalyzer
         self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
+        self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
+
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
         """
@@ -60,12 +63,19 @@ class AgapeCoreAI:
         gospel_evaluation = self.gospel_engine.evaluate_against_gospel(statement, context)
         goodness_analysis = self.gospel_definitions.evaluate_goodness(statement, context)
 
+        # Integrate Priesthood Holiness framework
+        priesthood_evaluation = self.priesthood_holiness.evaluate_priesthood_pattern(statement, context)
+        new_testament_adoption = self.priesthood_holiness.evaluate_new_testament_adoption(statement, context)
+
+
         return {
             "statement": statement,
             "atonement_supreme_evaluation": atonement_evaluation,
             "truth_alignment_score": truth_alignment,
             "gospel_evaluation": gospel_evaluation,
             "goodness_analysis": goodness_analysis,
+            "priesthood_holiness_evaluation": priesthood_evaluation, # Add priesthood evaluation
+            "new_testament_adoption_evaluation": new_testament_adoption, # Add NT adoption evaluation
             "overall_guidance": self._generate_atonement_grounded_guidance(statement, atonement_evaluation, gospel_evaluation)
         }
 
@@ -303,12 +313,12 @@ def run_gospel_cycles():
             elif choice == "2":
                 print("\n🔮 BEHAVIORAL PREDICTION")
                 print("Enter current conditions to predict cycle behavior:")
-                
+
                 triggers_input = input("Current triggers (comma-separated): ").strip()
                 weaknesses_input = input("Observed weaknesses (comma-separated): ").strip()
                 strengths_input = input("Present strengths (comma-separated): ").strip()
                 emotions_input = input("Dominant emotions (comma-separated): ").strip()
-                
+
                 conditions = {}
                 if triggers_input:
                     conditions["triggers"] = [t.strip() for t in triggers_input.split(",")]
@@ -318,21 +328,21 @@ def run_gospel_cycles():
                     conditions["strengths"] = [s.strip() for s in strengths_input.split(",")]
                 if emotions_input:
                     conditions["emotions"] = [e.strip() for e in emotions_input.split(",")]
-                
+
                 if conditions:
                     prediction = analyzer.predict_cycle_behavior(conditions)
-                    
+
                     print(f"\n📈 PREDICTION RESULTS:")
                     print(f"Likely Pattern: {prediction['likely_pattern'] or 'Unknown'}")
                     print(f"Confidence: {prediction['confidence_score']:.2f}/1.0")
                     print(f"Cycle Direction: {prediction['cycle_direction'] or 'Unclear'}")
                     print(f"Duration Estimate: {prediction['duration_estimate'] or 'Unknown'}")
-                    
+
                     if prediction["key_warnings"]:
                         print(f"\n⚠️ D&C 121 WARNINGS:")
                         for warning in prediction["key_warnings"]:
                             print(f"• {warning}")
-                    
+
                     if prediction["dc_121_guidance"]:
                         print(f"\n💡 D&C 121 GUIDANCE:")
                         for guidance in prediction["dc_121_guidance"]:
@@ -345,12 +355,12 @@ def run_gospel_cycles():
                 print(f"Duration: {current_analysis['duration_so_far']} years")
                 print(f"Faithfulness: {current_analysis['faithfulness_trajectory']}")
                 print(f"Stage: {current_analysis['olive_tree_stage']}")
-                
+
                 if current_analysis["potential_threats"]:
                     print(f"\n⚠️ POTENTIAL THREATS:")
                     for threat in current_analysis["potential_threats"][:3]:
                         print(f"• {threat}")
-                
+
                 if current_analysis["strengthening_opportunities"]:
                     print(f"\n💪 STRENGTHENING OPPORTUNITIES:")
                     for opp in current_analysis["strengthening_opportunities"][:3]:
@@ -450,11 +460,11 @@ def main():
     print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
     print("-" * 40)
     print("Demonstrating how our framework handles apparent contradictions...")
-    
+
     # Import and run the synthesis analysis
     from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
     analyze_jobs_yc_scaling_synthesis()
-    
+
     print("\n" + "-" * 40)
     analyze_sam_altman_example()
 
