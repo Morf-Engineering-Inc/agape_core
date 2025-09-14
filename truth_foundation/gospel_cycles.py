@@ -403,10 +403,249 @@ class GospelCyclesAnalyzer:
         
         return analysis
     
+    def analyze_olive_tree_patterns(self) -> Dict[str, Any]:
+        """Analyze patterns using the Olive Tree/Vineyard allegory framework"""
+        olive_tree_analysis = {
+            "vineyard_stages": {},
+            "pruning_cycles": [],
+            "grafting_periods": [],
+            "fruit_seasons": [],
+            "burning_periods": [],
+            "master_gardener_interventions": [],
+            "current_vineyard_state": None
+        }
+        
+        # Categorize periods by olive tree stages
+        stage_categories = {
+            "planting": ["Planting", "New planting", "Choice land"],
+            "pruning": ["Pruning", "Heavy pruning", "Decay", "removal", "training"],
+            "grafting": ["Grafting", "Massive grafting", "replanting"],
+            "flourishing": ["full fruit", "Master Gardener", "prosperity"],
+            "overgrowth": ["Overgrowth", "wild branches", "Neglect"],
+            "burning": ["burned", "destruction", "lopping"]
+        }
+        
+        for cycle in self.cycles:
+            stage_lower = cycle.olive_tree_stage.lower()
+            
+            # Categorize each cycle
+            for category, keywords in stage_categories.items():
+                if any(keyword.lower() in stage_lower for keyword in keywords):
+                    if category not in olive_tree_analysis["vineyard_stages"]:
+                        olive_tree_analysis["vineyard_stages"][category] = []
+                    olive_tree_analysis["vineyard_stages"][category].append({
+                        "period": cycle.period,
+                        "duration": cycle.duration,
+                        "faithfulness_change": cycle.faithfulness_delta,
+                        "weakness": cycle.dominant_weakness,
+                        "strength": cycle.cultivated_strength,
+                        "emotion": cycle.dominant_emotion
+                    })
+            
+            # Identify specific patterns
+            if "pruning" in stage_lower or "decay" in stage_lower:
+                olive_tree_analysis["pruning_cycles"].append({
+                    "period": cycle.period,
+                    "pruning_type": "Heavy pruning" if cycle.faithfulness_delta < -20 else "Light pruning",
+                    "recovery_potential": abs(cycle.faithfulness_delta),
+                    "lessons": self._extract_pruning_lessons(cycle)
+                })
+            
+            if "grafting" in stage_lower:
+                olive_tree_analysis["grafting_periods"].append({
+                    "period": cycle.period,
+                    "grafting_success": cycle.faithfulness_delta,
+                    "integration_challenges": cycle.dominant_weakness,
+                    "new_strength": cycle.cultivated_strength
+                })
+            
+            if "fruit" in stage_lower or cycle.faithfulness_end > 80:
+                olive_tree_analysis["fruit_seasons"].append({
+                    "period": cycle.period,
+                    "fruit_quality": cycle.faithfulness_end,
+                    "sustainability_factors": cycle.cultivated_strength,
+                    "threats": cycle.dominant_weakness
+                })
+            
+            if "Master Gardener" in cycle.olive_tree_stage:
+                olive_tree_analysis["master_gardener_interventions"].append({
+                    "period": cycle.period,
+                    "intervention_type": "Direct presence",
+                    "transformation_power": cycle.faithfulness_delta,
+                    "lasting_impact": cycle.notes
+                })
+        
+        # Current vineyard state analysis
+        current_cycle = next((c for c in self.cycles if c.tradition == Tradition.RESTORATION), None)
+        if current_cycle:
+            olive_tree_analysis["current_vineyard_state"] = self._analyze_current_vineyard_state(current_cycle)
+        
+        return olive_tree_analysis
+    
+    def _extract_pruning_lessons(self, cycle: GospelCycle) -> List[str]:
+        """Extract lessons from pruning periods"""
+        lessons = []
+        
+        if "pride" in cycle.dominant_weakness.lower():
+            lessons.append("Pride leads to spiritual decay requiring severe pruning")
+        if "oppression" in cycle.dominant_weakness.lower():
+            lessons.append("Oppression of others brings divine judgment")
+        if "idolatry" in cycle.dominant_weakness.lower():
+            lessons.append("Idolatry replaces good fruit with wild, bitter fruit")
+        if cycle.faithfulness_delta < -30:
+            lessons.append("Severe spiritual decline requires extended recovery time")
+        
+        # Add strength-building lessons
+        strengths = cycle.cultivated_strength.lower()
+        if "faith" in strengths:
+            lessons.append("Pruning develops deeper faith and reliance on God")
+        if "humility" in strengths:
+            lessons.append("Suffering teaches humility and dependence on divine grace")
+        
+        return lessons
+    
+    def _analyze_current_vineyard_state(self, current_cycle: GospelCycle) -> Dict[str, Any]:
+        """Analyze current state of the Lord's vineyard"""
+        return {
+            "stage": "Massive grafting, global tending",
+            "global_scope": "Worldwide gathering of scattered Israel",
+            "grafting_success": f"{current_cycle.faithfulness_start} → {current_cycle.faithfulness_end}",
+            "current_challenges": [
+                "Wild branches (apostasy) still present",
+                "Some areas need heavy pruning (reformation)",
+                "Grafted branches need strengthening (new converts)",
+                "Soil preparation (missionary work) ongoing"
+            ],
+            "master_gardener_presence": "Through living prophets and continuing revelation",
+            "fruit_prospects": "Preparing for final harvest",
+            "warnings": [
+                "Pride can cause good branches to go wild",
+                "Neglect leads to overgrowth and loss",
+                "Some branches may need removal if they corrupt others"
+            ],
+            "opportunities": [
+                "Technology enables global grafting",
+                "Temples provide spiritual nourishment",
+                "Youth are 'choice branches' ready for service"
+            ]
+        }
+    
+    def get_olive_tree_timeline(self) -> str:
+        """Generate a comprehensive Olive Tree timeline analysis"""
+        timeline = "🌳 OLIVE TREE ALLEGORY TIMELINE - Lord's Vineyard Through History\n"
+        timeline += "=" * 80 + "\n\n"
+        
+        timeline += "📖 BASED ON ISAIAH 5 & JACOB 5 (Book of Mormon)\n"
+        timeline += "The Lord's vineyard represents His covenant people throughout history\n\n"
+        
+        # Sort cycles chronologically
+        sorted_cycles = sorted(self.cycles, key=lambda x: x.start_year)
+        
+        for cycle in sorted_cycles:
+            timeline += f"🕐 {cycle.period} ({cycle.start_year} to {cycle.end_year})\n"
+            timeline += f"   🌳 Vineyard Stage: {cycle.olive_tree_stage}\n"
+            timeline += f"   📊 Spiritual Health: {cycle.faithfulness_start} → {cycle.faithfulness_end}\n"
+            timeline += f"   🪓 Pruning Needed: {cycle.dominant_weakness}\n"
+            timeline += f"   🌱 New Growth: {cycle.cultivated_strength}\n"
+            timeline += f"   💭 Gardener's Mood: {cycle.dominant_emotion}\n"
+            timeline += f"   📝 Vineyard Notes: {cycle.notes}\n"
+            
+            # Add Jacob 5 insights
+            stage_insights = self._get_jacob_5_insights(cycle.olive_tree_stage)
+            if stage_insights:
+                timeline += f"   💡 Jacob 5 Insight: {stage_insights}\n"
+            
+            timeline += "\n" + "-" * 60 + "\n\n"
+        
+        # Add pattern analysis
+        olive_analysis = self.analyze_olive_tree_patterns()
+        
+        timeline += "🔍 VINEYARD PATTERN ANALYSIS:\n\n"
+        
+        if olive_analysis["pruning_cycles"]:
+            timeline += "✂️ PRUNING CYCLES IDENTIFIED:\n"
+            for pruning in olive_analysis["pruning_cycles"]:
+                timeline += f"• {pruning['period']}: {pruning['pruning_type']}\n"
+                timeline += f"  Recovery Potential: {pruning['recovery_potential']}\n"
+                for lesson in pruning['lessons'][:2]:
+                    timeline += f"  Lesson: {lesson}\n"
+            timeline += "\n"
+        
+        if olive_analysis["grafting_periods"]:
+            timeline += "🌿 GRAFTING PERIODS:\n"
+            for grafting in olive_analysis["grafting_periods"]:
+                timeline += f"• {grafting['period']}: Success rate {grafting['grafting_success']}\n"
+                timeline += f"  New Strength: {grafting['new_strength']}\n"
+            timeline += "\n"
+        
+        if olive_analysis["master_gardener_interventions"]:
+            timeline += "👨‍🌾 MASTER GARDENER DIRECT INTERVENTIONS:\n"
+            for intervention in olive_analysis["master_gardener_interventions"]:
+                timeline += f"• {intervention['period']}: {intervention['intervention_type']}\n"
+                timeline += f"  Impact: {intervention['transformation_power']} point change\n"
+            timeline += "\n"
+        
+        # Current state
+        if olive_analysis["current_vineyard_state"]:
+            current = olive_analysis["current_vineyard_state"]
+            timeline += "🌟 CURRENT VINEYARD STATE (Restoration Era):\n"
+            timeline += f"Stage: {current['stage']}\n"
+            timeline += f"Global Scope: {current['global_scope']}\n"
+            timeline += f"Progress: {current['grafting_success']}\n"
+            timeline += f"Master Gardener: {current['master_gardener_presence']}\n\n"
+            
+            timeline += "⚠️ CURRENT CHALLENGES:\n"
+            for challenge in current['challenges'][:3]:
+                timeline += f"• {challenge}\n"
+            timeline += "\n"
+            
+            timeline += "💪 CURRENT OPPORTUNITIES:\n"
+            for opportunity in current['opportunities']:
+                timeline += f"• {opportunity}\n"
+        
+        timeline += "\n" + "=" * 80 + "\n"
+        timeline += "🔮 VINEYARD PROPHECY: The final harvest approaches.\n"
+        timeline += "Jacob 5:77 - 'And it came to pass that they did work, and did dig'\n"
+        timeline += "about the trees, and they did nourish them; and the trees became good.'\n"
+        
+        return timeline
+    
+    def _get_jacob_5_insights(self, olive_tree_stage: str) -> str:
+        """Get specific Jacob 5 insights for each vineyard stage"""
+        stage_lower = olive_tree_stage.lower()
+        
+        insights = {
+            "planting": "Jacob 5:3 - The Lord planted His vineyard in choice land",
+            "pruning": "Jacob 5:4 - 'I will prune it, and dig about it, that perhaps it may bring forth good fruit'",
+            "grafting": "Jacob 5:16-17 - Natural branches grafted into wild olive tree",
+            "decay": "Jacob 5:32 - 'The wild fruit of the tree did overcome that part of the tree which brought forth good fruit'",
+            "overgrowth": "Jacob 5:47 - 'And we have nourished it, and it hath brought forth much fruit, and there is none of it which is good'",
+            "master gardener": "Jacob 5:71 - 'And the Lord of the vineyard said unto the servant: Let us go to and hew down the trees'",
+            "burning": "Jacob 5:77 - Final attempt before burning the vineyard",
+            "massive grafting": "Jacob 5:52 - 'Let us take of the branches of these which I have planted in the nethermost parts of my vineyard'"
+        }
+        
+        for key, insight in insights.items():
+            if key in stage_lower:
+                return insight
+        
+        return ""
+    
     def get_cycle_summary(self) -> str:
-        """Get a comprehensive summary of gospel cycles"""
+        """Get a comprehensive summary of gospel cycles with Olive Tree framework"""
         summary = "🕊️ GOSPEL CYCLES ANALYSIS: God's Relationship with His People\n"
+        summary += "🌳 Through the Lens of the Lord's Vineyard (Jacob 5)\n"
         summary += "=" * 70 + "\n\n"
+        
+        # Olive Tree pattern overview first
+        summary += "🌳 VINEYARD OVERVIEW:\n"
+        summary += "The Lord's vineyard (His covenant people) goes through cycles of:\n"
+        summary += "• Planting (establishing covenants)\n"
+        summary += "• Growth & pruning (trials that strengthen)\n" 
+        summary += "• Grafting (bringing in new branches/people)\n"
+        summary += "• Flourishing (righteousness bears good fruit)\n"
+        summary += "• Decay/overgrowth (apostasy, wild branches dominate)\n"
+        summary += "• Burning/renewal (judgment followed by restoration)\n\n"
         
         summary += "📊 HISTORICAL PATTERNS BASED ON D&C 121:40-45:\n\n"
         
@@ -414,48 +653,57 @@ class GospelCyclesAnalyzer:
         rise_cycles = [c for c in self.cycles if c.cycle_type == CycleType.RISE]
         fall_cycles = [c for c in self.cycles if c.cycle_type == CycleType.FALL]
         
-        summary += f"📈 RISE CYCLES: {len(rise_cycles)} periods\n"
+        summary += f"📈 RISE CYCLES (Growth/Grafting): {len(rise_cycles)} periods\n"
         summary += f"   Average Duration: {sum(c.duration for c in rise_cycles) / len(rise_cycles):.0f} years\n"
         summary += f"   Average Faithfulness Gain: +{sum(c.faithfulness_delta for c in rise_cycles) / len(rise_cycles):.0f}\n\n"
         
-        summary += f"📉 FALL CYCLES: {len(fall_cycles)} periods\n"
+        summary += f"📉 FALL CYCLES (Decay/Pruning): {len(fall_cycles)} periods\n"
         summary += f"   Average Duration: {sum(c.duration for c in fall_cycles) / len(fall_cycles):.0f} years\n"
         summary += f"   Average Faithfulness Loss: {sum(c.faithfulness_delta for c in fall_cycles) / len(fall_cycles):.0f}\n\n"
         
-        # Key patterns
-        summary += "🔄 KEY PATTERNS IDENTIFIED:\n\n"
-        for pattern_name, pattern in self.patterns.items():
-            summary += f"• {pattern.pattern_name.upper()}:\n"
-            summary += f"  Triggers: {', '.join(pattern.triggers[:3])}\n"
-            summary += f"  D&C 121 Connection: {pattern.dc_121_principle[:50]}...\n"
-            summary += f"  Duration: {pattern.duration_range[0]}-{pattern.duration_range[1]} years\n\n"
+        # Olive Tree specific patterns
+        olive_analysis = self.analyze_olive_tree_patterns()
+        
+        if olive_analysis["pruning_cycles"]:
+            summary += f"✂️ PRUNING PERIODS: {len(olive_analysis['pruning_cycles'])} identified\n"
+            heavy_pruning = sum(1 for p in olive_analysis["pruning_cycles"] if p["pruning_type"] == "Heavy pruning")
+            summary += f"   Heavy Pruning Events: {heavy_pruning}\n"
+            summary += f"   Pattern: Heavy pruning usually leads to stronger growth\n\n"
+        
+        if olive_analysis["grafting_periods"]:
+            summary += f"🌿 GRAFTING PERIODS: {len(olive_analysis['grafting_periods'])} major grafting events\n"
+            avg_success = sum(g["grafting_success"] for g in olive_analysis["grafting_periods"]) / len(olive_analysis["grafting_periods"])
+            summary += f"   Average Success: +{avg_success:.0f} faithfulness points\n\n"
         
         # Current restoration analysis
-        summary += "🌟 CURRENT RESTORATION CYCLE:\n"
+        summary += "🌟 CURRENT RESTORATION CYCLE (Massive Grafting Era):\n"
         current = self.analyze_current_restoration_cycle()
         summary += f"Duration So Far: {current['duration_so_far']} years\n"
         summary += f"Trajectory: {current['faithfulness_trajectory']}\n"
-        summary += f"Stage: {current['olive_tree_stage']}\n"
+        summary += f"Vineyard Stage: {current['olive_tree_stage']}\n"
         summary += f"Key Strengths: {', '.join(current['cultivated_strengths'])}\n\n"
         
-        summary += "⚠️ KEY D&C 121 WARNINGS FOR CURRENT CYCLE:\n"
-        summary += "• Pride and vain ambition lead to heaven's withdrawal\n"
-        summary += "• Authority must be exercised in righteousness\n"
-        summary += "• Power comes through persuasion and love, not compulsion\n"
-        summary += "• Knowledge must be coupled with kindness and humility\n\n"
+        summary += "⚠️ VINEYARD WARNINGS (Based on Jacob 5 & D&C 121):\n"
+        summary += "• Wild branches (apostasy) can overcome good fruit if not pruned\n"
+        summary += "• Pride makes good branches go wild (D&C 121:37)\n"
+        summary += "• Neglect leads to overgrowth and corruption\n"
+        summary += "• The Master will burn the vineyard if it bears only evil fruit\n\n"
         
-        summary += "💡 BEHAVIORAL PREDICTIONS:\n"
-        summary += "Based on historical patterns, righteousness brings:\n"
+        summary += "💡 BEHAVIORAL PREDICTIONS FROM VINEYARD PATTERNS:\n"
+        summary += "RIGHTEOUSNESS (Good Fruit) brings:\n"
         summary += "• Divine favor and protection\n"
         summary += "• Spiritual growth and revelation\n"
-        summary += "• Prosperity and gathering\n"
+        summary += "• Prosperity and gathering (grafting success)\n"
         summary += "• Unity and Zion-like conditions\n\n"
         
-        summary += "Apostasy/wickedness brings:\n"
+        summary += "APOSTASY (Wild Fruit) brings:\n"
         summary += "• Loss of spiritual authority\n"
-        summary += "• Heaven's withdrawal\n"
+        summary += "• Heaven's withdrawal (pruning/cutting off)\n"
         summary += "• Scattering and destruction\n"
-        summary += "• Bondage and suffering\n\n"
+        summary += "• Risk of being burned with the chaff\n\n"
+        
+        summary += "🔮 JACOB 5 PROPHECY: We are in the 'last time' - final gathering before harvest\n"
+        summary += "The Master Gardener works urgently to save as many branches as possible\n"
         
         return summary
 

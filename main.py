@@ -300,10 +300,12 @@ def run_gospel_cycles():
             print("2. 🔮 Predict Cycle Behavior")
             print("3. 🌟 Analyze Current Restoration")
             print("4. 📖 D&C 121 Pattern Analysis")
-            print("5. 🏛️ Full Historical Demonstration")
+            print("5. 🌳 Olive Tree Vineyard Timeline")
+            print("6. 🔍 Vineyard Pattern Analysis")
+            print("7. 🏛️ Full Historical Demonstration")
             print("0. Return to Main Menu")
 
-            choice = input("\n🔢 Select option (0-5): ").strip()
+            choice = input("\n🔢 Select option (0-7): ").strip()
 
             if choice == "0":
                 break
@@ -379,11 +381,37 @@ def run_gospel_cycles():
                 print("• Wickedness → Scattering and bondage")
 
             elif choice == "5":
+                print("\n" + analyzer.get_olive_tree_timeline())
+
+            elif choice == "6":
+                olive_analysis = analyzer.analyze_olive_tree_patterns()
+                print("\n🔍 VINEYARD PATTERN ANALYSIS")
+                print("=" * 50)
+                
+                print("\n✂️ PRUNING CYCLES:")
+                for pruning in olive_analysis["pruning_cycles"]:
+                    print(f"• {pruning['period']}: {pruning['pruning_type']}")
+                    print(f"  Lessons: {pruning['lessons'][0] if pruning['lessons'] else 'Growth through adversity'}")
+                
+                print("\n🌿 GRAFTING PERIODS:")
+                for grafting in olive_analysis["grafting_periods"]:
+                    print(f"• {grafting['period']}: Success +{grafting['grafting_success']}")
+                    print(f"  New Strength: {grafting['new_strength']}")
+                
+                if olive_analysis["current_vineyard_state"]:
+                    current = olive_analysis["current_vineyard_state"]
+                    print(f"\n🌟 CURRENT VINEYARD STATE:")
+                    print(f"Stage: {current['stage']}")
+                    print(f"Scope: {current['global_scope']}")
+                    print(f"Challenges: {len(current['current_challenges'])} identified")
+                    print(f"Opportunities: {len(current['opportunities'])} available")
+
+            elif choice == "7":
                 from truth_foundation.gospel_cycles import demo_gospel_cycles
                 demo_gospel_cycles()
 
             else:
-                print("❌ Invalid choice. Please select 0-5.")
+                print("❌ Invalid choice. Please select 0-7.")
 
     except ImportError as e:
         print(f"❌ Error loading Gospel Cycles system: {e}")
