@@ -27,6 +27,7 @@ from limitations_and_purpose import LimitationsAndPurpose
 from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analyze_sam_altman_example
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
+from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
 
 
 class AgapeCoreAI:
@@ -46,6 +47,7 @@ class AgapeCoreAI:
         self.advice_analyzer = AdviceCredibilityAnalyzer() # Initialize AdviceCredibilityAnalyzer
         self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
         self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
+        self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -66,6 +68,16 @@ class AgapeCoreAI:
         # Integrate Priesthood Holiness framework
         priesthood_evaluation = self.priesthood_holiness.evaluate_priesthood_pattern(statement, context)
         new_testament_adoption = self.priesthood_holiness.evaluate_new_testament_adoption(statement, context)
+        
+        # Add family agenda analysis if context suggests media content
+        family_agenda_analysis = None
+        if any(keyword in statement.lower() for keyword in ['movie', 'show', 'content', 'media', 'watch']):
+            # Simplified analysis for text statements
+            family_agenda_analysis = {
+                "content_type": "statement_analysis",
+                "family_impact_detected": "analyzing statement for family truth alignment",
+                "recommendation": "Apply Proclamation on the Family standards to evaluate content"
+            }
 
 
         return {
@@ -76,6 +88,7 @@ class AgapeCoreAI:
             "goodness_analysis": goodness_analysis,
             "priesthood_holiness_evaluation": priesthood_evaluation, # Add priesthood evaluation
             "new_testament_adoption_evaluation": new_testament_adoption, # Add NT adoption evaluation
+            "family_agenda_analysis": family_agenda_analysis, # Add family agenda analysis
             "overall_guidance": self._generate_atonement_grounded_guidance(statement, atonement_evaluation, gospel_evaluation)
         }
 
@@ -415,6 +428,121 @@ def run_gospel_cycles():
 
     except ImportError as e:
         print(f"❌ Error loading Gospel Cycles system: {e}")
+
+def run_family_agenda_analyzer():
+    """Run the Family Agenda Analyzer System"""
+    try:
+        from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer, demonstrate_buzz_lightyear_analysis
+        print("\n👨‍👩‍👧‍👦 Family Agenda Analyzer")
+        print("Analyze media content against the Proclamation on the Family")
+        print("-" * 60)
+
+        analyzer = FamilyAgendaAnalyzer()
+
+        while True:
+            print("\n📋 Family Agenda Analysis Options:")
+            print("1. 🎬 Demonstrate Buzz Lightyear Analysis")
+            print("2. 📺 Analyze Custom Media Content")
+            print("3. 📊 View Proclamation Standards")
+            print("4. 🔍 Agenda Detection Patterns")
+            print("5. 🛡️ Family Protection Guidance")
+            print("0. Return to Main Menu")
+
+            choice = input("\n🔢 Select option (0-5): ").strip()
+
+            if choice == "0":
+                break
+            elif choice == "1":
+                demonstrate_buzz_lightyear_analysis()
+
+            elif choice == "2":
+                print("\n📺 CUSTOM MEDIA ANALYSIS")
+                title = input("Media title: ").strip()
+                if not title:
+                    print("❌ Title required")
+                    continue
+                
+                description = input("Brief description: ").strip()
+                target_audience = input("Target audience: ").strip() or "General"
+                
+                # Simplified character analysis
+                characters = {"main_characters": "To be analyzed based on description"}
+                plot_elements = [description] if description else ["General content"]
+                
+                try:
+                    analysis = analyzer.analyze_content_agenda(
+                        title=title,
+                        description=description,
+                        character_analysis=characters,
+                        plot_elements=plot_elements,
+                        target_audience=target_audience
+                    )
+                    
+                    print(f"\n📊 ANALYSIS RESULTS:")
+                    print(f"Title: {analysis.content_title}")
+                    print(f"Family Impact: {analysis.family_evaluation.family_impact.name}")
+                    print(f"Agenda Score: {analysis.overall_agenda_score:.2f}/1.0")
+                    print(f"Proclamation Alignment: {analysis.family_evaluation.proclamation_alignment:.2f}/1.0")
+                    
+                    if analysis.detected_agendas:
+                        print(f"\n🎯 DETECTED AGENDAS:")
+                        for agenda in analysis.detected_agendas:
+                            print(f"• {agenda.agenda_type}")
+                    
+                    if analysis.proclamation_violations:
+                        print(f"\n⚠️ PROCLAMATION VIOLATIONS:")
+                        for violation in analysis.proclamation_violations[:3]:
+                            print(f"• {violation}")
+                    
+                    print(f"\n🛡️ RECOMMENDATION:")
+                    print(analysis.family_protection_guidance[:300] + "...")
+                    
+                except Exception as e:
+                    print(f"❌ Analysis error: {e}")
+
+            elif choice == "3":
+                print("\n📜 PROCLAMATION ON THE FAMILY STANDARDS")
+                print("=" * 50)
+                print("🔹 MARRIAGE: Between man and woman, ordained of God")
+                print("🔹 GENDER: Eternal characteristic, essential to identity")
+                print("🔹 FAMILY: Central to Creator's plan for eternal destiny")
+                print("🔹 PARENTING: Primary responsibility of father and mother")
+                print("🔹 PROCREATION: Sacred powers employed within marriage")
+                print("\n💡 These standards form the eternal truth framework")
+                print("for evaluating all family-related content and messages.")
+
+            elif choice == "4":
+                print("\n🔍 AGENDA DETECTION PATTERNS")
+                print("=" * 50)
+                print("🎯 LGBTQ+ Normalization:")
+                print("  • Same-sex couples with children")
+                print("  • Traditional families shown as inferior")
+                print("  • Coming out stories celebrated")
+                print("\n🎯 Gender Ideology:")
+                print("  • Gender fluidity promoted")
+                print("  • Biological sex minimized")
+                print("  • Children questioning gender identity")
+                print("\n🎯 Family Deconstruction:")
+                print("  • Parents as obstacles to happiness")
+                print("  • Individual autonomy over family loyalty")
+                print("  • Traditional values as oppressive")
+
+            elif choice == "5":
+                print("\n🛡️ FAMILY PROTECTION GUIDANCE")
+                print("=" * 50)
+                print("🔹 PRE-SCREENING: Review content before family viewing")
+                print("🔹 DISCUSSION: Prepare conversations about eternal truths")
+                print("🔹 ALTERNATIVES: Seek content that builds family values")
+                print("🔹 TEACHING MOMENTS: Use contrasts to teach Gospel truth")
+                print("🔹 PROCLAMATION REMINDERS: Regularly review family standards")
+                print("\n💝 Remember: The family is central to God's eternal plan.")
+                print("Protect your family's spiritual environment with wisdom and love.")
+
+            else:
+                print("❌ Invalid choice. Please select 0-5.")
+
+    except ImportError as e:
+        print(f"❌ Error loading Family Agenda Analyzer: {e}")
 
 def run_truth_rivers_system():
     """Run the Truth Rivers System"""
