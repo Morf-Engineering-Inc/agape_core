@@ -32,7 +32,8 @@ from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramewo
 from truth_foundation.mathematical_truth import demo_mathematical_truth
 from truth_foundation.glory_to_god import GloryToGodEvaluator
 from truth_foundation.truth_system_evaluator import TruthSystemEvaluator # Import the new evaluator
-
+from truth_foundation.truth_in_us import TruthInUsFramework
+from truth_foundation.temple_laws import TempleLawsFramework
 
 class AgapeCoreAI:
     """
@@ -55,6 +56,8 @@ class AgapeCoreAI:
         self.bom_precepts = BookOfMormonPreceptsFramework() # Initialize Book of Mormon Precepts
         self.glory_evaluator = GloryToGodEvaluator() # Initialize Glory to God Evaluator
         self.truth_evaluator = TruthSystemEvaluator() # Initialize TruthSystemEvaluator
+        self.truth_in_us = TruthInUsFramework()
+        self.temple_laws = TempleLawsFramework()
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
