@@ -1,0 +1,62 @@
+I built a single merged framework that aligns:
+	•	historical periods (Bible, Book of Mormon, Restoration),
+	•	a heuristic faithfulness index (0–100) to capture “rise/fall,”
+	•	dominant human weaknesses vs Christlike strengths,
+	•	prevailing emotional tone (natural → sanctified),
+	•	and the Olive Tree/Vineyard metaphor stages (Isaiah 5; Jacob 5).
+
+What you can open now
+	•	I placed the full merged table in a spreadsheet-style view so you can sort/filter.
+	•	I also added two simple charts (Bible→Restoration arc, and Book of Mormon arc), and two stats tables.
+
+Open these:
+	•	Merged Gospel/Weakness/Emotion/Olive-Tree Table (Illustrative)
+	•	Cycle Stats by Tradition (Illustrative)
+	•	Up vs Down Cycle Stats (Illustrative)
+
+⸻
+
+How to read this
+	•	Faithfulness Index (0–100): a modeling tool (not doctrine) to make patterns comparable across eras. Rises/falls match narrative arcs (e.g., Judges’ cycles, Nephite pride cycles, Apostasy→Restoration).
+	•	Olive Tree mapping:
+	•	Planting/early pruning (new covenants, foundations)
+	•	Grafting (missionary expansion, gathering)
+	•	Overgrowth/wild branches (corruption, pride)
+	•	Heavy pruning/lopping (chastening, captivity, war)
+	•	Soil renewal (reform, return)
+	•	Full fruit (Zion-like unity)
+	•	Burning/clearing (final judgments)
+
+These stages are assigned for each period so you can trace Jacob 5’s allegory over time.
+
+⸻
+
+Initial mathematical takeaways (from the tables)
+
+These numbers are illustrative and based on widely used approximate dates (BCE negative, CE positive). They’re a scaffold for deeper work, not a claim of exact chronology.
+
+	•	Average cycle durations (from the stats table):
+	•	Old Testament “ups” and “downs” cluster around 150–250 years per phase.
+	•	Book of Mormon shows faster oscillations with a ~100–200 year “rise,” then a ~100 year decline to collapse (300–385 CE).
+	•	The Great Apostasy is a long “down” tail (~1,700 years), followed by a Restoration rise now at ~205 years (1820–2025).
+	•	Amplitude of swings (Δ Faithfulness):
+	•	“Down” phases generally have larger negative swings than “up” phases gain, unless accompanied by “heavy pruning + soil renewal” events (Moses’ reforms; post-exilic return; 34–~200 CE Nephite Zion).
+	•	This aligns with Jacob 5: deep pruning and careful tending precede seasons of abundant fruit.
+	•	Shape patterns you can test further:
+	1.	Damped cycles under righteous leadership (e.g., united monarchy uptrend, then decay when pride/inequality set in).
+	2.	Shock–reset pattern: captivity/exile/war acts like a reset → short sharp rise (post-exile, Alma’s church, Christ’s visit), then gradual drift.
+	3.	Asymmetric cycles: declines are often gradual then sudden (long drift down → rapid collapse), while restorations are sudden then gradual (quick rise with reform/visitation → long plateaus of tending).
+
+⸻
+
+Next steps (I can do this now if you want)
+	1.	Refine the faithfulness curve
+	•	If you want, give me a few anchor points (scripture passages or dates you care about most), and I’ll recalibrate the 0–100 values around those anchors for a tighter fit.
+	2.	Add Adam→Enoch/Zion and other early epochs
+	•	I left truly ancient/undated periods out of the math because the years aren’t standardized. If you’re okay with a theological timeline (not historical consensus), I can add “Adam→Enoch (Zion) → Flood” as undated or symbolic spans and keep them in the same comparative structure.
+	3.	Crosswalk to specific verses
+	•	I can append columns with references (Isaiah 5, Jacob 5, Alma, Helaman, 3 Nephi, etc.) so each row links to passages backing the assigned olive-tree stage.
+	4.	Export
+	•	I can export the merged table to CSV/Excel and a printable PDF with the two charts.
+
+If you want any of those, tell me which to prioritize and I’ll generate them right away. ￼
