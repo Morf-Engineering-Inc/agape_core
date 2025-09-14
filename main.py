@@ -28,7 +28,7 @@ from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analy
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
-from truth_foundation.truth_in_us import TruthInUsSystem
+from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework
 
 
 class AgapeCoreAI:
@@ -49,7 +49,7 @@ class AgapeCoreAI:
         self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
         self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
         self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
-        self.truth_in_us = TruthInUsSystem() # Initialize Truth In Us system
+        self.bom_precepts = BookOfMormonPreceptsFramework() # Initialize Book of Mormon Precepts
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -80,6 +80,20 @@ class AgapeCoreAI:
                 "family_impact_detected": "analyzing statement for family truth alignment",
                 "recommendation": "Apply Proclamation on the Family standards to evaluate content"
             }
+        
+        # Add sanctification assessment for spiritual growth statements
+        sanctification_assessment = None
+        if any(keyword in statement.lower() for keyword in ['god', 'holy', 'sanctif', 'love', 'neighbor', 'christ', 'gospel']):
+            # Create sample person data based on statement context
+            person_data = {
+                "spiritual_stirrings": "spiritual" in statement.lower(),
+                "faith_strong": "faith" in statement.lower(),
+                "prayer_regular": "pray" in statement.lower(),
+                "service_regular": "serv" in statement.lower() or "help" in statement.lower(),
+                "love_expressed": "love" in statement.lower(),
+                "seeking_truth": "truth" in statement.lower() or "god" in statement.lower()
+            }
+            sanctification_assessment = self.bom_precepts.assess_sanctification_progress(person_data)
 
 
         return {
@@ -91,6 +105,7 @@ class AgapeCoreAI:
             "priesthood_holiness_evaluation": priesthood_evaluation, # Add priesthood evaluation
             "new_testament_adoption_evaluation": new_testament_adoption, # Add NT adoption evaluation
             "family_agenda_analysis": family_agenda_analysis, # Add family agenda analysis
+            "sanctification_assessment": sanctification_assessment, # Add sanctification assessment
             "overall_guidance": self._generate_atonement_grounded_guidance(statement, atonement_evaluation, gospel_evaluation)
         }
 
@@ -431,93 +446,142 @@ def run_gospel_cycles():
     except ImportError as e:
         print(f"❌ Error loading Gospel Cycles system: {e}")
 
-def run_truth_in_us_system():
-    """Run the Truth In Us System - Truth that sets us free"""
+def run_book_of_mormon_precepts():
+    """Run the Book of Mormon Precepts System for Sanctification"""
     try:
-        from truth_foundation.truth_in_us import TruthInUsSystem
-        print("\n🌱 Truth In Us - Truth That Sets Us Free")
-        print("Based on John 8:32: 'And ye shall know the truth, and the truth shall make you free'")
+        from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework, demonstrate_sanctification_system
+        print("\n📚 Book of Mormon Precepts - Drawing Nearer to God")
+        print("Living precepts to become holy through loving God and neighbor")
         print("-" * 70)
 
-        system = TruthInUsSystem()
+        framework = BookOfMormonPreceptsFramework()
 
         while True:
-            print("\n📋 Truth In Us Options:")
-            print("1. 💊 Get Truth Prescription for Problem")
-            print("2. 🌱 View Truth Seeds Library")
-            print("3. 🔓 Understand Freedom Types")
-            print("4. 📈 Learn Internalization Levels")
-            print("5. 🎯 Demonstration Examples")
+            print("\n📋 Book of Mormon Precepts Options:")
+            print("1. 🕊️ View All Precepts Summary")
+            print("2. 📊 Assess Personal Sanctification Progress") 
+            print("3. 🎯 Get Specific Precept Details")
+            print("4. 💝 Focus on Love of God and Neighbor")
+            print("5. 🌍 World Peace Through Gospel Living")
+            print("6. 🌟 Full Sanctification Demonstration")
             print("0. Return to Main Menu")
 
-            choice = input("\n🔢 Select option (0-5): ").strip()
+            choice = input("\n🔢 Select option (0-6): ").strip()
 
             if choice == "0":
                 break
             elif choice == "1":
-                print("\n💊 TRUTH PRESCRIPTION GENERATOR")
-                print("Describe a problem or struggle you're facing:")
-                problem = input("Problem: ").strip()
-                
-                if problem:
-                    prescription = system.generate_truth_prescription(problem)
-                    print(f"\n{prescription}")
-                else:
-                    print("❌ Please describe a problem to get a truth prescription")
+                print("\n" + framework.get_all_precepts_summary())
 
             elif choice == "2":
-                print("\n🌱 TRUTH SEEDS LIBRARY")
-                print("=" * 50)
-                for i, seed in enumerate(system.truth_seeds, 1):
-                    print(f"{i}. {seed.truth_statement}")
-                    print(f"   Scripture: {seed.scripture_source}")
-                    print(f"   Main Promise: {seed.freedom_promises[0] if seed.freedom_promises else 'Freedom'}")
-                    print(f"   Solves: {seed.problems_it_solves[0] if seed.problems_it_solves else 'Various problems'}")
-                    print()
-
-            elif choice == "3":
-                print("\n🔓 TYPES OF FREEDOM TRUTH PROVIDES")
-                print("=" * 50)
-                freedom_types = {
-                    "Spiritual": "Freedom from sin, guilt, and separation from God",
-                    "Mental": "Freedom from false beliefs, confusion, and wrong thinking",
-                    "Emotional": "Freedom from fear, anxiety, depression, and emotional bondage",
-                    "Relational": "Freedom to love authentically and build healthy relationships",
-                    "Moral": "Freedom to choose right consistently and resist temptation",
-                    "Eternal": "Freedom from death, limitation, and temporal perspective"
-                }
+                print("\n📊 PERSONAL SANCTIFICATION ASSESSMENT")
+                print("Answer yes/no to assess your spiritual progress:")
                 
-                for freedom_type, description in freedom_types.items():
-                    print(f"🔓 {freedom_type}: {description}")
-                    print()
-
-            elif choice == "4":
-                print("\n📈 TRUTH INTERNALIZATION LEVELS")
-                print("=" * 50)
-                levels = [
-                    "1. HEARD - Truth heard but not yet believed",
-                    "2. UNDERSTOOD - Truth intellectually grasped", 
-                    "3. BELIEVED - Truth accepted and trusted",
-                    "4. PLANTED - Truth rooted in heart and mind",
-                    "5. LIVING - Truth actively governing thoughts and actions",
-                    "6. TRANSFORMING - Truth changing our very nature"
+                person_data = {}
+                questions = [
+                    ("prayer_regular", "Do you pray regularly with sincere intent?"),
+                    ("scripture_study", "Do you study scriptures daily?"),
+                    ("faith_strong", "Do you have strong faith in Jesus Christ?"),
+                    ("service_regular", "Do you regularly serve others?"),
+                    ("charity_giving", "Do you give generously to those in need?"),
+                    ("obedience_willing", "Do you willingly obey God's commandments?"),
+                    ("born_again", "Have you experienced conversion/mighty change?"),
+                    ("charity_developed", "Have you developed charity (pure love)?"),
+                    ("forgiveness_practiced", "Do you readily forgive others?"),
+                    ("endurance_shown", "Do you endure trials with faith?")
                 ]
                 
-                for level in levels:
-                    print(f"📈 {level}")
-                    print()
+                for key, question in questions:
+                    while True:
+                        answer = input(f"{question} (y/n): ").strip().lower()
+                        if answer in ['y', 'yes', 'n', 'no']:
+                            person_data[key] = answer in ['y', 'yes']
+                            break
+                        print("Please answer y/yes or n/no")
                 
-                print("💡 The deeper truth is internalized, the greater freedom it provides!")
+                assessment = framework.assess_sanctification_progress(person_data)
+                guidance = framework.generate_sanctification_guidance(assessment)
+                print(f"\n{guidance}")
+
+            elif choice == "3":
+                print("\n🎯 PRECEPT DETAILS")
+                print("Available precepts:")
+                precepts = ["faith_in_christ", "charity_pure_love", "prayer_communion", 
+                           "scripture_feasting", "service_poor", "repentance_change",
+                           "obedience_commandments", "endurance_steadfastness"]
+                
+                for i, precept in enumerate(precepts, 1):
+                    print(f"{i}. {precept.replace('_', ' ').title()}")
+                
+                try:
+                    choice_num = int(input("\nSelect precept number: "))
+                    if 1 <= choice_num <= len(precepts):
+                        precept_key = precepts[choice_num - 1]
+                        precept = framework.get_precept_details(precept_key)
+                        if precept:
+                            print(f"\n📖 {precept.precept.upper()}")
+                            print(f"How it draws closer: {precept.how_it_draws_closer}")
+                            print(f"Love of God: {precept.love_god_connection}")
+                            print(f"Love of Neighbor: {precept.love_neighbor_connection}")
+                            print(f"Sanctification Power: {precept.sanctification_power}")
+                            print(f"World Peace: {precept.world_peace_contribution}")
+                            print(f"\nPractical Applications:")
+                            for app in precept.practical_applications:
+                                print(f"• {app}")
+                    else:
+                        print("Invalid selection")
+                except ValueError:
+                    print("Please enter a valid number")
+
+            elif choice == "4":
+                print("\n💝 LOVE OF GOD AND NEIGHBOR - THE GREAT COMMANDMENTS")
+                print("=" * 60)
+                print("Jesus said: 'Thou shalt love the Lord thy God with all thy")
+                print("heart, and with all thy soul, and with all thy mind.")
+                print("This is the first and great commandment.")
+                print("And the second is like unto it, Thou shalt love thy")
+                print("neighbour as thyself.' - Matthew 22:37-39")
+                print("\n🔹 LOVE OF GOD demonstrated through:")
+                print("• Regular prayer and communion")
+                print("• Study of His word (scriptures)")
+                print("• Willing obedience to His commandments")
+                print("• Gratitude and worship")
+                print("• Faith and trust in His plan")
+                print("\n🔹 LOVE OF NEIGHBOR demonstrated through:")
+                print("• Service and charity")
+                print("• Forgiveness and patience")
+                print("• Kindness and compassion")
+                print("• Seeing others as God sees them")
+                print("• Sacrificing for others' welfare")
+                print("\n🌟 RESULT: Sanctification and becoming holy like God!")
 
             elif choice == "5":
-                from truth_foundation.truth_in_us import demonstrate_truth_in_us_system
-                demonstrate_truth_in_us_system()
+                print("\n🌍 WORLD PEACE THROUGH GOSPEL LIVING")
+                print("=" * 50)
+                print("The Book of Mormon precepts create peace by:")
+                print("\n🕊️ INDIVIDUAL LEVEL:")
+                print("• Inner peace through faith in Christ")
+                print("• Heart change through repentance")
+                print("• Love replacing hatred and selfishness")
+                print("\n🏠 FAMILY LEVEL:")
+                print("• Love and service in families")
+                print("• Forgiveness and patience")
+                print("• Teaching children Gospel principles")
+                print("\n🌎 SOCIETY LEVEL:")
+                print("• Justice and equality through Gospel law")
+                print("• Care for poor and needy")
+                print("• Unity across racial and cultural lines")
+                print("\n💡 'If all men would live by these precepts,")
+                print("there would be peace on earth and goodwill toward men.'")
+
+            elif choice == "6":
+                demonstrate_sanctification_system()
 
             else:
-                print("❌ Invalid choice. Please select 0-5.")
+                print("❌ Invalid choice. Please select 0-6.")
 
     except ImportError as e:
-        print(f"❌ Error loading Truth In Us system: {e}")
+        print(f"❌ Error loading Book of Mormon Precepts system: {e}")
 
 def run_family_agenda_analyzer():
     """Run the Family Agenda Analyzer System"""
@@ -699,51 +763,32 @@ def run_truth_rivers_system():
         print(f"❌ Error loading Truth Rivers System: {e}")
 
 def main():
-    """Main function with interactive menu system"""
+    """Main function to demonstrate the truth foundation system"""
     print("🕊️  AGAPE CORE AI - Gospel Truth-Based Decision Making")
     print("=" * 60)
-    
-    while True:
-        print("\n📋 AGAPE CORE AI MAIN MENU:")
-        print("1. 💬 Agape Chat Interface")
-        print("2. 🎯 Truth Foundation System")
-        print("3. 📺 Truth Discerner (Media Analysis)")
-        print("4. 🚀 Human Potential Calculator") 
-        print("5. 📖 Gospel Truth Engine")
-        print("6. 📜 New Testament Story Analyzer")
-        print("7. 🕊️ Gospel Cycles Analysis")
-        print("8. 👨‍👩‍👧‍👦 Family Agenda Analyzer")
-        print("9. 🌊 Truth Rivers System")
-        print("10. 🌱 Truth In Us - Truth That Sets Us Free")
-        print("0. Exit")
-        
-        choice = input("\n🔢 Select option (0-10): ").strip()
-        
-        if choice == "0":
-            print("\n🙏 May truth guide your path. God bless!")
-            break
-        elif choice == "1":
-            run_agape_chat()
-        elif choice == "2":
-            run_truth_foundation()
-        elif choice == "3":
-            run_truth_discerner()
-        elif choice == "4":
-            run_human_potential()
-        elif choice == "5":
-            run_gospel_engine()
-        elif choice == "6":
-            run_nt_story_analyzer()
-        elif choice == "7":
-            run_gospel_cycles()
-        elif choice == "8":
-            run_family_agenda_analyzer()
-        elif choice == "9":
-            run_truth_rivers_system()
-        elif choice == "10":
-            run_truth_in_us_system()
-        else:
-            print("❌ Invalid choice. Please select 0-10.")
+
+    print("\n🔍 ADVICE CREDIBILITY ANALYSIS DEMO")
+    print("-" * 40)
+    print("Demonstrating how our framework handles apparent contradictions...")
+
+    # Import and run the synthesis analysis
+    from truth_foundation.advice_credibility import analyze_jobs_yc_scaling_synthesis
+    analyze_jobs_yc_scaling_synthesis()
+
+    print("\n" + "-" * 40)
+    analyze_sam_altman_example()
+
+    print("\n" + "=" * 60)
+    print("💬 INTERACTIVE CHAT INTERFACE")
+    print("-" * 40)
+
+    # Initialize chat interface
+    try:
+        from chat_interface.agape_chat import AgapeChat
+        chat = AgapeChat()
+        chat.start_chat()
+    except ImportError as e:
+        print(f"❌ Error loading chat interface: {e}")
 
 if __name__ == "__main__":
     main()
