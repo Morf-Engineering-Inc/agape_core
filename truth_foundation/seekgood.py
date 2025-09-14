@@ -1,4 +1,3 @@
-
 """
 SeekGood Evaluation System
 Evaluates literature, media, books, and ideas against Gospel standards of goodness
@@ -14,6 +13,7 @@ import logging
 from .gospel_definitions import GospelDefinitions
 from .core_truths import TruthFoundation
 from .atonement_supreme import AtonementSupremeTruth
+from .glory_to_god import GloryToGodEvaluator
 
 logger = logging.getLogger(__name__)
 
@@ -65,15 +65,16 @@ class SeekGoodEvaluator:
     """
     Main evaluation engine for determining if content meets Gospel standards of goodness
     """
-    
+
     def __init__(self):
         self.gospel_definitions = GospelDefinitions()
         self.truth_foundation = TruthFoundation()
         self.atonement_supreme = AtonementSupremeTruth()
-        
+        self.glory_evaluator = GloryToGodEvaluator()
+
         # Initialize evaluation patterns
         self._initialize_goodness_patterns()
-    
+
     def _initialize_goodness_patterns(self):
         """Initialize patterns for evaluating the 8 criteria of goodness"""
         self.goodness_patterns = {
@@ -110,7 +111,7 @@ class SeekGoodEvaluator:
                 "negative": ["shameful", "disgraceful", "contemptible", "unworthy", "deplorable"]
             }
         }
-    
+
     def evaluate_content(self, title: str, category: ContentCategory, description: str, 
                         additional_context: Dict[str, Any] = None) -> ContentEvaluation:
         """
@@ -118,31 +119,31 @@ class SeekGoodEvaluator:
         """
         if additional_context is None:
             additional_context = {}
-        
+
         logger.info(f"Evaluating {category.value}: {title}")
-        
+
         # Evaluate against the 8 criteria
         seek_good_scores = self._evaluate_seek_good_criteria(description, additional_context)
-        
+
         # Calculate overall goodness
         overall_score = self._calculate_overall_goodness(seek_good_scores)
         goodness_level = self._determine_goodness_level(overall_score)
-        
+
         # Identify specific elements
         positive_elements = self._identify_positive_elements(description, additional_context)
         concerning_elements = self._identify_concerning_elements(description, additional_context)
-        
+
         # Get Gospel alignment
         gospel_alignment = self.gospel_definitions.evaluate_goodness(
             f"Consuming {category.value}: {title} - {description}", 
             additional_context
         )
-        
+
         # Generate recommendation and summary
         recommendation = self._generate_recommendation(goodness_level, overall_score, category)
         good_report_summary = self._generate_good_report_summary(title, seek_good_scores, positive_elements)
         discussion_questions = self._generate_discussion_questions(title, category, seek_good_scores)
-        
+
         return ContentEvaluation(
             title=title,
             category=category,
@@ -157,29 +158,29 @@ class SeekGoodEvaluator:
             good_report_summary=good_report_summary,
             discussion_questions=discussion_questions
         )
-    
+
     def _evaluate_seek_good_criteria(self, description: str, context: Dict[str, Any]) -> SeekGoodCriteria:
         """Evaluate content against the 8 criteria from Philippians 4:8"""
         description_lower = description.lower()
         context_text = " ".join(str(v) for v in context.values()).lower()
         full_text = f"{description_lower} {context_text}"
-        
+
         scores = {}
-        
+
         for criterion, patterns in self.goodness_patterns.items():
             positive_count = sum(1 for word in patterns["positive"] if word in full_text)
             negative_count = sum(1 for word in patterns["negative"] if word in full_text)
-            
+
             # Calculate score (0.0 to 1.0)
             if positive_count + negative_count == 0:
                 score = 0.5  # Neutral if no indicators
             else:
                 score = positive_count / (positive_count + negative_count)
-            
+
             scores[criterion] = score
-        
+
         return SeekGoodCriteria(**scores)
-    
+
     def _calculate_overall_goodness(self, scores: SeekGoodCriteria) -> float:
         """Calculate overall goodness score (0.0 - 5.0)"""
         # Weight the criteria (some are more important)
@@ -193,18 +194,18 @@ class SeekGoodEvaluator:
             'virtuous': 1.2,    # Virtue is essential
             'praiseworthy': 1.0 # Excellence is good
         }
-        
+
         total_weighted_score = 0
         total_weight = 0
-        
+
         for criterion, weight in weights.items():
             score = getattr(scores, criterion)
             total_weighted_score += score * weight
             total_weight += weight
-        
+
         average_score = total_weighted_score / total_weight
         return average_score * 5.0  # Scale to 0-5
-    
+
     def _determine_goodness_level(self, score: float) -> GoodnessLevel:
         """Determine goodness level based on score"""
         if score >= 4.0:
@@ -217,12 +218,12 @@ class SeekGoodEvaluator:
             return GoodnessLevel.QUESTIONABLE
         else:
             return GoodnessLevel.AVOID
-    
+
     def _identify_positive_elements(self, description: str, context: Dict[str, Any]) -> List[str]:
         """Identify specific positive elements"""
         positive_elements = []
         full_text = f"{description} {' '.join(str(v) for v in context.values())}".lower()
-        
+
         positive_indicators = {
             "Teaches moral lessons": ["moral", "lesson", "virtue", "character", "integrity"],
             "Promotes family values": ["family", "marriage", "children", "parents", "love"],
@@ -233,18 +234,18 @@ class SeekGoodEvaluator:
             "Creates beauty": ["beautiful", "artistic", "creative", "aesthetic", "harmony"],
             "Seeks truth": ["truth", "seek", "discover", "learn", "wisdom"]
         }
-        
+
         for element, keywords in positive_indicators.items():
             if any(keyword in full_text for keyword in keywords):
                 positive_elements.append(element)
-        
+
         return positive_elements
-    
+
     def _identify_concerning_elements(self, description: str, context: Dict[str, Any]) -> List[str]:
         """Identify specific concerning elements"""
         concerning_elements = []
         full_text = f"{description} {' '.join(str(v) for v in context.values())}".lower()
-        
+
         concerning_indicators = {
             "Contains explicit content": ["explicit", "graphic", "sexual", "nudity", "inappropriate"],
             "Promotes moral relativism": ["relative", "subjective", "no absolute", "your truth"],
@@ -255,13 +256,13 @@ class SeekGoodEvaluator:
             "Creates addiction patterns": ["addictive", "binge", "obsessive", "compulsive"],
             "Spreads fear or despair": ["fear", "despair", "hopeless", "doom", "anxiety"]
         }
-        
+
         for element, keywords in concerning_indicators.items():
             if any(keyword in full_text for keyword in keywords):
                 concerning_elements.append(element)
-        
+
         return concerning_elements
-    
+
     def _generate_recommendation(self, level: GoodnessLevel, score: float, category: ContentCategory) -> str:
         """Generate specific recommendation based on evaluation"""
         recommendations = {
@@ -271,9 +272,9 @@ class SeekGoodEvaluator:
             GoodnessLevel.QUESTIONABLE: f"⚡ CAUTION ADVISED: This {category.value} has more concerning than beneficial elements. Only consume with strong Gospel foundation.",
             GoodnessLevel.AVOID: f"🚨 NOT RECOMMENDED: This {category.value} does not meet Gospel standards of goodness and should be avoided."
         }
-        
+
         base_rec = recommendations[level]
-        
+
         # Add specific guidance based on category
         if category == ContentCategory.BOOK:
             base_rec += " Consider reading with family or study group for added benefit."
@@ -281,14 +282,14 @@ class SeekGoodEvaluator:
             base_rec += " Preview before family viewing if needed."
         elif category == ContentCategory.IDEA:
             base_rec += " Test this idea against Gospel truth before implementing."
-        
+
         return base_rec
-    
+
     def _generate_good_report_summary(self, title: str, scores: SeekGoodCriteria, 
                                     positive_elements: List[str]) -> str:
         """Generate summary for 'good report' purposes"""
         summary = f"GOOD REPORT ANALYSIS: '{title}'\n\n"
-        
+
         # Highlight strongest criteria
         criteria_scores = {
             "Truth": scores.true,
@@ -300,21 +301,21 @@ class SeekGoodEvaluator:
             "Virtue": scores.virtuous,
             "Praiseworthiness": scores.praiseworthy
         }
-        
+
         top_criteria = sorted(criteria_scores.items(), key=lambda x: x[1], reverse=True)[:3]
-        
+
         summary += "📊 STRONGEST QUALITIES:\n"
         for criterion, score in top_criteria:
             percentage = int(score * 100)
             summary += f"• {criterion}: {percentage}%\n"
-        
+
         if positive_elements:
             summary += f"\n✅ POSITIVE ELEMENTS:\n"
             for element in positive_elements[:3]:
                 summary += f"• {element}\n"
-        
+
         return summary
-    
+
     def _generate_discussion_questions(self, title: str, category: ContentCategory, 
                                      scores: SeekGoodCriteria) -> List[str]:
         """Generate discussion questions for families/groups"""
@@ -323,7 +324,7 @@ class SeekGoodEvaluator:
             f"What can we learn from this {category.value} that helps us become better disciples of Christ?",
             "Which of the 8 criteria (true, honest, just, pure, lovely, good report, virtuous, praiseworthy) does this exemplify best?"
         ]
-        
+
         # Add category-specific questions
         if category == ContentCategory.BOOK:
             questions.append("How do the ideas in this book align with Gospel truth?")
@@ -331,7 +332,7 @@ class SeekGoodEvaluator:
             questions.append("What values and worldviews are being promoted in this film?")
         elif category == ContentCategory.IDEA:
             questions.append("How can we test this idea against revealed truth?")
-        
+
         return questions
 
     def evaluate_1001_ideas_example(self) -> ContentEvaluation:
@@ -352,33 +353,33 @@ class SeekGoodEvaluator:
 def demonstrate_seekgood_system():
     """Demonstrate the SeekGood evaluation system"""
     evaluator = SeekGoodEvaluator()
-    
+
     # Example: Evaluate "1001 Ideas" book
     print("🔍 SEEKGOOD EVALUATION SYSTEM")
     print("=" * 50)
-    
+
     evaluation = evaluator.evaluate_1001_ideas_example()
-    
+
     print(f"📚 BOOK: {evaluation.title}")
     print(f"🎯 GOODNESS LEVEL: {evaluation.overall_goodness.name}")
     print(f"📊 GOODNESS SCORE: {evaluation.goodness_score:.2f}/5.0")
-    
+
     print(f"\n📋 SEEK GOOD CRITERIA SCORES:")
     criteria_dict = evaluation.seek_good_scores.__dict__
     for criterion, score in criteria_dict.items():
         percentage = int(score * 100)
         print(f"• {criterion.replace('_', ' ').title()}: {percentage}%")
-    
+
     print(f"\n✅ POSITIVE ELEMENTS:")
     for element in evaluation.positive_elements:
         print(f"• {element}")
-    
+
     print(f"\n💡 RECOMMENDATION:")
     print(evaluation.recommendation)
-    
+
     print(f"\n📖 GOOD REPORT SUMMARY:")
     print(evaluation.good_report_summary)
-    
+
     return evaluation
 
 if __name__ == "__main__":

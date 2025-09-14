@@ -29,7 +29,7 @@ from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
 from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework
-from agape_core_seed import AgapeCoreSeedAnalyzer, AIEthicsEvaluator
+from truth_foundation.glory_to_god import GloryToGodEvaluator
 
 
 class AgapeCoreAI:
@@ -51,8 +51,7 @@ class AgapeCoreAI:
         self.priesthood_holiness = PriesthoodHolinessFramework() # Initialize Priesthood Holiness Framework
         self.family_agenda_analyzer = FamilyAgendaAnalyzer() # Initialize Family Agenda Analyzer
         self.bom_precepts = BookOfMormonPreceptsFramework() # Initialize Book of Mormon Precepts
-        self.seed_analyzer = AgapeCoreSeedAnalyzer() # Initialize Agape Core Seed Analyzer
-        self.ethics_evaluator = AIEthicsEvaluator() # Initialize AI Ethics Evaluator
+        self.glory_evaluator = GloryToGodEvaluator() # Initialize Glory to God Evaluator
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -97,6 +96,9 @@ class AgapeCoreAI:
                 "seeking_truth": "truth" in statement.lower() or "god" in statement.lower()
             }
             sanctification_assessment = self.bom_precepts.assess_sanctification_progress(person_data)
+        
+        # Add Glory to God evaluation
+        glory_evaluation = self.glory_evaluator.evaluate_glory_to_god(statement, context)
 
 
         return {
@@ -109,6 +111,13 @@ class AgapeCoreAI:
             "new_testament_adoption_evaluation": new_testament_adoption, # Add NT adoption evaluation
             "family_agenda_analysis": family_agenda_analysis, # Add family agenda analysis
             "sanctification_assessment": sanctification_assessment, # Add sanctification assessment
+            "glory_to_god_evaluation": {
+                "glory_level": glory_evaluation.glory_level.name,
+                "glory_score": glory_evaluation.glory_score,
+                "attributes_glorified": glory_evaluation.attributes_glorified,
+                "attributes_dishonored": glory_evaluation.attributes_dishonored,
+                "eternal_perspective": glory_evaluation.eternal_perspective
+            }, # Add Glory to God evaluation
             "overall_guidance": self._generate_atonement_grounded_guidance(statement, atonement_evaluation, gospel_evaluation)
         }
 
