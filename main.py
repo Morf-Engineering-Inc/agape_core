@@ -28,7 +28,8 @@ from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analy
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
-from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework
+from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework, demo_book_of_mormon_precepts
+from truth_foundation.mathematical_truth import demo_mathematical_truth
 from truth_foundation.glory_to_god import GloryToGodEvaluator
 
 
@@ -72,7 +73,7 @@ class AgapeCoreAI:
         # Integrate Priesthood Holiness framework
         priesthood_evaluation = self.priesthood_holiness.evaluate_priesthood_pattern(statement, context)
         new_testament_adoption = self.priesthood_holiness.evaluate_new_testament_adoption(statement, context)
-        
+
         # Add family agenda analysis if context suggests media content
         family_agenda_analysis = None
         if any(keyword in statement.lower() for keyword in ['movie', 'show', 'content', 'media', 'watch']):
@@ -82,7 +83,7 @@ class AgapeCoreAI:
                 "family_impact_detected": "analyzing statement for family truth alignment",
                 "recommendation": "Apply Proclamation on the Family standards to evaluate content"
             }
-        
+
         # Add sanctification assessment for spiritual growth statements
         sanctification_assessment = None
         if any(keyword in statement.lower() for keyword in ['god', 'holy', 'sanctif', 'love', 'neighbor', 'christ', 'gospel']):
@@ -96,7 +97,7 @@ class AgapeCoreAI:
                 "seeking_truth": "truth" in statement.lower() or "god" in statement.lower()
             }
             sanctification_assessment = self.bom_precepts.assess_sanctification_progress(person_data)
-        
+
         # Add Glory to God evaluation
         glory_evaluation = self.glory_evaluator.evaluate_glory_to_god(statement, context)
 
@@ -429,17 +430,17 @@ def run_gospel_cycles():
                 olive_analysis = analyzer.analyze_olive_tree_patterns()
                 print("\n🔍 VINEYARD PATTERN ANALYSIS")
                 print("=" * 50)
-                
+
                 print("\n✂️ PRUNING CYCLES:")
                 for pruning in olive_analysis["pruning_cycles"]:
                     print(f"• {pruning['period']}: {pruning['pruning_type']}")
                     print(f"  Lessons: {pruning['lessons'][0] if pruning['lessons'] else 'Growth through adversity'}")
-                
+
                 print("\n🌿 GRAFTING PERIODS:")
                 for grafting in olive_analysis["grafting_periods"]:
                     print(f"• {grafting['period']}: Success +{grafting['grafting_success']}")
                     print(f"  New Strength: {grafting['new_strength']}")
-                
+
                 if olive_analysis["current_vineyard_state"]:
                     current = olive_analysis["current_vineyard_state"]
                     print(f"\n🌟 CURRENT VINEYARD STATE:")
@@ -471,7 +472,7 @@ def run_book_of_mormon_precepts():
         while True:
             print("\n📋 Book of Mormon Precepts Options:")
             print("1. 🕊️ View All Precepts Summary")
-            print("2. 📊 Assess Personal Sanctification Progress") 
+            print("2. 📊 Assess Personal Sanctification Progress")
             print("3. 🎯 Get Specific Precept Details")
             print("4. 💝 Focus on Love of God and Neighbor")
             print("5. 🌍 World Peace Through Gospel Living")
@@ -488,7 +489,7 @@ def run_book_of_mormon_precepts():
             elif choice == "2":
                 print("\n📊 PERSONAL SANCTIFICATION ASSESSMENT")
                 print("Answer yes/no to assess your spiritual progress:")
-                
+
                 person_data = {}
                 questions = [
                     ("prayer_regular", "Do you pray regularly with sincere intent?"),
@@ -502,7 +503,7 @@ def run_book_of_mormon_precepts():
                     ("forgiveness_practiced", "Do you readily forgive others?"),
                     ("endurance_shown", "Do you endure trials with faith?")
                 ]
-                
+
                 for key, question in questions:
                     while True:
                         answer = input(f"{question} (y/n): ").strip().lower()
@@ -510,7 +511,7 @@ def run_book_of_mormon_precepts():
                             person_data[key] = answer in ['y', 'yes']
                             break
                         print("Please answer y/yes or n/no")
-                
+
                 assessment = framework.assess_sanctification_progress(person_data)
                 guidance = framework.generate_sanctification_guidance(assessment)
                 print(f"\n{guidance}")
@@ -518,13 +519,13 @@ def run_book_of_mormon_precepts():
             elif choice == "3":
                 print("\n🎯 PRECEPT DETAILS")
                 print("Available precepts:")
-                precepts = ["faith_in_christ", "charity_pure_love", "prayer_communion", 
+                precepts = ["faith_in_christ", "charity_pure_love", "prayer_communion",
                            "scripture_feasting", "service_poor", "repentance_change",
                            "obedience_commandments", "endurance_steadfastness"]
-                
+
                 for i, precept in enumerate(precepts, 1):
                     print(f"{i}. {precept.replace('_', ' ').title()}")
-                
+
                 try:
                     choice_num = int(input("\nSelect precept number: "))
                     if 1 <= choice_num <= len(precepts):
@@ -627,14 +628,14 @@ def run_family_agenda_analyzer():
                 if not title:
                     print("❌ Title required")
                     continue
-                
+
                 description = input("Brief description: ").strip()
                 target_audience = input("Target audience: ").strip() or "General"
-                
+
                 # Simplified character analysis
                 characters = {"main_characters": "To be analyzed based on description"}
                 plot_elements = [description] if description else ["General content"]
-                
+
                 try:
                     analysis = analyzer.analyze_content_agenda(
                         title=title,
@@ -643,26 +644,26 @@ def run_family_agenda_analyzer():
                         plot_elements=plot_elements,
                         target_audience=target_audience
                     )
-                    
+
                     print(f"\n📊 ANALYSIS RESULTS:")
                     print(f"Title: {analysis.content_title}")
                     print(f"Family Impact: {analysis.family_evaluation.family_impact.name}")
                     print(f"Agenda Score: {analysis.overall_agenda_score:.2f}/1.0")
                     print(f"Proclamation Alignment: {analysis.family_evaluation.proclamation_alignment:.2f}/1.0")
-                    
+
                     if analysis.detected_agendas:
                         print(f"\n🎯 DETECTED AGENDAS:")
                         for agenda in analysis.detected_agendas:
                             print(f"• {agenda.agenda_type}")
-                    
+
                     if analysis.proclamation_violations:
                         print(f"\n⚠️ PROCLAMATION VIOLATIONS:")
                         for violation in analysis.proclamation_violations[:3]:
                             print(f"• {violation}")
-                    
+
                     print(f"\n🛡️ RECOMMENDATION:")
                     print(analysis.family_protection_guidance[:300] + "...")
-                    
+
                 except Exception as e:
                     print(f"❌ Analysis error: {e}")
 
@@ -789,6 +790,16 @@ def main():
 
     print("\n" + "-" * 40)
     analyze_sam_altman_example()
+
+    print("\n" + "=" * 80)
+    print("📖 BOOK OF MORMON PRECEPTS DEMONSTRATION")
+    print("=" * 80)
+    demo_book_of_mormon_precepts()
+
+    print("\n" + "="*80)
+    print("🔢 MATHEMATICAL TRUTH & LOGIC TABLES DEMONSTRATION")
+    print("="*80)
+    demo_mathematical_truth()
 
     print("\n" + "=" * 60)
     print("💬 INTERACTIVE CHAT INTERFACE")
