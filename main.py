@@ -34,6 +34,7 @@ from truth_foundation.glory_to_god import GloryToGodEvaluator
 from truth_foundation.truth_system_evaluator import TruthSystemEvaluator # Import the new evaluator
 from truth_foundation.truth_in_us import TruthInUsFramework
 from truth_foundation.temple_laws import TempleLawsFramework
+from truth_foundation.natural_man_flesh import NaturalManAnalyzer # Import NaturalManAnalyzer
 
 class AgapeCoreAI:
     """
@@ -58,6 +59,7 @@ class AgapeCoreAI:
         self.truth_evaluator = TruthSystemEvaluator() # Initialize TruthSystemEvaluator
         self.truth_in_us = TruthInUsFramework()
         self.temple_laws = TempleLawsFramework()
+        self.natural_man_analyzer = NaturalManAnalyzer() # Initialize NaturalManAnalyzer
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -821,9 +823,10 @@ def main():
         print("6. 🌊 Truth Rivers System")
         print("7. 💬 Interactive Chat Interface")
         print("8. 🔍 Advice Credibility Analysis Demo")
+        print("9. 😈 Natural Man / Works of Flesh Analyzer (NEW)")
         print("0. Exit")
 
-        choice = input("\n🔢 Select option (0-8): ").strip()
+        choice = input("\n🔢 Select option (0-9): ").strip()
 
         if choice == "0":
             print("👋 Thank you for using Agape Core AI!")
@@ -859,8 +862,29 @@ def main():
 
             print("\n" + "-" * 40)
             analyze_sam_altman_example()
+        elif choice == "9":
+            # Natural Man / Works of Flesh Analyzer Demo
+            print("\n" + "="*60)
+            print("NATURAL MAN / WORKS OF FLESH ANALYZER DEMO")
+            print("="*60)
+
+            flesh_analyzer = NaturalManAnalyzer()
+
+            # Example analyses
+            test_behaviors = [
+                "I can't control my temper when things don't go my way",
+                "I spend hours looking at things I want to buy on social media",
+                "I refuse to forgive someone who hurt me years ago"
+            ]
+
+            for behavior in test_behaviors:
+                print(f"\n🔍 ANALYZING: {behavior}")
+                print("-" * 40)
+                report = flesh_analyzer.generate_flesh_report(behavior)
+                print(report)
+                print("\n" + "="*60)
         else:
-            print("❌ Invalid choice. Please select 0-8.")
+            print("❌ Invalid choice. Please select 0-9.")
 
 
 if __name__ == "__main__":
