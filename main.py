@@ -34,7 +34,8 @@ from truth_foundation.glory_to_god import GloryToGodEvaluator
 from truth_foundation.truth_system_evaluator import TruthSystemEvaluator # Import the new evaluator
 from truth_foundation.truth_in_us import TruthInUsFramework
 from truth_foundation.temple_laws import TempleLawsFramework
-from truth_foundation.natural_man_flesh import NaturalManAnalyzer # Import NaturalManAnalyzer
+from truth_foundation.natural_man_flesh import NaturalManAnalyzer
+from arcos.arcos_core import ArcOsCore # Import NaturalManAnalyzer
 
 class AgapeCoreAI:
     """
@@ -60,6 +61,7 @@ class AgapeCoreAI:
         self.truth_in_us = TruthInUsFramework()
         self.temple_laws = TempleLawsFramework()
         self.natural_man_analyzer = NaturalManAnalyzer() # Initialize NaturalManAnalyzer
+        self.arcos = ArcOsCore() # Initialize ArcOs - Advanced Revelation and Covenant Operating System
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
