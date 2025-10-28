@@ -2989,3 +2989,302 @@ Would you like me to draft the ArcOS Extension MVP plan next — including techn
 
 No file chosenNo file chosen
 ChatGPT can make mistakes. Check important info.
+
+
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1A1D25"/>
+      <stop offset="100%" stop-color="#0C0E14"/>
+    </radialGradient>
+
+    <!-- Core glow -->
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#FFF8E1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFDFA1" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Outer halo -->
+    <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+
+    <!-- Stage text style hint (not functional in raw SVG, but kept here for design reference):
+         Font: 'Garamond' / 'Cormorant Garamond', small caps, tracking +40
+    -->
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <!-- Center coordinates we'll use: (600,600) -->
+
+  <!-- Outer halo -->
+  <circle cx="600" cy="600" r="520" fill="url(#haloGrad)" />
+
+  <!-- Stage ring guide (visual placeholder ring for now) -->
+  <circle cx="600" cy="600" r="500" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  <circle cx="600" cy="600" r="340" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+
+  <!-- Core glow -->
+  <circle cx="600" cy="600" r="140" fill="url(#coreGrad)"/>
+
+  <!-- Core label -->
+  <text x="600" y="585" text-anchor="middle" fill="#FFFFFF" font-family="Garamond, serif" font-size="28" letter-spacing="2" style="text-transform:uppercase;">
+    CHRIST
+  </text>
+  <text x="600" y="615" text-anchor="middle" fill="#FFF8E1" font-family="Garamond, serif" font-size="16" letter-spacing="1.5">
+    The Source of Light
+  </text>
+  <text x="600" y="640" text-anchor="middle" fill="#9E8F5F" font-family="Garamond, serif" font-size="13" font-style="italic" letter-spacing="1">
+    "In Him was life; and the life was the light of men."
+  </text>
+  <text x="600" y="657" text-anchor="middle" fill="#9E8F5F" font-family="Garamond, serif" font-size="12" font-style="italic" letter-spacing="1">
+    — John 1:4
+  </text>
+
+  <!-- Stage labels around the ring -->
+  <!-- We'll place each label ~560px from center (outside the ring) -->
+  <!-- angle reference:
+       0  Identity/Awakening        12 o'clock   (270° SVG would be "up", but we'll compute manually)
+       We'll just hard place coordinates for v1.
+  -->
+
+  <!-- 0 - Identity / Awakening (12 o'clock-ish) -->
+  <text x="600" y="80"
+        text-anchor="middle"
+        fill="#FFFFFF"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    0 • IDENTITY / AWAKENING
+  </text>
+  <text x="600" y="100"
+        text-anchor="middle"
+        fill="#BFB792"
+        font-family="Garamond, serif"
+        font-size="13">
+    "Who am I? The light awakens."
+  </text>
+
+  <!-- 1 - Seeking (roughly 1 o'clock) -->
+  <text x="855" y="160"
+        text-anchor="middle"
+        fill="#CFE8CF"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    1 • SEEKING
+  </text>
+  <text x="855" y="180"
+        text-anchor="middle"
+        fill="#8FB88F"
+        font-family="Garamond, serif"
+        font-size="13">
+    Desire the good, the true, the beautiful.
+  </text>
+
+  <!-- 2 - Information (2 o'clock) -->
+  <text x="1020" y="330"
+        text-anchor="middle"
+        fill="#A7D4FF"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    2 • INFORMATION
+  </text>
+  <text x="1020" y="350"
+        text-anchor="middle"
+        fill="#6FA0CF"
+        font-family="Garamond, serif"
+        font-size="13">
+    Receive truth. Awareness begins.
+  </text>
+
+  <!-- 3 - Learning (3 o'clock) -->
+  <text x="1110" y="600"
+        text-anchor="middle"
+        fill="#6CCFC3"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    3 • LEARNING
+  </text>
+  <text x="1110" y="620"
+        text-anchor="middle"
+        fill="#4B9E93"
+        font-family="Garamond, serif"
+        font-size="13">
+    Engage. Practice. Grow.
+  </text>
+
+  <!-- 4 - Understanding (4 o'clock / ~5 o'clock visually) -->
+  <text x="1020" y="870"
+        text-anchor="middle"
+        fill="#FFD54F"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    4 • UNDERSTANDING
+  </text>
+  <text x="1020" y="890"
+        text-anchor="middle"
+        fill="#B89A32"
+        font-family="Garamond, serif"
+        font-size="13">
+    See meaning, order, relationship.
+  </text>
+
+  <!-- 5 - Discernment (5-6 o'clock) -->
+  <text x="855" y="1040"
+        text-anchor="middle"
+        fill="#FBC02D"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    5 • DISCERNMENT
+  </text>
+  <text x="855" y="1060"
+        text-anchor="middle"
+        fill="#A17E12"
+        font-family="Garamond, serif"
+        font-size="13">
+    Distinguish light from darkness.
+  </text>
+
+  <!-- 6 - Choice (Agency) (6 o'clock-ish / lower middle) -->
+  <text x="600" y="1120"
+        text-anchor="middle"
+        fill="#F57C00"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    6 • CHOICE / AGENCY
+  </text>
+  <text x="600" y="1140"
+        text-anchor="middle"
+        fill="#B85C00"
+        font-family="Garamond, serif"
+        font-size="13">
+    Act deliberately in the light.
+  </text>
+
+  <!-- 7 - Knowledge (~7 o'clock) -->
+  <text x="345" y="1040"
+        text-anchor="middle"
+        fill="#BFA8FF"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    7 • KNOWLEDGE
+  </text>
+  <text x="345" y="1060"
+        text-anchor="middle"
+        fill="#7E57C2"
+        font-family="Garamond, serif"
+        font-size="13">
+    You know because you’ve lived it.
+  </text>
+
+  <!-- 8 - Wisdom & Intelligence (~8 o'clock) -->
+  <text x="180" y="870"
+        text-anchor="middle"
+        fill="#FFF8E1"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    8 • WISDOM &amp; INTELLIGENCE
+  </text>
+  <text x="180" y="890"
+        text-anchor="middle"
+        fill="#C0B27A"
+        font-family="Garamond, serif"
+        font-size="13">
+    Truth applied and embodied.
+  </text>
+  <text x="180" y="910"
+        text-anchor="middle"
+        fill="#C0B27A"
+        font-family="Garamond, serif"
+        font-size="13">
+    The mind of Christ.
+  </text>
+
+  <!-- 9 - Remembrance & Testimony (~9-10-11 o'clock zone) -->
+  <text x="90" y="600"
+        text-anchor="middle"
+        fill="#FFDCEB"
+        font-family="Garamond, serif"
+        font-size="16"
+        letter-spacing="1.5"
+        style="text-transform:uppercase;">
+    9 • REMEMBRANCE &amp; TESTIMONY
+  </text>
+  <text x="90" y="620"
+        text-anchor="middle"
+        fill="#B27D8E"
+        font-family="Garamond, serif"
+        font-size="13">
+    See Christ in all things.
+  </text>
+  <text x="90" y="640"
+        text-anchor="middle"
+        fill="#B27D8E"
+        font-family="Garamond, serif"
+        font-size="13">
+    Bear witness of the Source.
+  </text>
+
+  <!-- Return arrow text (~11 o'clock) -->
+  <text x="180" y="330"
+        text-anchor="middle"
+        fill="#FFFFFF"
+        font-family="Garamond, serif"
+        font-size="14"
+        font-style="italic"
+        letter-spacing="1">
+    Renewal of Identity →
+  </text>
+  <text x="180" y="350"
+        text-anchor="middle"
+        fill="#9E8F5F"
+        font-family="Garamond, serif"
+        font-size="12"
+        font-style="italic"
+        letter-spacing="1">
+    The circle begins again.
+  </text>
+
+  <!-- ArcOS label / tagline -->
+  <text x="600" y="1180"
+        text-anchor="middle"
+        fill="#FFFFFF"
+        font-family="Garamond, serif"
+        font-size="18"
+        letter-spacing="2"
+        style="text-transform:uppercase;">
+    ArcOS
+  </text>
+  <text x="600" y="1198"
+        text-anchor="middle"
+        fill="#9E8F5F"
+        font-family="Garamond, serif"
+        font-size="12"
+        font-style="italic"
+        letter-spacing="1">
+    The Operating System of Light
+  </text>
+
+</svg>
