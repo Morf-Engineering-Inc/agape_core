@@ -1,18 +1,31 @@
+modules = ["python-3.11"]
 [nix]
 channel = "stable-25_05"
 packages = ["glibcLocales"]
 
 [workflows]
-runButton = "Run Agape Core"
+runButton = "Project"
 
 [[workflows.workflow]]
 name = "Run Agape Core"
-author = 835159
+author = "agent"
 mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py"
+args = "python3 main.py"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Run Agape Core"
 
 [agent]
 expertMode = true

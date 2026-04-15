@@ -20,19 +20,16 @@ from truth_foundation.atonement_supreme import AtonementSupremeTruth
 from truth_foundation.seekgood import SeekGoodEvaluator
 # Import NTStoryAnalyzer and TruthRivers, assuming they exist in truth_foundation
 from truth_foundation.nt_story_analyzer import NTStoryAnalyzer
-from truth_foundation.truth_rivers import TruthRivers
-# Import LimitationsAndPurpose, assuming it exists in limitations_and_purpose
-from limitations_and_purpose import LimitationsAndPurpose
+from truth_foundation.truth_rivers import TruthRiversSystem as TruthRivers
 # Import AdviceCredibilityAnalyzer and related functions
 from truth_foundation.advice_credibility import AdviceCredibilityAnalyzer, analyze_sam_altman_example
 from truth_foundation.gospel_cycles import GospelCyclesAnalyzer
 from truth_foundation.priesthood_holiness import PriesthoodHolinessFramework
 from truth_foundation.family_agenda_analyzer import FamilyAgendaAnalyzer
-from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework, demo_book_of_mormon_precepts
-from truth_foundation.mathematical_truth import demo_mathematical_truth
+from truth_foundation.book_of_mormon_precepts import BookOfMormonPreceptsFramework
 from truth_foundation.glory_to_god import GloryToGodEvaluator
 from truth_foundation.truth_system_evaluator import TruthSystemEvaluator # Import the new evaluator
-from truth_foundation.truth_in_us import TruthInUsFramework
+from truth_foundation.truth_in_us import TruthInUsSystem as TruthInUsFramework
 from truth_foundation.temple_laws import TempleLawsFramework
 from truth_foundation.natural_man_flesh import NaturalManAnalyzer
 from arcos.arcos_core import ArcOsCore # Import NaturalManAnalyzer
@@ -49,7 +46,7 @@ class AgapeCoreAI:
         self.gospel_definitions = GospelDefinitions()
         self.nt_analyzer = NTStoryAnalyzer()
         self.truth_rivers = TruthRivers()
-        self.limitations = LimitationsAndPurpose()
+        self.limitations = AILimitationsFramework()
         self.seekgood_evaluator = SeekGoodEvaluator()
         self.advice_analyzer = AdviceCredibilityAnalyzer() # Initialize AdviceCredibilityAnalyzer
         self.gospel_cycles = GospelCyclesAnalyzer() # Initialize Gospel Cycles Analyzer
@@ -826,9 +823,10 @@ def main():
         print("7. 💬 Interactive Chat Interface")
         print("8. 🔍 Advice Credibility Analysis Demo")
         print("9. 😈 Natural Man / Works of Flesh Analyzer (NEW)")
+        print("10. 🏛️  Epic of Gilgamesh — Gospel Truth RAG Evaluation (NEW)")
         print("0. Exit")
 
-        choice = input("\n🔢 Select option (0-9): ").strip()
+        choice = input("\n🔢 Select option (0-10): ").strip()
 
         if choice == "0":
             print("👋 Thank you for using Agape Core AI!")
@@ -885,8 +883,32 @@ def main():
                 report = flesh_analyzer.generate_flesh_report(behavior)
                 print(report)
                 print("\n" + "="*60)
+        elif choice == "10":
+            print("\n🏛️  EPIC OF GILGAMESH — GOSPEL TRUTH RAG EVALUATION")
+            print("=" * 60)
+            print("Evaluates the world's oldest written epic against Gospel truth")
+            print("Framework: SeekGood (Phil. 4:8) + Biblical Media Analysis")
+            print("-" * 60)
+
+            custom_file = input(
+                "\n📂 Enter path to a Gilgamesh text file (or press Enter to use\n"
+                "   the built-in 12-tablet knowledge base): "
+            ).strip()
+
+            verbose = input("🔍 Show per-tablet breakdown? (y/n): ").strip().lower() == "y"
+
+            try:
+                from gilgamesh_evaluator.gilgamesh_rag_evaluator import (
+                    GilgameshRAGEvaluator, print_verdict
+                )
+                evaluator = GilgameshRAGEvaluator()
+                file_path = custom_file if custom_file else None
+                verdict = evaluator.evaluate(file_path=file_path)
+                print_verdict(verdict, verbose=verbose)
+            except Exception as e:
+                print(f"❌ Error running Gilgamesh evaluator: {e}")
         else:
-            print("❌ Invalid choice. Please select 0-9.")
+            print("❌ Invalid choice. Please select 0-10.")
 
 
 if __name__ == "__main__":
