@@ -49,6 +49,7 @@ The foundation of all decision-making, organized in hierarchical order:
 - **👨‍👩‍👧‍👦 Family Agenda Detection** - Protect families using Proclamation on the Family standards
 - **💡 Truth Liberation** - How specific truths set us free from specific problems
 - **📚 Sanctification Precepts** - Book of Mormon principles for becoming holy like God
+- **⚖️ Boole Laws of Thought** - George Boole's formal logic engine for rigorous truth chain validation
 
 ## 🚀 Quick Start
 
@@ -100,7 +101,8 @@ agape_core/
 │   ├── priesthood_holiness.py # Priesthood/holiness framework
 │   ├── family_agenda_analyzer.py # Media agenda detection vs. Proclamation
 │   ├── truth_in_us.py       # Truth setting us free analysis
-│   └── book_of_mormon_precepts.py # Sanctification through Gospel precepts
+│   ├── book_of_mormon_precepts.py # Sanctification through Gospel precepts
+│   └── boole_logic.py       # George Boole's Laws of Thought engine (NEW)
 ├── truth_discerner/          # Media and content analysis
 │   ├── media_analyzer.py    # Content evaluation tools
 │   └── README.md           # Truth Discerner documentation
@@ -160,6 +162,7 @@ Historical Example: Samuel Morse's telegraph ("What hath God wrought") demonstra
 - **Family Agenda Analyzer** - detect media agendas against Proclamation on Family
 - **Truth In Us Framework** - how truth sets us free for specific problems
 - **Book of Mormon Precepts** - sanctification through Gospel living precepts
+- **Boole Laws of Thought Engine** - formal Boolean logic for rigorous reasoning chain validation (NEW)
 - **Value Impact Theory** foundation
 
 ### 🚧 In Development
@@ -238,6 +241,41 @@ Understand historical patterns of faithfulness using the Lord's vineyard allegor
 
 ### 👨‍👩‍👧‍👦 Family Protection Analysis
 Detect hidden agendas in media content that contradict the Proclamation on the Family, helping families discern content that builds vs. destroys eternal family values.
+
+### ⚖️ Boole Laws of Thought Engine (NEW)
+Formally validate reasoning chains using George Boole's three foundational laws from *An Investigation of the Laws of Thought* (1854):
+
+- **Law of Identity** (P = P): Every truth is self-consistent — "Jesus Christ the same yesterday, today, and forever" (Hebrews 13:8)
+- **Law of Non-contradiction** (P ∧ ¬P = False): No truth can be simultaneously true and false — "God is light, and in him there is no darkness" (1 John 1:5)  
+- **Law of Excluded Middle** (P ∨ ¬P = True): Every moral claim is definitively true or false — "Let your yes be yes and your no be no" (Matthew 5:37)
+
+Boole was a devout Christian who believed these laws were God-given, reflecting the divine Logos (John 1:1) embedded in creation. The engine moves Agape Core beyond keyword matching toward rigorous, formally validated Gospel reasoning chains.
+
+```python
+from truth_foundation.boole_logic import BooleLogicEngine
+
+engine = BooleLogicEngine()
+
+# Evaluate a moral claim against Gospel propositions
+result = engine.evaluate_moral_claim(
+    claim="Serving the poor honors God",
+    context_propositions=["love_neighbor", "human_dignity", "love_god"]
+)
+print(result["boole_verdict"])
+
+# Build a formal multi-step reasoning chain
+chain = engine.build_reasoning_chain(
+    description="Actions that diminish human dignity violate the second commandment",
+    proposition_names=["love_neighbor", "human_dignity"],
+    steps=[{
+        "premises": ["love_neighbor", "human_dignity"],
+        "operator": "AND",
+        "conclusion_name": "dignity_honors_commandment",
+        "conclusion_statement": "Treating others with dignity honors the love commandment"
+    }]
+)
+print(engine.format_chain_report(chain))
+```
 
 ## 🔗 Quick Links
 

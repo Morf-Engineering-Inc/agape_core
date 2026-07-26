@@ -10,6 +10,37 @@ from typing import Dict, List, Optional, Any, Tuple, Union
 from enum import Enum
 import itertools
 
+# ---------------------------------------------------------------------------
+# Boole's Three Foundational Laws of Thought (1854)
+# Named constants so every module can reference them by name.
+# Source: George Boole, "An Investigation of the Laws of Thought" (1854)
+# ---------------------------------------------------------------------------
+
+#: Law of Identity — every truth is identical to itself (P = P).
+#: Gospel parallel: "Jesus Christ the same yesterday, today, and forever"
+#: (Hebrews 13:8)
+BOOLE_LAW_IDENTITY = (
+    "Law of Identity (P = P): Every proposition is identical to itself. "
+    "Truth does not contradict itself across time or context."
+)
+
+#: Law of Non-contradiction — a proposition cannot be simultaneously true
+#: and false (P ∧ ¬P = False).
+#: Gospel parallel: "God is light, and in him is no darkness at all"
+#: (1 John 1:5)
+BOOLE_LAW_NON_CONTRADICTION = (
+    "Law of Non-contradiction (P ∧ ¬P = False): No proposition can be "
+    "simultaneously true and false. God's truth never contradicts itself."
+)
+
+#: Law of Excluded Middle — every proposition must be either true or false,
+#: with no middle ground (P ∨ ¬P = True).
+#: Gospel parallel: "Let your yes be yes and your no be no" (Matthew 5:37)
+BOOLE_LAW_EXCLUDED_MIDDLE = (
+    "Law of Excluded Middle (P ∨ ¬P = True): Every proposition must be "
+    "either true or false — no vague middle ground. Binary moral clarity."
+)
+
 class LogicalOperator(Enum):
     AND = "∧"
     OR = "∨" 
@@ -128,14 +159,34 @@ class MathematicalTruthAnalyzer:
             ),
             
             MathematicalInsight(
-                insight="Boolean algebra and logical operations",
+                insight=(
+                    "Boolean algebra and the three Laws of Thought: "
+                    "Identity (P=P), Non-contradiction (P∧¬P=False), "
+                    "Excluded Middle (P∨¬P=True)"
+                ),
                 mathematician="George Boole",
                 era=MathematicalEra.MODERN,
                 year=1854,
-                divine_connection="Binary logic reflects divine order (light/darkness, truth/error)",
-                plato_principle="Pure logical forms independent of material world",
-                scriptural_parallel="'Let your communication be, Yea, yea; Nay, nay' (Matthew 5:37)",
-                modern_application="Computer logic, AI reasoning, digital circuits, decision analysis"
+                divine_connection=(
+                    "Boole was a devout Christian who saw formal logic as "
+                    "uncovering God-given laws of rational thought — the Logos "
+                    "(John 1:1) embedded in creation. Binary truth (0/1) mirrors "
+                    "divine moral clarity: light vs. darkness, truth vs. error."
+                ),
+                plato_principle=(
+                    "Pure logical forms independent of material world; "
+                    "mathematical necessity binding all rational minds equally"
+                ),
+                scriptural_parallel=(
+                    "'Let your yes be yes and your no be no' (Matthew 5:37); "
+                    "'Come, let us reason together' (Isaiah 1:18); "
+                    "'The glory of God is intelligence' (D&C 93:36)"
+                ),
+                modern_application=(
+                    "All digital computers, AI reasoning systems, logic gates, "
+                    "decision analysis, formal verification of software — "
+                    "every if/then statement in existence runs on Boole's algebra"
+                ),
             ),
             
             MathematicalInsight(
