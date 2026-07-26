@@ -29,6 +29,7 @@ class RiverType(Enum):
     NATURAL_LAW = "natural_law"
     MORAL_LAW = "moral_law"
     EXPERIENTIAL = "experiential"
+    LOGIC = "logic"
 
 @dataclass
 class TruthRiver:
@@ -290,7 +291,91 @@ class TruthRiversSystem:
         )
         
         self.rivers["theology"] = theology_river
-    
+
+        # Boolean Logic River — George Boole's Laws of Thought (1854)
+        logic_truths = [
+            TruthStatement(
+                statement=(
+                    "Every proposition is identical to itself (Law of Identity: P = P); "
+                    "no proposition can be simultaneously true and false "
+                    "(Law of Non-contradiction: P ∧ ¬P = False); "
+                    "every proposition is either true or false "
+                    "(Law of Excluded Middle: P ∨ ¬P = True)"
+                ),
+                level=TruthLevel.NATURAL_TRUTH,
+                authority_source=(
+                    "George Boole, 'An Investigation of the Laws of Thought' (1854); "
+                    "confirmed by all of mathematics, computer science, and formal logic"
+                ),
+                confidence=1.0,
+                context="Formal reasoning and logical validity",
+                supporting_evidence=[
+                    "All digital computing",
+                    "Mathematical proof theory",
+                    "Formal verification systems",
+                    "Aristotle's Prior Analytics",
+                ],
+                implications=[
+                    "Self-consistent truth claims are required for rational discourse",
+                    "Contradictory propositions cannot both be true",
+                    "Clear moral classification is possible and required",
+                    "AI reasoning chains can be formally validated",
+                ],
+            )
+        ]
+
+        logic_river = TruthRiver(
+            name="Boolean Logic River",
+            river_type=RiverType.LOGIC,
+            source_description=(
+                "George Boole's formal laws of thought — the mathematical foundation "
+                "of all logical reasoning. Boole, a devout Christian, saw these laws "
+                "as God-given: the rational Logos (John 1:1) embedded in creation."
+            ),
+            truth_contributions=logic_truths,
+            confidence_level=1.0,
+            earthly_scope=True,
+            atmospheric_scope=True,  # Logic is universal — holds everywhere
+            known_limitations=[
+                "Cannot resolve genuinely paradoxical statements",
+                "Formal logic requires well-defined propositions",
+                "Probabilistic truths require extensions (fuzzy logic, probability theory)",
+            ],
+            verification_methods=[
+                "Formal mathematical proof",
+                "Truth table construction",
+                "Validation against Boole's three laws",
+                "Cross-domain logical consistency checks",
+            ],
+        )
+
+        self.rivers["logic"] = logic_river
+
+        # Create truth flow for Boolean Logic
+        logic_flow = TruthFlow(
+            river_name="Boolean Logic River",
+            truth_content=(
+                "Sound reasoning must satisfy Boole's Laws of Thought: "
+                "Identity, Non-contradiction, and Excluded Middle"
+            ),
+            verification_score=1.0,
+            applicable_contexts=[
+                "Evaluating moral claims",
+                "Validating theological arguments",
+                "AI reasoning chains",
+                "Scripture interpretation",
+                "Ethical decision-making",
+                "Truth consistency checking",
+            ],
+            integration_weight=1.0,
+            limitations_noted=[
+                "Requires well-formed propositions",
+                "Does not resolve genuine paradoxes unaided",
+            ],
+        )
+
+        self.ocean.receive_truth_flow(logic_flow)
+
     def add_truth_river(self, river: TruthRiver):
         """Add a new truth river to the system"""
         self.rivers[river.name.lower().replace(" ", "_")] = river

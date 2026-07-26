@@ -33,6 +33,7 @@ from truth_foundation.truth_in_us import TruthInUsSystem as TruthInUsFramework
 from truth_foundation.temple_laws import TempleLawsFramework
 from truth_foundation.natural_man_flesh import NaturalManAnalyzer
 from arcos.arcos_core import ArcOsCore # Import NaturalManAnalyzer
+from truth_foundation.boole_logic import BooleLogicEngine, BooleanProposition, demonstrate_boole_laws
 
 class AgapeCoreAI:
     """
@@ -59,6 +60,7 @@ class AgapeCoreAI:
         self.temple_laws = TempleLawsFramework()
         self.natural_man_analyzer = NaturalManAnalyzer() # Initialize NaturalManAnalyzer
         self.arcos = ArcOsCore() # Initialize ArcOs - Advanced Revelation and Covenant Operating System
+        self.boole_engine = BooleLogicEngine() # Initialize George Boole's Laws of Thought engine
 
 
     def evaluate_statement_through_atonement(self, statement: str, context: dict = None) -> dict:
@@ -165,6 +167,51 @@ class AgapeCoreAI:
         guidance += atonement_eval["eternal_perspective"] + "\n\n"
 
         return guidance
+
+    def validate_reasoning_chain(
+        self,
+        description: str,
+        proposition_names: list,
+        steps: list,
+        scriptural_grounding: str = None,
+    ) -> dict:
+        """
+        Validate a multi-step logical argument using Boole's Laws of Thought.
+
+        Wraps BooleLogicEngine.build_reasoning_chain and returns a report dict
+        including the final conclusion, logical validity, and validation notes.
+
+        Parameters
+        ----------
+        description:
+            Human-readable label for the argument.
+        proposition_names:
+            Names of seed propositions from the Boole library
+            (e.g. ['love_neighbor', 'human_dignity']).
+        steps:
+            List of step dicts — see BooleLogicEngine.build_reasoning_chain.
+        scriptural_grounding:
+            Optional scripture to anchor the chain.
+
+        Returns
+        -------
+        dict with keys: description, final_conclusion, is_logically_valid,
+        formatted_report, validation_notes, scriptural_grounding.
+        """
+        chain = self.boole_engine.build_reasoning_chain(
+            description=description,
+            proposition_names=proposition_names,
+            steps=steps,
+            scriptural_grounding=scriptural_grounding,
+        )
+        return {
+            "description": chain.description,
+            "final_conclusion": chain.final_conclusion,
+            "is_logically_valid": chain.is_valid,
+            "formatted_report": self.boole_engine.format_chain_report(chain),
+            "validation_notes": chain.validation_notes,
+            "scriptural_grounding": chain.scriptural_grounding,
+        }
 
     def display_supreme_truth_foundation(self):
         """Display the supreme truth foundation"""
@@ -806,6 +853,109 @@ def run_truth_rivers_system():
     except ImportError as e:
         print(f"❌ Error loading Truth Rivers System: {e}")
 
+def run_boole_logic_engine():
+    """Run the Boole Laws of Thought Engine"""
+    try:
+        from truth_foundation.boole_logic import BooleLogicEngine, demonstrate_boole_laws
+        print("\n📖 George Boole — Laws of Thought Engine")
+        print("'An Investigation of the Laws of Thought' (1854)")
+        print("-" * 60)
+
+        engine = BooleLogicEngine()
+
+        while True:
+            print("\n📋 Boole Logic Engine Options:")
+            print("1. 🏛️  Historical Context & Theological Frame")
+            print("2. ⚖️  Demonstrate the Three Laws of Thought")
+            print("3. 🔗 Evaluate a Moral Claim with Boolean Logic")
+            print("4. 🔢 Build a Formal Reasoning Chain")
+            print("5. 📚 Full Demonstration")
+            print("0. Return to Main Menu")
+
+            choice = input("\n🔢 Select option (0-5): ").strip()
+
+            if choice == "0":
+                break
+
+            elif choice == "1":
+                print(engine.get_boole_historical_context())
+
+            elif choice == "2":
+                print("\n" + engine.demonstrate_laws_of_thought())
+
+            elif choice == "3":
+                print("\n🔗 MORAL CLAIM EVALUATION")
+                claim = input("Enter a moral claim to evaluate: ").strip()
+                if not claim:
+                    print("❌ Please enter a claim.")
+                    continue
+
+                print("\nAvailable propositions:")
+                for name, prop in engine.proposition_library.items():
+                    print(f"  • {name}: {prop.statement[:60]}...")
+
+                props_input = input(
+                    "\nEnter proposition names to test against (comma-separated): "
+                ).strip()
+                prop_names = [p.strip() for p in props_input.split(",") if p.strip()]
+
+                result = engine.evaluate_moral_claim(claim, prop_names)
+                print(f"\nClaim:   {result['claim']}")
+                print(f"Verdict: {result['boole_verdict']}")
+                print("\nReasoning Steps:")
+                for step in result["reasoning_steps"]:
+                    status = "✅" if step["consistent"] else "⚠️ "
+                    print(f"  {status} Aligns with: {step['proposition']}")
+                    print(f"       Source: {step['source']}")
+                print(f"\nScriptural Basis: {result['scriptural_basis']}")
+
+            elif choice == "4":
+                print("\n🔢 BUILD A REASONING CHAIN")
+                print("Example: love_neighbor AND human_dignity → dignity honors commandment")
+                print()
+
+                description = input("Chain description: ").strip() or "Gospel reasoning chain"
+                print("\nAvailable propositions:", ", ".join(engine.proposition_library.keys()))
+                seed_input = input("Seed proposition names (comma-separated): ").strip()
+                seed_names = [s.strip() for s in seed_input.split(",") if s.strip()]
+
+                steps = []
+                print("\nDefine reasoning steps (press Enter with no premises to finish):")
+                while True:
+                    premises_input = input("  Premises (comma-separated, or Enter to finish): ").strip()
+                    if not premises_input:
+                        break
+                    premises = [p.strip() for p in premises_input.split(",")]
+                    operator = input("  Operator (AND/OR/NOT/IMPLIES) [AND]: ").strip().upper() or "AND"
+                    conclusion_name = input("  Conclusion name: ").strip() or "conclusion"
+                    conclusion_statement = input("  Conclusion statement: ").strip()
+                    steps.append({
+                        "premises": premises,
+                        "operator": operator,
+                        "conclusion_name": conclusion_name,
+                        "conclusion_statement": conclusion_statement,
+                    })
+
+                if not steps:
+                    print("❌ No steps defined.")
+                    continue
+
+                chain = engine.build_reasoning_chain(
+                    description=description,
+                    proposition_names=seed_names,
+                    steps=steps,
+                )
+                print("\n" + engine.format_chain_report(chain))
+
+            elif choice == "5":
+                demonstrate_boole_laws()
+
+            else:
+                print("❌ Invalid choice. Please select 0-5.")
+
+    except ImportError as e:
+        print(f"❌ Error loading Boole Logic Engine: {e}")
+
 def main():
     """Main function to demonstrate the truth foundation system"""
     print("🕊️  AGAPE CORE AI - Gospel Truth-Based Decision Making")
@@ -824,9 +974,10 @@ def main():
         print("8. 🔍 Advice Credibility Analysis Demo")
         print("9. 😈 Natural Man / Works of Flesh Analyzer (NEW)")
         print("10. 🏛️  Epic of Gilgamesh — Gospel Truth RAG Evaluation (NEW)")
+        print("11. ⚖️  Boole Laws of Thought Engine (NEW)")
         print("0. Exit")
 
-        choice = input("\n🔢 Select option (0-10): ").strip()
+        choice = input("\n🔢 Select option (0-11): ").strip()
 
         if choice == "0":
             print("👋 Thank you for using Agape Core AI!")
@@ -907,8 +1058,10 @@ def main():
                 print_verdict(verdict, verbose=verbose)
             except Exception as e:
                 print(f"❌ Error running Gilgamesh evaluator: {e}")
+        elif choice == "11":
+            run_boole_logic_engine()
         else:
-            print("❌ Invalid choice. Please select 0-10.")
+            print("❌ Invalid choice. Please select 0-11.")
 
 
 if __name__ == "__main__":
