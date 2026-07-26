@@ -237,7 +237,7 @@ class BooleLogicEngine:
         self._initialize_gospel_propositions()
 
     # ------------------------------------------------------------------
-    # Initialisation
+    # Initialization
     # ------------------------------------------------------------------
 
     def _initialize_gospel_propositions(self):
@@ -392,7 +392,7 @@ class BooleLogicEngine:
             return {
                 "claim": claim,
                 "result": None,
-                "boole_verdict": "⚠️  No recognised propositions found for evaluation",
+                "boole_verdict": "⚠️  No recognized propositions found for evaluation",
                 "reasoning_steps": [],
                 "chain_valid": False,
                 "scriptural_basis": self.SCRIPTURAL_GROUNDINGS["love_reasoning"],
